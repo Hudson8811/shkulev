@@ -35,23 +35,22 @@
 								newsSwiperItems.each(function (index, item) {
 									if ($(this).hasClass(className)) {
 										var that = $(this);
-										var news_btn_filter_first = $('.news__btn-filter-first')
 										setTimeout(function () {
-											that.addClass('activef').show(0);
+											that.show(400);
 										}, 0);
 
 									} else {
 										var that = $(this);
 									
 										setTimeout(function () {
-											that.removeClass('activef').hide(0);
+											that.hide(400);
 										}, 0);
 									}
 								});
 							}
 
-							const news_btn_filter_first = document.querySelector('.news__btn-filter-first');
-							const news_item = document.querySelector('.news__item');
+							/* const news_btn_filter_first = document.querySelector('.news__btn-filter-first');
+							const news_item = document.querySelector('.news__item'); */
 							/* if (news_btn_filter_first.contains('active')) {
 								for(var i = 0; i < news_item.length; i++){
 									news_item[i].addEventListener('click', function(){
@@ -61,13 +60,13 @@
 									});
 								}
 							} */
-							if (true) {
+							/* if (true) {
 								news_btn_filter_first.addEventListener("click", function(e) {
 									for(var i = 0; i < news_item.length; i++){
 										news_item[i].classList.remove('activef');
 									}
 								});
-							}
+							} */
 							
 
 
