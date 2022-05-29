@@ -463,13 +463,19 @@ body {
 .contacts .contacts__container .contacts__row .contacts__img {
   padding-top: 30%;
   min-height: 100%;
-  flex: 0 1 50%;
+  flex: 0 1 680px;
   position: relative;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .contacts__row .contacts__img {
+    flex: 0 1 35.435vw;
+  }
 }
 @media (max-width: 768px) {
   .contacts .contacts__container .contacts__row .contacts__img {
     padding-top: 63%;
     margin: 0 -5.607vw;
+    flex: 0 1 auto;
   }
 }
 .contacts .contacts__container .contacts__row .contacts__img img {
@@ -2578,7 +2584,7 @@ body {
 @media (max-width: 768px) {
   .elle-block .bottom-elle-block .bottom-elle-block__body {
     flex-direction: column;
-    gap: 5.607vw;
+    gap: 3.738vw;
   }
 }
 .elle-block .bottom-elle-block .bottom-elle-block__body .bottom-elle-block__text {
@@ -2741,6 +2747,9 @@ body {
   .project-page-digital__elle-block-sec .digits-block__text {
     margin-top: 9.346vw !important;
   }
+}
+.elle-block-sec .elle-block-sec__digits .digits-block__text {
+  margin-top: 7.477vw !important;
 }
 .elle-block-sec .elle-block-sec__image {
   background-color: #F1F4F7;
@@ -3043,6 +3052,9 @@ body {
   .project-page-noimage__logo {
     margin-top: 9.346vw;
   }
+  .project-page-noimage__logo img {
+    width: 71.028vw !important;
+  }
 }
 .project-page-noimage__elle-block-sec .elle-block-sec__digits {
   margin-top: 80px;
@@ -3133,9 +3145,9 @@ body {
 }
 @media (max-width: 768px) {
   .team-noimage-page__header .team-noimage-page__btns-wrapper .team-noimage-page__btns .team-noimage-page__btn {
-    font-size: 5.607vw;
+    font-size: 4.673vw;
     margin-top: 3.738vw;
-    margin-bottom: 5.607vw;
+    margin-bottom: 2.804vw;
   }
 }
 @media (min-width: 993px) {
@@ -3313,9 +3325,20 @@ body {
 .team-noimage-page__items-mobile-next {
   display: none;
 }
+.team-noimage-page__btn-plus-mobile {
+  margin-top: 2.804vw;
+}
 .team-noimage-page__item-mobile {
   padding-top: 2.804vw;
   padding-bottom: 2.804vw;
+}
+@media (max-width: 768px) {
+  .team-noimage-page__item-mobile:nth-child(1) .team-noimage-page__tel {
+    margin-bottom: 0!important;
+  }
+  .team-noimage-page__item-mobile:nth-child(1) span {
+    display: none;
+  }
 }
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile {
   display: flex;
@@ -3327,11 +3350,13 @@ body {
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__name {
   font-size: 7.477vw;
   margin-top: 3.738vw;
+  line-height: 125%;
 }
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__position {
   font-size: 5.607vw;
   margin-top: 1.869vw;
   color: #727272;
+  line-height: 133%;
 }
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__contacts {
   display: flex;
@@ -3341,12 +3366,23 @@ body {
   font-size: 5.607vw;
   color: #284CA6;
   margin-top: 3.738vw;
-  padding-bottom: 16px;
+  padding-bottom: 3.738vw;
+  position: relative;
+  line-height: 133%;
+}
+.team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__contacts .team-noimage-page__email::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #284CA6;
 }
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__contacts .team-noimage-page__tel {
   font-size: 7.477vw;
   margin-top: 3.738vw;
-  margin-bottom: 3.505vw;
+  line-height: 125%;
 }
 .team-noimage-page__item-mobile .team-noimage-page__column-mobile .team-noimage-page__contacts span {
   font-size: 5.607vw;
@@ -3472,7 +3508,7 @@ body {
   }
 }
 .vacancies-noimage-page-wrapper-mobile {
-  margin-top: 9.346vw;
+  margin-top: 10vw;
 }
 .vacancies-noimage-page-wrapper-mobile .vacancies-noimage-page__title-mobile {
   white-space: inherit;
