@@ -1,7 +1,4 @@
 /* ---------news-------------------news--------------------------news------------------ */
-
-
-
 							const windowInnerWidthNews = window.innerWidth;
 							if (windowInnerWidthNews < 769) {
 								var news_initial_items = 3;
@@ -44,6 +41,8 @@
 								});
 								$news__items.isotope('layout');
 							}
+
+							
 							$('.news__btns-filter').each(function (i, buttonGroup) {
 								var $buttonGroup = $(buttonGroup);
 								$buttonGroup.on('click', 'button', function () {
@@ -90,12 +89,76 @@
 
 
 
-							const sec3_news_page__video_btn = document.querySelector('.sec3-news-page__video-btn');
-							const sec3_news_page__video_img = document.querySelector('.sec3-news-page__video-img');
+
+/* --------------docs---------------------docs--------------------------------docs------------------ */
+							$(".docs-btn-magazines").click(function () {
+								$('.docs-btn-magazines').addClass("active");
+								$('.docs-btn-sites').removeClass("active");
 							
-							sec3_news_page__video_btn.addEventListener("click", function(e) {
-								sec3_news_page__video_btn.classList.add('hide');
-								sec3_news_page__video_img.classList.add('hide');
+								$('.docs__items-sites').slideUp(600);
+								$('.docs__items-magazines').slideDown(600);
+							});
+						
+							$(".docs-btn-sites").click(function () {
+								$('.docs-btn-sites').addClass("active");
+								$('.docs-btn-magazines').removeClass("active");
+							
+								$('.docs__items-magazines').slideUp(600);
+								$('.docs__items-sites').slideDown(600);
+							});
+						
+						
+
+/* ------------------news-page-----------------------------news-page------------------news-page----------- */
+
+
+/* ----------------------elle-team----------------------------------elle-team----------------------------elle-team-------------- */
+							$('.elle-team__btn-plus').click(function () {
+								$('.elle-team__row-next:hidden').eq(0).show(500);
+								$('.elle-team__row-next:hidden').length < 1 ? $('button.elle-team__btn-plus').hide(200) : false;
+							});
+
+
+
+/* -------------------------noimage-page--------------------------------noimage-page-------------------------------noimage-page------------------------------- */
+							$(".team-noimage-page__btn-sale").click(function () {
+								$('.team-noimage-page__btn-redaction').removeClass("active");
+								$('.team-noimage-page__btn-sale').addClass("active");
+								$('.team-noimage-page__body-sale').slideDown(600);
+								$('.team-noimage-page__body-redaction').slideUp(600);
+								$('.team-noimage-page__wrapper-sale-mobile').slideUp(600);
+								$('.team-noimage-page__wrapper-redaction-mobile').slideDown(600);
+							});
+							$(".team-noimage-page__btn-redaction").click(function () {
+								$('.team-noimage-page__btn-sale').removeClass("active");
+								$('.team-noimage-page__btn-redaction').addClass("active");
+								$('.team-noimage-page__body-redaction').slideDown(600);
+								$('.team-noimage-page__body-sale').slideUp(600);
+								$('.team-noimage-page__wrapper-redaction-mobile').slideUp(600);
+								$('.team-noimage-page__wrapper-sale-mobile').slideDown(600);
+							});
+						
+							$('.team-noimage-page__btn-plus-redaction').click(function () {
+								$('.team-noimage-page__wrapper-redaction-next:hidden').eq(0).show(500);
+								$('.team-noimage-page__wrapper-redaction-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-redaction').hide(200) : false;
+							});
+							$('.team-noimage-page__btn-plus-sale').click(function () {
+								$('.team-noimage-page__wrapper-sale-next:hidden').eq(0).show(500);
+								$('.team-noimage-page__wrapper-sale-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-sale').hide(200) : false;
+							});
+						
+							$('.team-noimage-page__btn-plus-redaction-mobile').click(function () {
+								$('.team-noimage-page__items-redaction-mobile-next:hidden').eq(0).show(500);
+								$('.team-noimage-page__items-redaction-mobile-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-redaction-mobile').hide(200) : false;
+							});
+							$('.team-noimage-page__btn-plus-sale-mobile').click(function () {
+								$('.team-noimage-page__items-sale-mobile-next:hidden').eq(0).show(500);
+								$('.team-noimage-page__items-sale-mobile-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-sale-mobile').hide(200) : false;
+							});
+						
+							$('.vacancies-noimage-page__btn-plus').click(function () {
+								$('.vacancies-noimage-page__item-wrapper-hidden:hidden').eq(0).show(500);
+								$('.vacancies-noimage-page__item-wrapper-hidden:hidden').length < 1 ? $('button.vacancies-noimage-page__btn-plus').hide(200) : false;
 							});
 
 

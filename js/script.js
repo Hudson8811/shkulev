@@ -1,6 +1,6 @@
 /* ------------main----------------------------main------------------------main---------------------main-------------------- */
-			
-			
+							
+
 
 							$(function() {
 								$(".slider").slick({
@@ -20,8 +20,9 @@
 									]
 								});
 							
-								$(".events__filter-btn").on('click', function(){
+								$(".events__filter-btn").on('click', function(el){
 									var filter = $(this).data('filter');
+
 									$(".slider").slick('slickUnfilter');
 
 									if(filter == 'events-new'){
@@ -36,7 +37,16 @@
 									}
 								})
 							});
-						
+
+
+							var btns = document.getElementsByClassName("events__filter-btn");
+							for (var i = 0; i < btns.length; i++) {
+								btns[i].addEventListener("click", function() {
+									var current = document.getElementsByClassName(" active-btn ");
+									current[0].className = current[0].className.replace(" active-btn ", "");
+									this.className += " active-btn ";
+								});
+							}
 
 
 			//projects
@@ -164,144 +174,7 @@
 
 
 
-/* ----------------------project-page---------------------------project-page---------------------------project-page-------------------- */
-			//elle-events__swiper
-							var swiper = new Swiper(".elle-events__swiper", {
-								slidesPerView: '3',
-								spaceBetween: 80,
-								navigation: {
-									prevEl: ".elle-events__swiper-btn-prev",
-									nextEl: ".elle-events__swiper-btn-next",
-								},
-							});
 
 
 
-
-/* --------------docs---------------------docs--------------------------------docs------------------ */
-							$(".docs-btn-magazines").click(function () {
-								$('.docs-btn-magazines').addClass("active");
-								$('.docs-btn-sites').removeClass("active");
-							
-								$('.docs__items-sites').slideUp(600);
-								$('.docs__items-magazines').slideDown(600);
-							});
-						
-							$(".docs-btn-sites").click(function () {
-								$('.docs-btn-sites').addClass("active");
-								$('.docs-btn-magazines').removeClass("active");
-							
-								$('.docs__items-magazines').slideUp(600);
-								$('.docs__items-sites').slideDown(600);
-							});
-						
-						
-
-/* ------------------news-page-----------------------------news-page------------------news-page----------- */
-							var swiper = new Swiper(".sec6-news-page__swiper", {
-								navigation: {
-									nextEl: ".sec6-news-page-btn-next",
-									prevEl: ".sec6-news-page-btn-prev",
-								},
-							});
-						
-							var swiper = new Swiper(".sec7-news-page-history__swiper", {
-								slidesPerView: 2,
-								spaceBetween: 80,
-								navigation: {
-									prevEl: ".sec7-news-page-history__swiper-btn-prev",
-									nextEl: ".sec7-news-page-history__swiper-btn-next",
-								},
-							});
-						
-							var swiper = new Swiper(".sec8-news-page__items-mobile", {});
-
-
-
-/* ----------------------elle-team----------------------------------elle-team----------------------------elle-team-------------- */
-							$('.elle-team__btn-plus').click(function () {
-								$('.elle-team__row-next:hidden').eq(0).show(500);
-								$('.elle-team__row-next:hidden').length < 1 ? $('button.elle-team__btn-plus').hide(200) : false;
-							});
-
-
-
-/* -------------------------noimage-page--------------------------------noimage-page-------------------------------noimage-page------------------------------- */
-							$(".team-noimage-page__btn-sale").click(function () {
-								$('.team-noimage-page__btn-redaction').removeClass("active");
-								$('.team-noimage-page__btn-sale').addClass("active");
-								$('.team-noimage-page__body-sale').slideDown(600);
-								$('.team-noimage-page__body-redaction').slideUp(600);
-								$('.team-noimage-page__wrapper-sale-mobile').slideUp(600);
-								$('.team-noimage-page__wrapper-redaction-mobile').slideDown(600);
-							});
-							$(".team-noimage-page__btn-redaction").click(function () {
-								$('.team-noimage-page__btn-sale').removeClass("active");
-								$('.team-noimage-page__btn-redaction').addClass("active");
-								$('.team-noimage-page__body-redaction').slideDown(600);
-								$('.team-noimage-page__body-sale').slideUp(600);
-								$('.team-noimage-page__wrapper-redaction-mobile').slideUp(600);
-								$('.team-noimage-page__wrapper-sale-mobile').slideDown(600);
-							});
-						
-							$('.team-noimage-page__btn-plus-redaction').click(function () {
-								$('.team-noimage-page__wrapper-redaction-next:hidden').eq(0).show(500);
-								$('.team-noimage-page__wrapper-redaction-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-redaction').hide(200) : false;
-							});
-							$('.team-noimage-page__btn-plus-sale').click(function () {
-								$('.team-noimage-page__wrapper-sale-next:hidden').eq(0).show(500);
-								$('.team-noimage-page__wrapper-sale-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-sale').hide(200) : false;
-							});
-						
-							$('.team-noimage-page__btn-plus-redaction-mobile').click(function () {
-								$('.team-noimage-page__items-redaction-mobile-next:hidden').eq(0).show(500);
-								$('.team-noimage-page__items-redaction-mobile-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-redaction-mobile').hide(200) : false;
-							});
-							$('.team-noimage-page__btn-plus-sale-mobile').click(function () {
-								$('.team-noimage-page__items-sale-mobile-next:hidden').eq(0).show(500);
-								$('.team-noimage-page__items-sale-mobile-next:hidden').length < 1 ? $('button.team-noimage-page__btn-plus-sale-mobile').hide(200) : false;
-							});
-						
-							$('.vacancies-noimage-page__btn-plus').click(function () {
-								$('.vacancies-noimage-page__item-wrapper-hidden:hidden').eq(0).show(500);
-								$('.vacancies-noimage-page__item-wrapper-hidden:hidden').length < 1 ? $('button.vacancies-noimage-page__btn-plus').hide(200) : false;
-							});
-
-
-
-
-/* ----------------------contacts-page----------------------contacts-page-------------------contacts-page----------- */
-							const form_checkbox = document.querySelector('.form-contacts-page__click');
-							form_checkbox.addEventListener("click", function(e) {
-								form_checkbox.classList.toggle('active')
-							});
-
-
-
-							var swiper = new Swiper(".elle-events__swiper", {
-								slidesPerView: 'auto',
-								spaceBetween: 80,
-								navigation: {
-									prevEl: ".elle-events__swiper-btn-prev",
-									nextEl: ".elle-events__swiper-btn-next",
-								},
-							});
-							var swiper = new Swiper(".project-page__spec-projects-swiper", {
-								slidesPerView: 1,
-								spaceBetween: 40,
-								navigation: {
-									prevEl: ".project-page-spec-projects__swiper-btn-prev",
-									nextEl: ".project-page-spec-projects__swiper-btn-next",
-								},
-								breakpoints: {
-									700: {
-										slidesPerView: 2,
-										spaceBetween: 60,
-									},
-									1200: {
-										slidesPerView: 3,
-										spaceBetween: 80,
-									},
-								},
-							});
 

@@ -60,11 +60,36 @@
 									clickable: true,
 								},
 							});
+							$(".tell-us-career__personal-information--click").click(function () {
+								$(this).toggleClass("active");
+							});
+
+/* -----------------news-page----------------------news-page-------------------------news-page-------------- */
+							$(".sec3-news-page__video-btn").click(function () {
+								$('.sec3-news-page__video-btn, .sec3-news-page__video-img').addClass("hide");
+							});
+
+							var swiper = new Swiper(".sec6-news-page__swiper", {
+								navigation: {
+									nextEl: ".sec6-news-page-btn-next",
+									prevEl: ".sec6-news-page-btn-prev",
+								},
+							});
 						
-							const careerClickBtn = document.querySelector('.tell-us-career__personal-information--click');
-							
-							if (true) {
-								careerClickBtn.addEventListener("click", function(e) {
-									careerClickBtn.classList.toggle('active')
-								});
-							}
+							var swiper = new Swiper(".sec7-news-page-history__swiper", {
+								slidesPerView: 2,
+								spaceBetween: 80,
+								navigation: {
+									prevEl: ".sec7-news-page-history__swiper-btn-prev",
+									nextEl: ".sec7-news-page-history__swiper-btn-next",
+								},
+							});
+						
+							var swiper = new Swiper(".sec8-news-page__items-mobile", {});
+
+
+
+/* ----------------------contacts-page----------------------contacts-page-------------------contacts-page----------- */
+							$(".form-contacts-page__click").click(function () {
+								$(this).toggleClass("active");
+							});
