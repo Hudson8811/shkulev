@@ -1225,6 +1225,7 @@ body {
 }
 .menu-page-wrapper .menu-page .menu-page__items .menu-page__item .menu-page__list .menu-page__link-underline {
   text-decoration: underline;
+  text-transform: lowercase;
 }
 .menu-page-wrapper .menu-page .menu-page__items .menu-page__item .menu-page__list .menu-page__list-big .menu-page__link-big {
   margin-top: 40px;
@@ -2036,6 +2037,10 @@ body {
 }
 .projects .projects__container .projects__btn-plus {
   margin-top: -40px;
+  transition: all 0.3s ease 0s;
+}
+.projects .projects__container .projects__btn-plus:hover {
+  opacity: 0.7 !important;
 }
 @media (max-width: 1919px) {
   .projects .projects__container .projects__btn-plus {
@@ -2776,6 +2781,12 @@ body {
     margin-top: 1.869vw;
   }
 }
+.elle-team__btn-plus {
+  transition: all 0.3s ease 0s;
+}
+.elle-team__btn-plus:hover {
+  opacity: 0.7 !important;
+}
 .project-page-digital__elle-team .elle-team__row {
   flex-wrap: wrap;
 }
@@ -3042,6 +3053,12 @@ body {
 }
 .team-noimage-page__header .team-noimage-page__btn-plus > div {
   display: block;
+}
+.team-noimage-page__btn-plus {
+  transition: all 0.3s ease 0s;
+}
+.team-noimage-page__btn-plus:hover {
+  opacity: 0.7 !important;
 }
 .team-noimage-page__btn-plus > div {
   display: block;
@@ -3377,6 +3394,10 @@ body {
   background: #284CA6;
   border-radius: 800px;
   padding: 8px 40px;
+  transition: all 0.3s ease 0s;
+}
+.vacancies-noimage-page-wrapper-mobile .vacancies-noimage-page__btn-mobile:hover {
+  opacity: 0.7;
 }
 @media (max-width: 1919px) {
   .vacancies-noimage-page-wrapper-mobile .vacancies-noimage-page__btn-mobile {
@@ -3408,6 +3429,12 @@ body {
   .vacancies-noimage-page-wrapper-mobile .vacancies-noimage-page__btn-mobile span {
     font-size: 5.607vw;
   }
+}
+.project-page-noimage__contacts a {
+  transition: all 0.3s ease 0s;
+}
+.project-page-noimage__contacts a:hover {
+  opacity: 0.7 !important;
 }
 /* ------------.career---------------------------.career----------------------------------.career---------------- */
 .hero-cereer {
@@ -6036,6 +6063,10 @@ body {
   width: 120px;
   height: 120px;
   transform: translate(0, -50%);
+  transition: all 0.3s ease 0s;
+}
+.sec6-news-page .sec6-news-page__swiper .sec6-news-page-btn:hover {
+  opacity: 0.7;
 }
 .sec6-news-page .sec6-news-page__swiper .sec6-news-page-btn img {
   position: relative;

@@ -1291,6 +1291,7 @@ body {
 					}
 					.menu-page__link-underline {
 						text-decoration: underline;
+						text-transform: lowercase;
 					}
 
 					.menu-page__list-big {
@@ -2159,7 +2160,10 @@ body {
 
 		.projects__btn-plus {
 			margin-top: -40px;
-
+			transition: all 0.3s ease 0s;
+			&:hover{
+				opacity: 0.7!important;
+			}
 			@media (max-width: 1919px) {
 				margin-top: -2.084vw;
 			}
@@ -2917,7 +2921,12 @@ body {
 		}
 	}
 }
-
+.elle-team__btn-plus {
+	transition: all 0.3s ease 0s;
+	&:hover{
+		opacity: 0.7!important;
+	}
+}
 
 //elle-digital-block
 .project-page-digital__elle-team {
@@ -3192,6 +3201,10 @@ body {
 	}
 }
 .team-noimage-page__btn-plus {
+	transition: all 0.3s ease 0s; 
+	&:hover{
+		opacity: 0.7!important;
+	}
 	>div {
 		display: block;
 	}
@@ -3529,6 +3542,10 @@ body {
 		background: #284CA6;
 		border-radius: 800px;
 		padding: 8px 40px;
+		transition: all 0.3s ease 0s; 
+		&:hover{
+			opacity: 0.7;
+		}
 		@media (max-width: 1919px){
 			margin-top: 1.251vw;
 			padding: 0.417vw 2.084vw;
@@ -3551,6 +3568,15 @@ body {
 			@media (max-width: 768px){
 				font-size: 5.607vw;
 			}
+		}
+	}
+}
+
+.project-page-noimage__contacts {
+	a {
+		transition: all 0.3s ease 0s;
+		&:hover{
+			opacity: 0.7!important;
 		}
 	}
 }
@@ -6131,7 +6157,10 @@ body {
 				width: 120px;
 				height: 120px;
 				transform: translate(0, -50%);
-
+				transition: all 0.3s ease 0s;
+				&:hover{
+					opacity: 0.7;
+				}
 				img {
 					position: relative;
 
