@@ -76,15 +76,6 @@
 								},
 							});
 						
-							var swiper = new Swiper(".sec7-news-page-history__swiper", {
-								slidesPerView: 2,
-								spaceBetween: 80,
-								navigation: {
-									prevEl: ".sec7-news-page-history__swiper-btn-prev",
-									nextEl: ".sec7-news-page-history__swiper-btn-next",
-								},
-							});
-						
 							var swiper = new Swiper(".sec8-news-page__items-mobile", {});
 
 
