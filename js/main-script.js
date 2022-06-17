@@ -84,3 +84,62 @@
 							$(".form-contacts-page__click").click(function () {
 								$(this).toggleClass("active");
 							});
+
+							var lastScroll = 0;
+
+							jQuery(document).ready(function($) {
+								const windowInnerWidth = window.innerWidth;
+								$(".page, .menu-page-mobile").addClass("indent-top");
+								$(".menu-header__item, .header__logo-click").addClass("indent-smaler");
+								if (windowInnerWidth > 767) {
+									$(window).scroll(function(){
+										setTimeout(function() {
+											var scroll = $(window).scrollTop();
+											if (scroll > lastScroll + 0) {
+												$(".menu-header__item, .header__logo-click").removeClass("indent-smaler");
+											} else if (scroll < lastScroll - 0) {
+												$(".menu-header__item, .header__logo-click").addClass("indent-smaler");
+											}
+											lastScroll = scroll;
+										}, 0);
+									});
+								}
+							});
+
+
+var block_show = false;
+function scrollTracking(){
+	if (block_show) {
+		return false;
+	}
+	var wt = $(window).scrollTop();
+	var wh = $(window).height();
+	var et = $('.digits-block__row').offset().top;
+	var eh = $('.digits-block__row').outerHeight();
+	var dh = $(document).height();   
+	if (wt + wh >= et || wh + wt == dh || eh + et < wh){
+		block_show = true;
+		
+		// Код анимации
+		$(document).ready(function () {
+			$('.count').each(function () {
+				$(this).prop('Counter', 0).animate({
+					Counter: $(this).text()
+				}, {
+					duration: 1000,
+					easing: 'swing',
+					step: function (now) {
+						$(this).text(Math.ceil(now));
+					}
+				});
+			});
+		});
+	}
+}
+$(window).scroll(function(){
+	scrollTracking();
+});
+	
+$(document).ready(function(){ 
+	scrollTracking();
+});

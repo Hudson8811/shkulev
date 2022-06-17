@@ -1014,11 +1014,23 @@ body {
 
 
 
-
+.indent-top {
+	margin-top: 112px;
+	@media (max-width: 1919px){
+		margin-top: 5.836vw;
+	}
+	@media (max-width: 768px){
+		margin-top: 16.352vw;
+	}
+}
 /* ----------------header-------------------header-------------------header------------------ */
 .header {
 	transition: all 0.3s ease 0.5s;
-	position: relative;
+	position: fixed;
+	z-index: 999;
+	top: 0;
+	left: 0;
+	width: 100%;
 	background: #F1F4F7;
 
 	@media (max-width: 768px) {
@@ -1044,8 +1056,10 @@ body {
 
 			.header__logo-click {
 				img {
+					width: 250px;
+					transition: all 0.5s ease 0s;
 					@media (max-width: 1919px) {
-						width: 16.832vw;
+						width: 12.832vw;
 					}
 
 					@media (max-width: 768px) {
@@ -1062,6 +1076,16 @@ body {
 
 					path {
 						transition: fill 0.3s ease 0.5s;
+					}
+				}
+			}
+			.header__logo-click.indent-smaler {
+				img {
+					transition: all 0.5s ease 0s;
+					width: 323px;
+
+					@media (max-width: 1919px) {
+						width: 16.832vw;
 					}
 				}
 			}
@@ -1173,10 +1197,10 @@ body {
 			}
 
 			.menu-header__item {
-				padding: 40px 0;
-
+				padding: 15px 0;
+				transition: all 0.5s ease 0s;
 				@media (max-width: 1919px) {
-					padding: 2.084vw 0;
+					padding: 1vw 0;
 				}
 
 				.menu-header__link {
@@ -1194,7 +1218,14 @@ body {
 					}
 				}
 			}
-
+			.menu-header__item.indent-smaler {
+				padding: 40px 0;
+					transition: all 0.2s ease 0s;
+				
+					@media (max-width: 1919px) {
+						padding: 2.084vw 0;
+					}
+			}
 			.menu-header__link:hover {
 				opacity: 0.6;
 			}
@@ -1328,11 +1359,12 @@ body {
 
 .menu-page-mobile {
 	transition: all 0.5s ease 0s;
-	position: absolute;
+	position: fixed;
 	z-index: 999;
-	top: 90%;
+	top: 0%;
 	left: 0;
 	width: 100%;
+	height: 100%;
 	transform: translate(-100%, 0);
 	display: none;
 	padding-bottom: 9.346vw;
@@ -1341,8 +1373,9 @@ body {
 	@media (max-width: 768px) {
 		display: block;
 	}
-
 	.menu-page-mobile__container {
+		height: 100vh;
+		overflow-y: scroll;
 		.menu-page-mobile__items {
 			.menu-page-mobile__item {
 				.menu-page-mobile__title {
@@ -2523,7 +2556,7 @@ body {
 	}
 
 	.image-elle-block {
-		background: url('../img/project-page/1elle-block/1.png') center / cover no-repeat;
+		
 
 		.image-elle-block__body {
 			padding-top: 284px;
@@ -3590,8 +3623,8 @@ body {
 /* ------------.career---------------------------.career----------------------------------.career---------------- */
 //hero-cereer
 .hero-cereer {
-	background: url('../img/career/main-img.png') center / cover no-repeat;
-	background-color: #000000;
+	
+	
 
 	.hero-cereer__body {
 		padding-top: 332px;
@@ -4738,7 +4771,7 @@ body {
 /* -------------------president----------------------------president--------------------------president------------------ */
 .president {
 	.president__body {
-		background: url('../img/president/img.png') center / cover no-repeat;
+		
 		padding-top: 332px;
 		padding-bottom: 192px;
 
@@ -4803,7 +4836,7 @@ body {
 
 /* -----------------------contacts-page--------------------------contacts-page--------------------------contacts-page------------- */
 .contacts-page__map {
-	background: url('../img/contacts-page/img.png') center / cover no-repeat;
+	
 	height: 600px;
 	@media (max-width: 1919px){
 		height: 32vw;
@@ -6673,7 +6706,7 @@ body {
 /* --------------------smm-------------------------smm---------------------smm----- */
 .smm__hero {
 	.smm__hero-img {
-		background: url('../img/smm/img.png') center / cover no-repeat;
+		
 		padding-top: 332px;
 		padding-bottom: 216px;
 
@@ -7301,11 +7334,20 @@ body {
 		display: flex;
 		margin: 0 -30px;
 		margin: 0 -1.563vw;
+		@media (max-width: 768px){
+			flex-direction: column;
+			align-items: center;
+		}
 		.links-block__item {
 			flex: 0 1 33.333%;
 			padding: 0 30px;
 			@media (max-width: 1919px){
 				padding: 0 1.563vw;
+			}
+			@media (max-width: 768px){
+				flex: 1 1 auto;
+				width: 57.292vw;
+				padding: 1.563vw 0;
 			}
 			.links-block__link {
 				background: #284CA6;
@@ -7320,6 +7362,9 @@ body {
 				@media (max-width: 1919px){
 					padding: 1.563vw 2.084vw;
 				}
+				@media (max-width: 768px){
+					padding: 2vw 3vw;
+				}
 				span {
 					font-weight: 500;
 					font-size: 32px;
@@ -7328,11 +7373,17 @@ body {
 					@media (max-width: 1919px){
 						font-size: 1.668vw;
 					}
+					@media (max-width: 768px){
+						font-size: 4vw;
+					}
 				}
 				svg {
 					width: 40px;
 					@media (max-width: 1919px){
 						width: 2.084vw;
+					}
+					@media (max-width: 768px){
+						width: 4vw;
 					}
 				}
 			}
