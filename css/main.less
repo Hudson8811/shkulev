@@ -196,25 +196,31 @@ body {
 .digits-block {
 	.digits-block__container {
 		.digits-block__row {
-			display: grid;
-			gap: 80px;
-			grid-template: 1fr / repeat(4, 1fr);
-
+			display: flex;
+			justify-content: center;
+			margin: 0 -40px;
 			@media (max-width: 1919px) {
-				gap: 4.169vw;
+				margin: 0 -2vw;
 			}
 
 			@media (max-width: 768px) {
-				grid-template: 1fr 1fr / 1fr 1fr;
+				flex-wrap: wrap;
 				row-gap:	7.477vw;
-				column-gap: 4.673vw;
 			}
 
 			.digits-block__item {
 				font-family: 'Mabry Pro';
 				font-style: normal;
 				font-weight: 400;
-
+				flex: 0 1 25%;
+				padding: 0 40px;
+				@media (max-width: 1919px){
+					padding: 0 2vw;
+				}
+				@media (max-width: 768px){
+					flex: 0 1 50%;
+					padding: 0 4.673vw;
+				}
 				.digits-block__num {
 					display: flex;
 					gap: 16px;
@@ -3042,12 +3048,12 @@ body {
 				display: flex;
 				align-items: flex-start;
 				gap: 16px;
-				span {
+				>span {
 					&:first-child {
 						font-size: 128px;
 						line-height: 100%;
 						color: #284CA6;
-
+						display: inline-flex;
 						@media (max-width: 1919px) {
 							font-size: 6.670vw;
 						}
