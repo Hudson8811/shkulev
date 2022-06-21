@@ -1,21 +1,21 @@
 
-var block_show1 = false;
+var block_show2 = false;
 
-function scrollTracking1(){
-	if (block_show1) {
+function scrollTracking2(){
+	if (block_show2) {
 		return false;
 	}
 	var wt = $(window).scrollTop();
 	var wh = $(window).height();
-	var et = $('.elle-digital-block__row').offset().top;
-	var eh = $('.elle-digital-block__row').outerHeight();
+	var et = $('.elle-digital-block__num').offset().top;
+	var eh = $('.elle-digital-block__num').outerHeight();
 	var dh = $(document).height();   
 	if (wt + wh >= et || wh + wt == dh || eh + et < wh){
-		block_show1 = true;
+		block_show2 = true;
 		
 		// Код анимации
 		$(document).ready(function () {
-			$('.count1').each(function () {
+			$('.count2').each(function () {
 				$(this).prop('Counter', 0).animate({
 					Counter: $(this).text()
 				}, {
@@ -30,9 +30,9 @@ function scrollTracking1(){
 	}
 }
 $(window).scroll(function(){
-	scrollTracking1();
+	scrollTracking2();
 });
 	
 $(document).ready(function(){ 
-	scrollTracking1();
+	scrollTracking2();
 });
