@@ -1570,7 +1570,7 @@ body {
 .first-screen .first-screen__block .first-screen__container .first-screen__title {
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 75px;
   line-height: 112%;
   text-transform: uppercase;
@@ -1646,7 +1646,7 @@ body {
 .first-screen .first-screen__block .first-screen__container .first-screen__list .first-screen__link {
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 32px;
   line-height: 125%;
   text-transform: uppercase;
@@ -2514,7 +2514,7 @@ body {
   margin-left: 16px;
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 24px;
   line-height: 133%;
   text-align: center;
@@ -3594,7 +3594,7 @@ body {
 .vacancies-noimage-page-wrapper-mobile .vacancies-noimage-page__btn-mobile span {
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 24px;
   line-height: 267%;
   color: #FFFFFF;
@@ -3767,7 +3767,7 @@ body {
   opacity: 0.7;
 }
 .work-cereer .work-cereer__vacancies-link span {
-  font-weight: 700;
+  font-weight: 500;
   font-size: 24px;
   line-height: 133%;
   color: #FFFFFF;
@@ -7368,7 +7368,7 @@ body {
 }
 .media-kit-link .media-kit-link__body .media-kit-link__btn-wrapper .media-kit-link__btn {
   padding: 30px 40px;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 24px;
   line-height: 267%;
   color: #FFFFFF;
