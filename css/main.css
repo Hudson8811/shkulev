@@ -68,7 +68,7 @@ body {
   }
 }
 .general-text {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 32px;
   line-height: 133%;
   color: rgba(0, 0, 0, 0.5);
@@ -289,7 +289,7 @@ body {
   margin-top: 40px;
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 23px;
   line-height: 167%;
   color: #000000;
@@ -2068,7 +2068,7 @@ body {
   }
 }
 .projects .projects__container .projects__description {
-  font-weight: 400;
+  font-weight: 300;
   font-size: 32px;
   line-height: 125%;
   color: #727272;
@@ -2167,7 +2167,7 @@ body {
   margin-top: 16px;
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 32px;
   line-height: 125%;
   color: #727272;
@@ -2417,7 +2417,7 @@ body {
   margin-top: 24px;
   font-family: 'Mabry Pro';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 125%;
   color: #727272;
 }
@@ -6810,7 +6810,7 @@ body {
   }
 }
 .smm__hero .smm__hero-text p {
-  font-weight: 400;
+  font-weight: 300;
   color: #000000;
 }
 .smm__hero .smm__hero-text p:first-child {
@@ -6897,7 +6897,7 @@ body {
 }
 .smm__items-wrapper .smm__items .smm__item .smm__column .smm__discription {
   margin-top: 16px;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 32px;
   line-height: 125%;
   color: #929292;
@@ -7039,7 +7039,7 @@ body {
 }
 .docs .docs__text p:last-child {
   margin-top: 16px;
-  font-weight: 400;
+  font-weight: 300;
   font-size: 24px;
   line-height: 167%;
   color: #000000;
