@@ -180,3 +180,7 @@ button[disabled] {
 	flex-grow: 1;
 	resize: vertical;
 }
+
+.header__search{
+	background: none;
+}
