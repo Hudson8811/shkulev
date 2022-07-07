@@ -50,7 +50,7 @@ hideItems(initial_items);
 
 //count
 var block_show = false;
-function scrollTracking(){
+function scrollTracking() {
 	if (block_show) {
 		return false;
 	}
@@ -58,10 +58,10 @@ function scrollTracking(){
 	var wh = $(window).height();
 	var et = $('.digits').offset().top;
 	var eh = $('.digits').outerHeight();
-	var dh = $(document).height();   
-	if (wt + wh >= et || wh + wt == dh || eh + et < wh){
+	var dh = $(document).height();
+	if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
 		block_show = true;
-		
+
 		// Код анимации
 		$(document).ready(function () {
 			$('.count-digits').each(function () {
@@ -78,11 +78,11 @@ function scrollTracking(){
 		});
 	}
 }
-$(window).scroll(function(){
+$(window).scroll(function () {
 	scrollTracking();
 });
-	
-$(document).ready(function(){ 
+
+$(document).ready(function () {
 	scrollTracking();
 });
 
@@ -90,7 +90,7 @@ $(document).ready(function(){
 
 
 var block_show1 = false;
-function scrollTracking1(){
+function scrollTracking1() {
 	if (block_show1) {
 		return false;
 	}
@@ -98,10 +98,10 @@ function scrollTracking1(){
 	var wh = $(window).height();
 	var et = $('.card').offset().top;
 	var eh = $('.card').outerHeight();
-	var dh = $(document).height();   
-	if (wt + wh >= et || wh + wt == dh || eh + et < wh){
+	var dh = $(document).height();
+	if (wt + wh >= et || wh + wt == dh || eh + et < wh) {
 		block_show1 = true;
-		
+
 		// Код анимации
 		$(document).ready(function () {
 			$('.count-card').each(function () {
@@ -118,11 +118,11 @@ function scrollTracking1(){
 		});
 	}
 }
-$(window).scroll(function(){
+$(window).scroll(function () {
 	scrollTracking1();
 });
-	
-$(document).ready(function(){ 
+
+$(document).ready(function () {
 	scrollTracking1();
 });
 
@@ -132,29 +132,20 @@ $(document).ready(function(){
 
 
 //RADIO
-$(document).ready(function() {
-	$.each($('.radiobuttons__item'), function(index, val) {
-		if($(this).find('input').prop('checked')==true){
+$(document).ready(function () {
+	$.each($('.radiobuttons__item'), function (index, val) {
+		if ($(this).find('input').prop('checked') == true) {
 			$(this).addClass('active');
 		}
 	});
-	$(document).on('click', '.radiobuttons__item', function(event) {
+	$(document).on('click', '.radiobuttons__item', function (event) {
 		$(this).parents('.radiobuttons').find('.radiobuttons__item').removeClass('active');
-		$(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked',false);
+		$(this).parents('.radiobuttons').find('.radiobuttons__item input').prop('checked', false);
 		$(this).toggleClass('active');
-		$(this).find('input').prop('checked',true);
+		$(this).find('input').prop('checked', true);
 		return false;
 	});
 });
 
 
 
-
-
-document.addEventListener('click', function (e) {
-	if (e.target.classList.contains("basket__item--increase")) {
-		++e.target.parentElement.querySelector("input").value;
-	} else if (e.target.classList.contains("basket__item--decrease")) {
-		--e.target.parentElement.querySelector("input").value;
-	}
-})
