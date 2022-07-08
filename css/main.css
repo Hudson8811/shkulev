@@ -5277,6 +5277,7 @@ body {
 .form-contacts-page .form-contacts-page__bottom .form-contacts-page__data .form-contacts-page__click {
   cursor: pointer;
   min-width: 32px;
+  max-width: 32px;
   height: 32px;
   border-radius: 8px;
   border: 1px solid #284CA6;
@@ -5287,6 +5288,7 @@ body {
 @media (max-width: 1919px) {
   .form-contacts-page .form-contacts-page__bottom .form-contacts-page__data .form-contacts-page__click {
     min-width: 1.668vw;
+    max-width: 1.668vw;
     height: 1.668vw;
     border-radius: 0.417vw;
   }
@@ -5294,6 +5296,7 @@ body {
 @media (max-width: 768px) {
   .form-contacts-page .form-contacts-page__bottom .form-contacts-page__data .form-contacts-page__click {
     min-width: 7.477vw;
+    max-width: 7.477vw;
     height: 7.477vw;
     border-radius: 1.869vw;
     padding: 2.336vw 1.869vw;
