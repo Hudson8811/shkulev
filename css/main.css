@@ -7829,11 +7829,11 @@ body {
     transform: translate(0, -50%) rotate(-45deg);
   }
 }
-.ads .ads__content .ads__content-title-mobile.active span::before {
+.ads .ads__content .ads__content-title-mobile._active span::before {
   left: 0;
   transform: translate(0, -50%) rotate(-45deg);
 }
-.ads .ads__content .ads__content-title-mobile.active span::after {
+.ads .ads__content .ads__content-title-mobile._active span::after {
   right: 0;
   transform: translate(0, -50%) rotate(45deg);
 }

@@ -109,6 +109,6 @@ var swiper_bigformats_inner2 = new Swiper(".ads__swiper-bigformats-inner2", {
 
 $(document).ready(function() {
 	$('.ads__content-title-mobile').click(function(event) {
-		$(this).toggleClass('active').next().slideToggle(500);
+		$(this).toggleClass('_active').next().slideToggle(500);
 	});
 }); 
