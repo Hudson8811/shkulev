@@ -801,6 +801,9 @@
   color: #000000;
   margin-left: 32px;
 }
+.area .left-area__item-text a {
+  color: #284CA6;
+}
 @media (max-width: 1919px) {
   .area .left-area__item-text {
     font-size: 2.084vw;
