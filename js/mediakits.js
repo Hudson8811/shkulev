@@ -123,14 +123,14 @@ $(document).ready(function() {
 });
 
 var swiper = new Swiper(".trust-mediakits__swiper", {
-	slidesPerView: '2',
+	slidesPerView: 'auto',
 	navigation: {
 		prevEl: ".trust-mediakits__swiper-btn-prev",
 		nextEl: ".trust-mediakits__swiper-btn-next",
 	},
 	breakpoints: {
 		769: {
-			slidesPerView: "4",
+			slidesPerView: "auto",
 		}
 	}
 });
