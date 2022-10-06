@@ -455,6 +455,8 @@
 .trust-mediakits .trust-mediakits__swiper .trust-mediakits__slide {
   width: auto;
   padding: 0 40px;
+  display: flex;
+  align-items: center;
 }
 @media (max-width: 1919px) {
   .trust-mediakits .trust-mediakits__swiper .trust-mediakits__slide {
@@ -468,6 +470,8 @@
 }
 .trust-mediakits .trust-mediakits__swiper .trust-mediakits__slide .trust-mediakits__slide-img {
   position: relative;
+  display: flex;
+  align-items: center;
   /* padding-top: 60%; */
 }
 .trust-mediakits .trust-mediakits__swiper .trust-mediakits__slide .trust-mediakits__slide-img img {
