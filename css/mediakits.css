@@ -440,6 +440,9 @@
   margin: 0 -40px;
   margin-top: 80px;
 }
+.trust-mediakits .trust-mediakits__swiper .swiper-wrapper {
+  align-items: center!important;
+}
 @media (max-width: 1919px) {
   .trust-mediakits .trust-mediakits__swiper {
     margin: 0 -2.084vw;
