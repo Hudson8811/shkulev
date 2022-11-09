@@ -1,3 +1,145 @@
+.card__body {
+	flex: 1 1 auto;
+	margin-left: 80px;
+
+	@media (max-width: 1919px) {
+		margin-left: 4.169vw;
+	}
+
+	@media (max-width: 768px) {
+		margin-top: 5.607vw;
+		margin-left: 0;
+	}
+
+	.card__subtitle {
+		font-family: 'Mabry Pro';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 56px;
+		line-height: 100%;
+		color: #000000;
+
+		@media (max-width: 1919px) {
+			font-size: 2.918vw;
+		}
+
+		@media (max-width: 768px) {
+			font-size: 9.346vw;
+		}
+	}
+
+	.card__body--title {
+		margin-top: 40px;
+		font-family: 'Mabry Pro';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 40px;
+		line-height: 120%;
+		color: #000000;
+
+		@media (max-width: 1919px) {
+			margin-top: 2.084vw;
+			font-size: 2.084vw;
+		}
+
+		@media (max-width: 768px) {
+			margin-top: 5.607vw;
+			font-size: 7.477vw;
+			line-height: 125%;
+		}
+	}
+
+	.card__body--items {
+		width: 520px;
+		margin-top: 24px;
+		display: flex;
+		justify-content: space-between;
+
+		@media (max-width: 1919px) {
+			width: 27.097vw;
+			margin-top: 1.251vw;
+		}
+
+		@media (max-width: 768px) {
+			width: 70.327vw;
+			margin-top: 3.738vw;
+		}
+
+		.card__body--item {
+			.card__body--count {
+				font-family: 'Mabry Pro';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 80px;
+				line-height: 100%;
+				color: #284CA6;
+
+				@media (max-width: 1919px) {
+					font-size: 4.169vw;
+				}
+
+				@media (max-width: 768px) {
+					font-size: 11.215vw;
+				}
+			}
+
+			>span {
+				margin-top: 8px;
+				display: block;
+				font-family: 'Mabry Pro';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 24px;
+				line-height: 100%;
+				color: #ADADAD;
+
+				@media (max-width: 1919px) {
+					margin-top: 0.417vw;
+					font-size: 1.251vw;
+				}
+
+				@media (max-width: 768px) {
+					margin-top: 1.869vw;
+					font-size: 4.673vw;
+					line-height: 140%;
+				}
+			}
+		}
+	}
+
+	.card__body--btn {
+		cursor: pointer;
+		margin-top: 40px;
+		width: 100%;
+		height: 80px;
+		background: #284CA6;
+		border-radius: 8px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-family: 'Mabry Pro';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 32px;
+		line-height: 125%;
+		color: #FFFFFF;
+
+		@media (max-width: 1919px) {
+			margin-top: 2.084vw;
+			height: 4.169vw;
+			border-radius: 0.417vw;
+			font-size: 1.668vw;
+		}
+
+		@media (max-width: 768px) {
+			height: 14.953vw;
+			margin-top: 5.607vw;
+			border-radius: 1.869vw;
+			font-size: 5.607vw;
+			line-height: 133%;
+		}
+	}
+}
 .tg_landing {
 	button {
 		transition: all 0.3s ease 0s;
