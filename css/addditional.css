@@ -190,8 +190,8 @@ button[disabled] {
 /*tg_channels*/
 
 .tg_channels .card__body{
-    margin-left: -5px;
-    width: calc(100% + 5px);
-    padding: 5px;
-
+    margin-left: -15px;
+    width: calc(100% + 30px);
+    padding: 15px;
+	padding-top: 0;
 }
