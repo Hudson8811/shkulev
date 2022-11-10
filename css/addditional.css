@@ -184,3 +184,14 @@ button[disabled] {
 .header__search{
 	background: none;
 }
+
+
+
+/*tg_channels*/
+
+.tg_channels .card__body{
+    margin-left: -5px;
+    width: calc(100% + 5px);
+    padding: 5px;
+
+}

@@ -118,6 +118,7 @@ function scrollTracking1() {
 		});
 	}
 }
+
 $(window).scroll(function () {
 	scrollTracking1();
 });
@@ -125,11 +126,6 @@ $(window).scroll(function () {
 $(document).ready(function () {
 	scrollTracking1();
 });
-
-
-
-
-
 
 //RADIO
 $(document).ready(function () {

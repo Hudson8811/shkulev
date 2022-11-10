@@ -1,4 +1,6 @@
-/*for TG_landing */
+
+/*for TG_channels */
+
 function scrollToBlock(destination) {
 	$('html,body').animate({
 		scrollTop: destination.offset().top - $('header').first().height() - 20
@@ -84,14 +86,14 @@ function reCalcCart(price) {
 }
 
 $(document).ready(function () {
-	var bigCard = $('#big-card');
-
+	//var bigCard = $('#big-card');
+	var lastAddedCardId = 1;
 	$('.js-continue-buy').on('click', function () {
-		var id = $('#big-card').attr('data-selected-item-id');
-		scrollToBlock($('.js-cards-item[data-item-id="' + id + '"]'));
+		scrollToBlock($('.channels-block__item[data-id="' + lastAddedCardId + '"]'));
 	});
 
 
+	/*
 	$('body').on('click', '.js-cards-item', function () {
 		var $this = $(this),
 			name = $this.attr('data-item-name'),
@@ -129,18 +131,23 @@ $(document).ready(function () {
 		}
 		scrollToBlock(bigCard);
 
-	});
+	});*/
+
+
 	$('body').on('click', '.js-add-to-cart', function () {
-		var id = bigCard.attr('data-selected-item-id'),
-			product_card = $('.js-cards-item[data-item-id="' + id + '"]'),
-			logoSrc = bigCard.attr('data-logo-in-cart'),
-			logoAlt = bigCard.find('.js-big-card-name').text(),
-			price = bigCard.attr('data-selected-item-price'),
+		var $this = $(this),
+			product_card = $this.closest('.channels-block__item'),
+			id = product_card.attr('data-id'),
+			logoSrc = product_card.attr('data-logo-in-cart'),
+			price = parseInt(product_card.attr('data-price')),
+			logoAlt = product_card.find('.channels-block__item-subtitle').text(),
 			humanReadPrice = printPrice(price),
-			variation = bigCard.find('input[name="product-variation"]:checked'),
+			variation = product_card.find('input.js-product-variation:checked'),
 			variationType = variation.val(),
 			variationNameInCart = variation.attr('data-cart-name'),
 			cart = $('#basket__items');
+
+		lastAddedCardId = id;
 
 
 		var existItemInCart = cart.find('.basket__item[data-id="' + id + '"][data-type="' + variationType + '"]');
@@ -149,7 +156,6 @@ $(document).ready(function () {
 			var numberInp = existItemInCart.find('input[name="number"]');
 			numberInp.val(parseInt(numberInp.val()) + 1);
 			scrollToBlockHalfScreen(existItemInCart);
-
 		}
 		else {
 			cart.append('<div class="basket__item" data-id="' + id + '" data-price="' + price + '" data-type="' + variationType + '"><div class="basket__item--icon"><img src="' + logoSrc + '" alt="' + logoAlt + '"></div><div class="basket__item--name">' + variationNameInCart + '</div><div class="basket__item--count">	<button class="basket__item--decrease" type="button">-</button>	<input type="text" name="number" class="js-basket-item-nubmer" value="1">	<button class="basket__item--increase" type="button">+</button></div><div class="basket__item--price">	' + humanReadPrice + '</div><div class="basket__item--delete js-basket__item--delete">	<img src="img/TG_landing/delete.svg" alt="delete"></div></div>');
