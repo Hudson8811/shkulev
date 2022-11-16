@@ -42,17 +42,11 @@
 				margin: 0;
 			}
 			.card__body-close {
+				cursor: pointer;
 				position: absolute;
-				top: -30px;
-				right: -30px;
-				@media (max-width: 1919px){
-					top: -1.563vw;
-					right: -1.563vw;
-				}
+				top: 0;
+				right: 0;
 				@media (max-width: 768px){
-					top: 0;
-					right: 0;
-					transform: translate(100%, 0);
 				}
 				&::after{
 					content:'X';
@@ -65,11 +59,14 @@
 			line-height: 100%;
 			display: inline-block;
 			border-bottom: 1px solid #727272;
+			margin-right: 50px;
 			@media (max-width: 1919px){
 				font-size: 1.251vw;
+				margin-right: 2.606vw;
 			}
 			@media (max-width: 768px){
 				font-size: 5.607vw;
+				margin-right: 10vw;
 			}
 		}
 		.card__body--items {}
