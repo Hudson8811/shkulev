@@ -24,10 +24,13 @@
   /* 
 		@media (max-width: 1919px){
 			top: calc(100% + 2.345vw);
-		}
-		@media (max-width: 768px){
-			top: calc(100% + 1vw);
-		} */
+		}*/
+}
+@media (max-width: 768px) {
+  .tg_channels .card__body {
+    bottom: auto;
+    top: calc(100% + 1vw);
+  }
 }
 .tg_channels .card__body .card__body--title {
   margin-top: 52px;
