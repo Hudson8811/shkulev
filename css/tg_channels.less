@@ -15,17 +15,25 @@
 		margin: 0;
 		position: absolute;
 		z-index: 99;
-		bottom: 0;
+		top: 0;
 		left: 0;
 		width: 100%;
 		min-height: 100%;
-		background-color: #ffffff;/* 
+		background: #FFFFFF;
+		box-shadow: 0px 0px 120px rgba(0, 0, 0, 0.15);
+		border-radius: 8px;
+		width: calc(100%);
+		padding: 140px 40px 40px;
 		@media (max-width: 1919px){
-			top: calc(100% + 2.345vw);
-		}*/
+			padding: 7.295vw 2.084vw 2.084vw;
+		}
 		@media (max-width: 768px){
+			width: calc(100% + 1vw);
+			margin-left: -0.5vw;
 			bottom: auto;
-			top: calc(100% + 1vw);
+			top: calc(-0.5vw);
+			padding: 3vw 0;
+			box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 		}
 		.card__body--title {
 			margin-top: 52px;
@@ -43,14 +51,14 @@
 				margin: 0;
 			}
 			.card__body-close {
-				cursor: pointer;
-				position: absolute;
-				top: 0;
-				right: 0;
 				@media (max-width: 768px){
-				}
-				&::after{
-					content:'X';
+					cursor: pointer;
+					position: absolute;
+					top: -3vw;
+					right: 0;
+					&::before{
+						content:'X';
+					}
 				}
 			}
 		}
@@ -260,6 +268,7 @@
 								}
 							}
 							.channels-block__btn-show {
+								position: relative;
 								cursor: pointer;
 								background: #284CA6;
 								border-radius: 8px;
@@ -268,20 +277,25 @@
 								display: flex;
 								justify-content: center;
 								align-items: center;
-								margin-top: 24px;
+								margin-bottom: 40px;
+								position: relative;
 								@media (max-width: 1919px){
 									border-radius: 0.417vw;
 									width: 6.253vw;
 									height: 4.169vw;
-									margin-top: 1.251vw;
+									margin-bottom: 2.084vw;
 								}
 								@media (max-width: 768px){
 									width: 18.692vw;
 									height: 13.084vw;
-									margin-top: 3.738vw;
+									margin-bottom: 3.738vw;
 									border-radius: 1.869vw;
 								}
 								img {
+									position: absolute;
+									top: 50%;
+									left: 50%;
+									transform: translate(-50%, -50%);
 									width: 40px;
 									height: 24px;
 									@media (max-width: 1919px){
@@ -292,12 +306,29 @@
 										width: 5.607vw;
 										height: 3.738vw;
 									}
+									&:first-child{
+										opacity: 0;
+									}
 								}
 								
 							}
 							.channels-block__btn-show.active {
+								z-index: 100;
+								@media (max-width: 768px){
+									z-index: 1;
+								}
 								img {
-									transform: rotate(180deg);
+									transform: translate(-50%, -15%) rotate(180deg);
+									&:first-child{
+										opacity: 1;
+										transform: translate(-50%, -90%) rotate(0deg);
+									}
+									@media (max-width: 768px){
+										transform: translate(-50%, -50%) rotate(0deg);
+										&:first-child{
+											transform: translate(-50%, -50%) rotate(0deg);
+										}
+									}
 								}
 							}
 						}

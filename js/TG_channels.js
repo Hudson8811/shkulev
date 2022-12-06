@@ -46,7 +46,7 @@ hideItems(initial_items);
 
 
 $(".channels-block__btn-show").click(function () {
-	$(this).next().slideToggle(0);
+	$(this).toggleClass("active").next().slideToggle(0);
 });
 $(".card__body-close").click(function () {
 	$(this).closest('.card__body').slideUp(0);
