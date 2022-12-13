@@ -1,48 +1,57 @@
 //click-add
-var initial_items = 6;
-var next_items = 2;
+var ww = $(window).width();
+if (ww > 768) {
+	
+	var initial_items = 6;
+	var next_items = 2;
+	
+	var $grid = $('.channels-block__items').isotope({
+		itemSelector: '.channels-block__item',
+		layoutMode: 'masonry',
+	});
+	
+	function showNextItems(pagination) {
+		var itemsMax = $('.visible_item').length;
+		var itemsCount = 0;
+		$('.visible_item').each(function () {
+			if (itemsCount < pagination) {
+				$(this).removeClass('visible_item');
+				itemsCount++;
+			}
+		});
+		if (itemsCount >= itemsMax) {
+			$('.channels-block__btn-plus').hide();
+		}
+		$grid.isotope('layout');
+	}
 
-var $grid = $('.channels-block__items').isotope({
-	itemSelector: '.channels-block__item',
-	layoutMode: 'masonry',
-});
-
-function showNextItems(pagination) {
-	var itemsMax = $('.visible_item').length;
-	var itemsCount = 0;
-	$('.visible_item').each(function () {
-		if (itemsCount < pagination) {
-			$(this).removeClass('visible_item');
+	function hideItems(pagination) {
+		var itemsMax = $('.channels-block__item').length;
+		var itemsCount = 0;
+		$('.channels-block__item').each(function () {
+			if (itemsCount >= pagination) {
+				$(this).addClass('visible_item');
+			}
 			itemsCount++;
+		});
+		if (itemsCount < itemsMax || initial_items >= itemsMax) {
+			$('.channels-block__btn-plus').hide();
 		}
-	});
-	if (itemsCount >= itemsMax) {
-		$('.channels-block__btn-plus').hide();
+		$grid.isotope('layout');
 	}
-	$grid.isotope('layout');
-}
 
-function hideItems(pagination) {
-	var itemsMax = $('.channels-block__item').length;
-	var itemsCount = 0;
-	$('.channels-block__item').each(function () {
-		if (itemsCount >= pagination) {
-			$(this).addClass('visible_item');
-		}
-		itemsCount++;
+	$('.channels-block__btn-plus').on('click', function (e) {
+		e.preventDefault();
+		showNextItems(next_items);
 	});
-	if (itemsCount < itemsMax || initial_items >= itemsMax) {
-		$('.channels-block__btn-plus').hide();
-	}
-	$grid.isotope('layout');
+
+	hideItems(initial_items);
+} else if (ww < 769) {
+	$('.channels-block__btn-plus').click(function () {
+		$('.channels-block__item-hidden:hidden').eq(0).show(300);
+		$('.channels-block__item-hidden:hidden').length < 1 ? $('.channels-block__btn-plus').hide() : false;
+	});
 }
-
-$('.channels-block__btn-plus').on('click', function (e) {
-	e.preventDefault();
-	showNextItems(next_items);
-});
-
-hideItems(initial_items);
 
 
 $(".channels-block__btn-show").click(function () {

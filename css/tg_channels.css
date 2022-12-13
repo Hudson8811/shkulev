@@ -361,3 +361,8 @@
 											transform: translate(-50%, -50%) rotate(0deg);
 										} */
 }
+@media (max-width: 768px) {
+  .channels-block__items .channels-block__item-hidden {
+    display: none;
+  }
+}
