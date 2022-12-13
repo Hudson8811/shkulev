@@ -28,6 +28,7 @@
 			padding: 7.295vw 2.084vw 2.084vw;
 		}
 		@media (max-width: 768px){
+			position: relative;
 			width: calc(100% + 1vw);
 			margin-left: -0.5vw;
 			bottom: 0;
@@ -53,7 +54,7 @@
 				margin: 0;
 			}
 			.card__body-close {
-				@media (max-width: 768px){
+				/* @media (max-width: 768px){
 					cursor: pointer;
 					position: absolute;
 					top: -3vw;
@@ -61,7 +62,7 @@
 					&::before{
 						content:'X';
 					}
-				}
+				} */
 			}
 		}
 		.card__body-link {
@@ -102,6 +103,9 @@
 	
 		.card__body--btn {}
 	
+	}
+	.card__body-desktop {
+
 	}
 	.intro {
 		background: url('../img/TG_channels/img.jpg') top right / cover no-repeat;
@@ -214,13 +218,18 @@
 							display: flex;
 							flex-direction: column;
 							position: relative;
+							padding-top: 100px;
+							@media (max-width: 1919px){
+								padding-top: 6vw;
+							}
 							@media (max-width: 768px){
-								>* {
+								padding: 0;
+								/* >* {
 									order: -1;
 								}
 								.channels-block__btn-show {
 									order: 1;
-								}
+								} */
 							}
 							.channels-block__img {
 								padding-top: 70%;
@@ -278,7 +287,9 @@
 								}
 							}
 							.channels-block__btn-show {
-								position: relative;
+								position: absolute;
+								top: 0;
+								left: 0;
 								cursor: pointer;
 								background: #284CA6;
 								border-radius: 8px;
@@ -288,7 +299,6 @@
 								justify-content: center;
 								align-items: center;
 								margin-bottom: 40px;
-								position: relative;
 								@media (max-width: 1919px){
 									border-radius: 0.417vw;
 									width: 6.253vw;
@@ -296,6 +306,7 @@
 									margin-bottom: 2.084vw;
 								}
 								@media (max-width: 768px){
+									position: relative;
 									width: 18.692vw;
 									height: 13.084vw;
 									margin-top: 3.738vw;
@@ -324,21 +335,19 @@
 							}
 							.channels-block__btn-show.active {
 								z-index: 100;
-								@media (max-width: 768px){
+							/* 	@media (max-width: 768px){
 									z-index: 1;
-								}
+								} */
 								img {
-									transform: translate(-50%, -15%) rotate(180deg);
-									&:first-child{
+									transform: translate(-50%, -50%) rotate(180deg);
+									/* &:first-child{
 										opacity: 1;
 										transform: translate(-50%, -90%) rotate(0deg);
-									}
-									@media (max-width: 768px){
-										transform: translate(-50%, -50%) rotate(0deg);
+									} */
+									/* 	transform: translate(-50%, -50%) rotate(0deg);
 										&:first-child{
 											transform: translate(-50%, -50%) rotate(0deg);
-										}
-									}
+										} */
 								}
 							}
 						}
