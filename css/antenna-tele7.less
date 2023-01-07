@@ -1,0 +1,680 @@
+.antenna-tele7-slider__arrows {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+
+	.antenna-tele7-slider__arrow {
+		width: 40px;
+		height: 20px;
+		background-color: transparent;
+		cursor: pointer;
+
+		@media (max-width: 1919px) {
+			width: 2.084vw;
+			height: 1.042vw;
+		}
+
+		svg {
+			path {
+				transition: all 0.3s ease 0s;
+			}
+		}
+
+		&:hover {
+			svg {
+				path {
+					fill: #284CA6;
+				}
+			}
+		}
+	}
+
+	.antenna-tele7-slider__arrow-prev {}
+
+	.antenna-tele7-slider__arrow-next {
+		margin-left: 24px;
+
+		@media (max-width: 1919px) {
+			margin-left: 1.251vw;
+		}
+	}
+}
+
+.antenna-tele7 {
+	padding-bottom: 40px;
+	@media (max-width: 1919px){
+		padding-bottom: 2vw;
+	}
+	@media (max-width: 767px){
+		padding-bottom: 8vw;
+	}
+	.intro {
+		background: url('../img/antenna-tele7/intro.jpg') center / cover no-repeat;
+		padding-top: 280px;
+		padding-bottom: 120px;
+		@media (max-width: 1919px){
+			padding-top: 14.591vw;
+			padding-bottom: 6.253vw;
+		}
+		@media (max-width: 767px){
+			display: none;
+		}
+		.intro__logo {
+			width: 600px;
+			height: auto;
+			@media (max-width: 1919px){
+				width: 31.266vw;
+			}
+			img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		
+		.intro__subtitle {
+			margin-top: 80px;
+			font-family: 'Mabry Pro';
+			font-style: normal;
+			font-weight: 500;
+			font-size: 56px;
+			line-height: 72px;
+			color: #FFFFFF;
+			@media (max-width: 1919px){
+				margin-top: 4.169vw;
+				font-size: 2.918vw;
+				line-height: 3.752vw;
+			}
+		}
+	}
+	.antenna-tele7-text {
+		margin-top: 80px;
+		@media (max-width: 1919px){
+			margin-top: 4.169vw;
+		}
+		@media (max-width: 767px){
+			display: none;
+		}
+		.antenna-tele7-text__title {
+			font-family: 'Mabry Pro';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 32px;
+			line-height: 48px;
+			color: #000000;
+			@media (max-width: 1919px){
+				font-size: 1.668vw;
+				line-height: 2.501vw;
+			}
+		}
+		
+		.antenna-tele7-text__description {
+			margin-top: 16px;
+			font-family: 'Mabry Pro';
+			font-style: normal;
+			font-weight: 300;
+			font-size: 24px;
+			line-height: 40px;
+			color: #000000;
+			@media (max-width: 1919px){
+				font-size: 1.251vw;
+				line-height: 2.084vw;
+				margin-top: 0.834vw;
+			}
+		}
+		
+		.antenna-tele7-text__link {
+			margin-top: 16px;
+			@media (max-width: 1919px){
+				margin-top: 0.834vw;
+			}
+			a {
+				font-family: 'Mabry Pro';
+				font-style: normal;
+				font-weight: 400;
+				font-size: 32px;
+				line-height: 40px;
+				text-decoration-line: underline;
+				color: #284CA6;
+				@media (max-width: 1919px) {
+					font-size: 1.668vw;
+					line-height: 2.084vw;
+				}
+			}
+		}
+	}
+}
+
+
+
+.antenna-tele7-slider {
+	background-color: #F1F4F7;
+	margin-top: 80px;
+	padding: 80px 0;
+	@media (max-width: 1919px){
+		margin-top: 4.169vw;
+		padding: 4.169vw 0;
+	}
+	@media (max-width: 767px){
+		display: none;
+	}
+	.antenna-tele7-slider__container {
+		max-width: 970px;
+		overflow: visible;
+		@media (max-width: 1919px){
+			max-width: 50.547vw;
+		}
+		.swiper-slide {
+			padding: 0 60px;
+			opacity: 0.3;
+			transition: all 0.3s ease 0s;
+			@media (max-width: 1919px){
+				padding: 3.127vw;
+			}
+		}
+		.swiper-slide.swiper-slide-active {
+			opacity: 1;
+		}
+		.antenna-tele7-slider__arrows {
+			margin-top: 40px;
+			@media (max-width: 1919px){
+				margin-top: 2.084vw;
+			}
+		}
+	}
+	.antenna-tele7-slider__img {
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
+}
+
+
+.accordion {
+	margin-top: 120px;    
+	@media (max-width: 1919px){
+		margin-top: 6.253vw;
+	}
+	h2 {
+		span {
+			@media (max-width: 767px){
+				display: none;
+			}
+		}
+	}
+	.container {
+		> p {
+			margin-top: 16px;
+			font-family: 'Mabry Pro';
+			font-style: normal;
+			font-weight: 300;
+			font-size: 24px;
+			line-height: 40px;
+			color: #000000;
+			@media (max-width: 1919px){
+				margin-top: 0.834vw;
+				font-size: 1.251vw;
+				line-height: 2.084vw;
+			}
+			@media (max-width: 767px){
+				margin-top: 1.869vw;
+				font-size: 4.673vw;
+				line-height: 7.477vw;
+			}
+		}
+	}
+	.accordion__items {
+	}
+
+	.accordion__item {
+		margin-top: 40px;
+		@media (max-width: 1919px){
+			margin-top: 2.084vw;
+		}
+		@media (max-width: 767px){
+			margin-top: 3.738vw;
+		}
+	}
+
+	.accordion__title {
+		font-family: 'Mabry Pro';
+		font-style: normal;
+		font-weight: 400;
+		font-size: 56px;
+		line-height: 56px;
+		color: #000000;
+		@media (max-width: 1919px){
+			font-size: 2.918vw;
+			line-height: 2.918vw;
+		}
+		@media (max-width: 767px){
+			font-size: 9.346vw;
+			line-height: 11.215vw;
+		}
+	}
+
+	.accordion__table {
+		margin-top: 30px;
+		@media (max-width: 1919px){
+			margin-top: 1.563vw;
+		}
+		&.accordion__table-desktop {
+			@media (max-width: 767px){
+				display: none;
+			}
+		}
+		&.accordion__table-mobile {
+			display: none;
+			@media (max-width: 767px){
+				display: block;
+			}
+		}
+		tr {
+			position: relative;
+			>* {
+				/* margin-left: 1px!important; */
+				&:first-child{
+					margin: 0!important;
+					@media (max-width: 767px){
+						
+					}
+				}
+				&:nth-child(2){
+					min-width: 424px;
+					@media (max-width: 1919px){
+						min-width: 22.095vw;
+					}
+					@media (max-width: 767px){
+						  
+					}
+				}
+				&:nth-child(3){
+					min-width: 160px;
+					@media (max-width: 1919px){
+						min-width: 8.338vw;
+					}
+					@media (max-width: 767px){
+						  
+					}
+				}
+				&:nth-child(4){
+					min-width: 140px;
+					@media (max-width: 1919px){
+						min-width: 7.295vw;
+					}
+					@media (max-width: 767px){
+						  
+					}
+				}
+				&:nth-child(5){
+					min-width: 140px;
+					@media (max-width: 1919px){
+						min-width: 7.295vw;
+					}
+				}
+				&:nth-child(6){
+					min-width: 248px;
+					@media (max-width: 1919px){
+						min-width: 12.923vw;
+					}
+				}
+				&:nth-child(7){
+					min-width: 248px;
+					@media (max-width: 1919px){
+						min-width: 12.923vw;
+					}
+				}
+			}
+			&:nth-child(4n+1) {
+				th, td {
+					background-color: #F1F4F7;
+				}
+			}
+		}
+		th {
+			&:first-child{
+				min-width: 72px;
+				min-height: 80px;
+				max-width: 72px;
+				max-height: 80px;
+				@media (max-width: 1919px){
+					min-width: 3.752vw;
+					max-width: 3.752vw;
+					min-height: 4.169vw;
+					max-height: 4.169vw;
+				}
+			}
+			background-color: #F1F4F7;
+			>img {
+				width: 100%;
+				height: 100%;
+			}
+		}
+		th, td {
+			&:first-child{
+			}
+			&:not(:first-child) {
+				text-align: left;
+				padding: 16px 24px;
+				@media (max-width: 1919px){
+					padding: 0.834vw 1.251vw;
+				}
+			}
+			font-family: 'Mabry Pro';
+			font-style: normal;
+			font-weight: 400;
+			font-size: 24px;
+			line-height: 133%;
+			color: #000000;
+			@media (max-width: 1919px){
+				font-size: 1.251vw;
+			}
+			svg {
+				width: 30px;
+				height: 18px;
+				@media (max-width: 1919px){
+					width: 1.563vw;
+					height: 0.938vw;
+				}
+			}
+		}
+		th {
+
+		}
+
+		tr.accordion__click-to-show._active, div.accordion__click-to-show._active {
+			th, td {
+				background-color: #ffffff;
+			}
+			.accordion__arrow {
+				background-color: #284CA6;
+				svg {
+					transform: rotate(180deg);
+					path {
+						fill: #ffffff;
+						transition: all 0.3s ease 0s;
+					}
+				}
+			}
+		}
+	}
+	.accordion__table-tr, .accordion__click-to-show {
+		@media (max-width: 767px){
+			display: flex;
+			>* {
+				&:nth-child(1){
+					flex: 1 1 auto;
+				}
+				&:nth-child(2){
+					flex: 0 0 20.093vw;
+				}
+				&:nth-child(3){
+					flex: 0 0 14.252vw;
+				}
+				&:nth-child(4){
+					flex: 0 0 22.430vw;
+				}
+			}
+		}
+	}
+	.accordion__table-td {
+		@media (max-width: 767px){
+			padding: 3.738vw 0.935vw;
+		}
+	}
+	.accordion__table-tr {
+		.accordion__table-td {
+			@media (max-width: 767px){
+				background: #F1F4F7;
+				padding: 1.869vw 0.935vw;
+			}
+		}
+	}
+	.accordion__click-to-show {
+		cursor: pointer;
+		position: relative;
+		@media (max-width: 767px) {
+			padding-bottom: 7.477vw;
+		}
+	}
+	.accordion__table-td {
+		@media (max-width: 767px) {
+			font-size: 3.738vw;
+			line-height: 125%;
+			&:not(:first-child) {
+				margin-left: 0.234vw;
+			}
+		}
+	}
+
+	.accordion__arrow {
+		min-width: 72px;
+		min-height: 64px;
+		max-width: 72px;
+		max-height: 64px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: #F1F4F7;
+		transition: all 0.3s ease 0s;
+		@media (max-width: 1919px){
+			min-width: 3.752vw;
+			max-width: 3.752vw;
+			min-height: 3.335vw;
+			max-height: 3.335vw;
+		}
+		@media (max-width: 767px){
+			position: absolute;
+			z-index: 99;
+			bottom: 0%;
+			left: 0;
+			min-width: 100%;
+			max-width: 100%;
+			min-height: 7.477vw;
+			max-height: 7.477vw;
+		}
+		svg {
+			@media (max-width: 767px){
+				width: 4.673vw;
+				height: 2.804vw;
+			}
+		}
+	}
+
+	.accordion__hidden-content {
+		background-color: #F1F4F7;
+		display: none;
+
+		td {
+			&:first-child{
+				margin: 0;
+			}
+		}
+		@media (max-width: 767px){
+			min-width: 100%;
+			padding: 3.738vw;
+		}
+		&._active {
+			display: table-row;
+			@media (max-width: 767px){
+				display: block;
+			}
+		}
+	}
+
+	.accordion__content-name {
+		font-size: 32px;
+		line-height: 40px;
+		@media (max-width: 1919px){
+			font-size: 1.668vw;
+			line-height: 2.084vw;
+		}
+		@media (max-width: 767px){
+			font-size: 5.607vw;
+			line-height: 7.477vw;
+		}
+	}
+
+	.accordion__content-position {
+		margin-top: 10px;
+		display: block;
+		@media (max-width: 1919px){
+			margin-top: 0.521vw;
+		}
+		@media (max-width: 767px){
+			margin-top: 1.869vw;
+			font-size: 3.738vw;
+			line-height: 5.607vw;
+		}
+	}
+
+	.accordion__content-tel {
+		font-size: 32px;
+		line-height: 40px;
+		@media (max-width: 1919px) {
+			font-size: 1.668vw;
+			line-height: 2.084vw;
+		}
+		@media (max-width: 767px){
+			margin-top: 1.869vw;
+			font-size: 5.607vw;
+			line-height: 7.477vw;
+		}
+	}
+
+	.accordion__content-loc {
+		margin-top: 10px;
+		display: flex;
+		align-items: center;
+		@media (max-width: 1919px){
+			margin-top: 0.521vw;
+		}
+		@media (max-width: 767px){
+			margin-top: 1.869vw;
+			font-size: 5.607vw;
+			line-height: 7.477vw;
+		}
+		img {
+			width: 27px;
+			height: 18px;
+			margin-right: 14px;
+			@media (max-width: 1919px){
+				width: 1.407vw;
+				height: 0.938vw;
+				margin-right: 0.730vw;
+			}
+			@media (max-width: 767px){
+				display: none;
+			}
+		}
+	}
+
+	.accordion__content-email {
+		margin-top: 24px;
+		display: block;
+		font-size: 32px;
+		line-height: 125%;
+		color: #284CA6;
+		@media (max-width: 1919px){
+			margin-top: 0.730vw;
+			font-size: 1.668vw;
+		}
+		@media (max-width: 767px){
+			margin-top: 1.869vw;
+			font-size: 5.607vw;
+			line-height: 7.477vw;
+		}
+	}
+}
+
+.contacts {
+	.contacts__container {
+		.antenna-tele7-contacts__btn-plus {
+			margin-top: 80px;
+			@media (max-width: 1919px){
+				margin-top: 4.169vw;
+			}
+			@media (max-width: 767px){
+				margin-top: 9.346vw;
+			}
+		}
+		.antenna-tele7-contacts__row {
+			flex-wrap: wrap;
+			gap: 0!important;
+			margin-top: -40px;
+			@media (max-width: 1919px){
+				margin-top: -2.084vw;
+			}
+			@media (max-width: 767px){
+				margin-top: -8vw;
+			}
+			.contacts__body {
+				margin-top: 80px;
+				flex: 0 1 33.333%;
+				@media (max-width: 1919px){
+					margin-top: 4.169vw;
+				}
+				@media (max-width: 767px){
+					margin-top: 15vw;
+				}
+				>* {
+					margin-top: 16px;
+					@media (max-width: 1919px){
+						margin-top: 0.834vw;
+					}
+					@media (max-width: 767px){
+						margin-top: 2vw;
+					}
+				}
+				.contacts__body-title {
+					font-family: 'Mabry Pro';
+					font-style: normal;
+					font-weight: 500;
+					font-size: 40px;
+					line-height: 48px;
+					color: #000000;
+					margin-top: 0;
+					@media (max-width: 1919px){
+						font-size: 2.084vw;
+						line-height: 2.501vw;
+					}
+					@media (max-width: 767px){
+						font-size: 8vw;
+						line-height: 100%;
+					}
+				}
+				.contacts__loc {
+					
+				} 
+				.contacts__tel {
+					font-size: 48px;
+					line-height: 56px;
+					@media (max-width: 1919px){
+						font-size: 2.501vw;
+						line-height: 2.918vw;
+					}
+					@media (max-width: 767px){
+						font-size: 7.3vw;
+						line-height: 100%;
+					}
+				} 
+				.contacts__mail {
+					font-size: 40px;
+					line-height: 48px;
+					@media (max-width: 1919px){
+						font-size: 2.084vw;
+						line-height: 2.501vw;
+					}
+					@media (max-width: 767px){
+						font-size: 7.3vw;
+						line-height: 100%;
+					}
+				} 
+				.contacts__send {
+					
+				}
+			}
+		}
+	}
+}

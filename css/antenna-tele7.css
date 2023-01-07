@@ -1,0 +1,755 @@
+.antenna-tele7-slider__arrows {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+.antenna-tele7-slider__arrows .antenna-tele7-slider__arrow {
+  width: 40px;
+  height: 20px;
+  background-color: transparent;
+  cursor: pointer;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider__arrows .antenna-tele7-slider__arrow {
+    width: 2.084vw;
+    height: 1.042vw;
+  }
+}
+.antenna-tele7-slider__arrows .antenna-tele7-slider__arrow svg path {
+  transition: all 0.3s ease 0s;
+}
+.antenna-tele7-slider__arrows .antenna-tele7-slider__arrow:hover svg path {
+  fill: #284CA6;
+}
+.antenna-tele7-slider__arrows .antenna-tele7-slider__arrow-next {
+  margin-left: 24px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider__arrows .antenna-tele7-slider__arrow-next {
+    margin-left: 1.251vw;
+  }
+}
+.antenna-tele7 {
+  padding-bottom: 40px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 {
+    padding-bottom: 2vw;
+  }
+}
+@media (max-width: 767px) {
+  .antenna-tele7 {
+    padding-bottom: 8vw;
+  }
+}
+.antenna-tele7 .intro {
+  background: url('../img/antenna-tele7/intro.jpg') center / cover no-repeat;
+  padding-top: 280px;
+  padding-bottom: 120px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .intro {
+    padding-top: 14.591vw;
+    padding-bottom: 6.253vw;
+  }
+}
+@media (max-width: 767px) {
+  .antenna-tele7 .intro {
+    display: none;
+  }
+}
+.antenna-tele7 .intro .intro__logo {
+  width: 600px;
+  height: auto;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .intro .intro__logo {
+    width: 31.266vw;
+  }
+}
+.antenna-tele7 .intro .intro__logo img {
+  width: 100%;
+  height: 100%;
+}
+.antenna-tele7 .intro .intro__subtitle {
+  margin-top: 80px;
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 56px;
+  line-height: 72px;
+  color: #FFFFFF;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .intro .intro__subtitle {
+    margin-top: 4.169vw;
+    font-size: 2.918vw;
+    line-height: 3.752vw;
+  }
+}
+.antenna-tele7 .antenna-tele7-text {
+  margin-top: 80px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .antenna-tele7-text {
+    margin-top: 4.169vw;
+  }
+}
+@media (max-width: 767px) {
+  .antenna-tele7 .antenna-tele7-text {
+    display: none;
+  }
+}
+.antenna-tele7 .antenna-tele7-text .antenna-tele7-text__title {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 48px;
+  color: #000000;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .antenna-tele7-text .antenna-tele7-text__title {
+    font-size: 1.668vw;
+    line-height: 2.501vw;
+  }
+}
+.antenna-tele7 .antenna-tele7-text .antenna-tele7-text__description {
+  margin-top: 16px;
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 40px;
+  color: #000000;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .antenna-tele7-text .antenna-tele7-text__description {
+    font-size: 1.251vw;
+    line-height: 2.084vw;
+    margin-top: 0.834vw;
+  }
+}
+.antenna-tele7 .antenna-tele7-text .antenna-tele7-text__link {
+  margin-top: 16px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .antenna-tele7-text .antenna-tele7-text__link {
+    margin-top: 0.834vw;
+  }
+}
+.antenna-tele7 .antenna-tele7-text .antenna-tele7-text__link a {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 40px;
+  text-decoration-line: underline;
+  color: #284CA6;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7 .antenna-tele7-text .antenna-tele7-text__link a {
+    font-size: 1.668vw;
+    line-height: 2.084vw;
+  }
+}
+.antenna-tele7-slider {
+  background-color: #F1F4F7;
+  margin-top: 80px;
+  padding: 80px 0;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider {
+    margin-top: 4.169vw;
+    padding: 4.169vw 0;
+  }
+}
+@media (max-width: 767px) {
+  .antenna-tele7-slider {
+    display: none;
+  }
+}
+.antenna-tele7-slider .antenna-tele7-slider__container {
+  max-width: 970px;
+  overflow: visible;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider .antenna-tele7-slider__container {
+    max-width: 50.547vw;
+  }
+}
+.antenna-tele7-slider .antenna-tele7-slider__container .swiper-slide {
+  padding: 0 60px;
+  opacity: 0.3;
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider .antenna-tele7-slider__container .swiper-slide {
+    padding: 3.127vw;
+  }
+}
+.antenna-tele7-slider .antenna-tele7-slider__container .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+.antenna-tele7-slider .antenna-tele7-slider__container .antenna-tele7-slider__arrows {
+  margin-top: 40px;
+}
+@media (max-width: 1919px) {
+  .antenna-tele7-slider .antenna-tele7-slider__container .antenna-tele7-slider__arrows {
+    margin-top: 2.084vw;
+  }
+}
+.antenna-tele7-slider .antenna-tele7-slider__img img {
+  width: 100%;
+  height: 100%;
+}
+.accordion {
+  margin-top: 120px;
+}
+@media (max-width: 1919px) {
+  .accordion {
+    margin-top: 6.253vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion h2 span {
+    display: none;
+  }
+}
+.accordion .container > p {
+  margin-top: 16px;
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 24px;
+  line-height: 40px;
+  color: #000000;
+}
+@media (max-width: 1919px) {
+  .accordion .container > p {
+    margin-top: 0.834vw;
+    font-size: 1.251vw;
+    line-height: 2.084vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .container > p {
+    margin-top: 1.869vw;
+    font-size: 4.673vw;
+    line-height: 7.477vw;
+  }
+}
+.accordion .accordion__item {
+  margin-top: 40px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__item {
+    margin-top: 2.084vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__item {
+    margin-top: 3.738vw;
+  }
+}
+.accordion .accordion__title {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 56px;
+  line-height: 56px;
+  color: #000000;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__title {
+    font-size: 2.918vw;
+    line-height: 2.918vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__title {
+    font-size: 9.346vw;
+    line-height: 11.215vw;
+  }
+}
+.accordion .accordion__table {
+  margin-top: 30px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table {
+    margin-top: 1.563vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table.accordion__table-desktop {
+    display: none;
+  }
+}
+.accordion .accordion__table.accordion__table-mobile {
+  display: none;
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table.accordion__table-mobile {
+    display: block;
+  }
+}
+.accordion .accordion__table tr {
+  position: relative;
+}
+.accordion .accordion__table tr > * {
+  /* margin-left: 1px!important; */
+}
+.accordion .accordion__table tr > *:first-child {
+  margin: 0!important;
+}
+.accordion .accordion__table tr > *:nth-child(2) {
+  min-width: 424px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(2) {
+    min-width: 22.095vw;
+  }
+}
+.accordion .accordion__table tr > *:nth-child(3) {
+  min-width: 160px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(3) {
+    min-width: 8.338vw;
+  }
+}
+.accordion .accordion__table tr > *:nth-child(4) {
+  min-width: 140px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(4) {
+    min-width: 7.295vw;
+  }
+}
+.accordion .accordion__table tr > *:nth-child(5) {
+  min-width: 140px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(5) {
+    min-width: 7.295vw;
+  }
+}
+.accordion .accordion__table tr > *:nth-child(6) {
+  min-width: 248px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(6) {
+    min-width: 12.923vw;
+  }
+}
+.accordion .accordion__table tr > *:nth-child(7) {
+  min-width: 248px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table tr > *:nth-child(7) {
+    min-width: 12.923vw;
+  }
+}
+.accordion .accordion__table tr:nth-child(4n+1) th,
+.accordion .accordion__table tr:nth-child(4n+1) td {
+  background-color: #F1F4F7;
+}
+.accordion .accordion__table th {
+  background-color: #F1F4F7;
+}
+.accordion .accordion__table th:first-child {
+  min-width: 72px;
+  min-height: 80px;
+  max-width: 72px;
+  max-height: 80px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table th:first-child {
+    min-width: 3.752vw;
+    max-width: 3.752vw;
+    min-height: 4.169vw;
+    max-height: 4.169vw;
+  }
+}
+.accordion .accordion__table th > img {
+  width: 100%;
+  height: 100%;
+}
+.accordion .accordion__table th,
+.accordion .accordion__table td {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 133%;
+  color: #000000;
+}
+.accordion .accordion__table th:not(:first-child),
+.accordion .accordion__table td:not(:first-child) {
+  text-align: left;
+  padding: 16px 24px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table th:not(:first-child),
+  .accordion .accordion__table td:not(:first-child) {
+    padding: 0.834vw 1.251vw;
+  }
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table th,
+  .accordion .accordion__table td {
+    font-size: 1.251vw;
+  }
+}
+.accordion .accordion__table th svg,
+.accordion .accordion__table td svg {
+  width: 30px;
+  height: 18px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__table th svg,
+  .accordion .accordion__table td svg {
+    width: 1.563vw;
+    height: 0.938vw;
+  }
+}
+.accordion .accordion__table tr.accordion__click-to-show._active th,
+.accordion .accordion__table div.accordion__click-to-show._active th,
+.accordion .accordion__table tr.accordion__click-to-show._active td,
+.accordion .accordion__table div.accordion__click-to-show._active td {
+  background-color: #ffffff;
+}
+.accordion .accordion__table tr.accordion__click-to-show._active .accordion__arrow,
+.accordion .accordion__table div.accordion__click-to-show._active .accordion__arrow {
+  background-color: #284CA6;
+}
+.accordion .accordion__table tr.accordion__click-to-show._active .accordion__arrow svg,
+.accordion .accordion__table div.accordion__click-to-show._active .accordion__arrow svg {
+  transform: rotate(180deg);
+}
+.accordion .accordion__table tr.accordion__click-to-show._active .accordion__arrow svg path,
+.accordion .accordion__table div.accordion__click-to-show._active .accordion__arrow svg path {
+  fill: #ffffff;
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table-tr,
+  .accordion .accordion__click-to-show {
+    display: flex;
+  }
+  .accordion .accordion__table-tr > *:nth-child(1),
+  .accordion .accordion__click-to-show > *:nth-child(1) {
+    flex: 1 1 auto;
+  }
+  .accordion .accordion__table-tr > *:nth-child(2),
+  .accordion .accordion__click-to-show > *:nth-child(2) {
+    flex: 0 0 20.093vw;
+  }
+  .accordion .accordion__table-tr > *:nth-child(3),
+  .accordion .accordion__click-to-show > *:nth-child(3) {
+    flex: 0 0 14.252vw;
+  }
+  .accordion .accordion__table-tr > *:nth-child(4),
+  .accordion .accordion__click-to-show > *:nth-child(4) {
+    flex: 0 0 22.43vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table-td {
+    padding: 3.738vw 0.935vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table-tr .accordion__table-td {
+    background: #F1F4F7;
+    padding: 1.869vw 0.935vw;
+  }
+}
+.accordion .accordion__click-to-show {
+  cursor: pointer;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .accordion .accordion__click-to-show {
+    padding-bottom: 7.477vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__table-td {
+    font-size: 3.738vw;
+    line-height: 125%;
+  }
+  .accordion .accordion__table-td:not(:first-child) {
+    margin-left: 0.234vw;
+  }
+}
+.accordion .accordion__arrow {
+  min-width: 72px;
+  min-height: 64px;
+  max-width: 72px;
+  max-height: 64px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #F1F4F7;
+  transition: all 0.3s ease 0s;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__arrow {
+    min-width: 3.752vw;
+    max-width: 3.752vw;
+    min-height: 3.335vw;
+    max-height: 3.335vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__arrow {
+    position: absolute;
+    z-index: 99;
+    bottom: 0%;
+    left: 0;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 7.477vw;
+    max-height: 7.477vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__arrow svg {
+    width: 4.673vw;
+    height: 2.804vw;
+  }
+}
+.accordion .accordion__hidden-content {
+  background-color: #F1F4F7;
+  display: none;
+}
+.accordion .accordion__hidden-content td:first-child {
+  margin: 0;
+}
+@media (max-width: 767px) {
+  .accordion .accordion__hidden-content {
+    min-width: 100%;
+    padding: 3.738vw;
+  }
+}
+.accordion .accordion__hidden-content._active {
+  display: table-row;
+}
+@media (max-width: 767px) {
+  .accordion .accordion__hidden-content._active {
+    display: block;
+  }
+}
+.accordion .accordion__content-name {
+  font-size: 32px;
+  line-height: 40px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-name {
+    font-size: 1.668vw;
+    line-height: 2.084vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-name {
+    font-size: 5.607vw;
+    line-height: 7.477vw;
+  }
+}
+.accordion .accordion__content-position {
+  margin-top: 10px;
+  display: block;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-position {
+    margin-top: 0.521vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-position {
+    margin-top: 1.869vw;
+    font-size: 3.738vw;
+    line-height: 5.607vw;
+  }
+}
+.accordion .accordion__content-tel {
+  font-size: 32px;
+  line-height: 40px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-tel {
+    font-size: 1.668vw;
+    line-height: 2.084vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-tel {
+    margin-top: 1.869vw;
+    font-size: 5.607vw;
+    line-height: 7.477vw;
+  }
+}
+.accordion .accordion__content-loc {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-loc {
+    margin-top: 0.521vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-loc {
+    margin-top: 1.869vw;
+    font-size: 5.607vw;
+    line-height: 7.477vw;
+  }
+}
+.accordion .accordion__content-loc img {
+  width: 27px;
+  height: 18px;
+  margin-right: 14px;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-loc img {
+    width: 1.407vw;
+    height: 0.938vw;
+    margin-right: 0.73vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-loc img {
+    display: none;
+  }
+}
+.accordion .accordion__content-email {
+  margin-top: 24px;
+  display: block;
+  font-size: 32px;
+  line-height: 125%;
+  color: #284CA6;
+}
+@media (max-width: 1919px) {
+  .accordion .accordion__content-email {
+    margin-top: 0.73vw;
+    font-size: 1.668vw;
+  }
+}
+@media (max-width: 767px) {
+  .accordion .accordion__content-email {
+    margin-top: 1.869vw;
+    font-size: 5.607vw;
+    line-height: 7.477vw;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__btn-plus {
+  margin-top: 80px;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__btn-plus {
+    margin-top: 4.169vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__btn-plus {
+    margin-top: 9.346vw;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row {
+  flex-wrap: wrap;
+  gap: 0!important;
+  margin-top: -40px;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row {
+    margin-top: -2.084vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row {
+    margin-top: -8vw;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row .contacts__body {
+  margin-top: 80px;
+  flex: 0 1 33.333%;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body {
+    margin-top: 4.169vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body {
+    margin-top: 15vw;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row .contacts__body > * {
+  margin-top: 16px;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body > * {
+    margin-top: 0.834vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body > * {
+    margin-top: 2vw;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__body-title {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 48px;
+  color: #000000;
+  margin-top: 0;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__body-title {
+    font-size: 2.084vw;
+    line-height: 2.501vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__body-title {
+    font-size: 8vw;
+    line-height: 100%;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__tel {
+  font-size: 48px;
+  line-height: 56px;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__tel {
+    font-size: 2.501vw;
+    line-height: 2.918vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__tel {
+    font-size: 7.3vw;
+    line-height: 100%;
+  }
+}
+.contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__mail {
+  font-size: 40px;
+  line-height: 48px;
+}
+@media (max-width: 1919px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__mail {
+    font-size: 2.084vw;
+    line-height: 2.501vw;
+  }
+}
+@media (max-width: 767px) {
+  .contacts .contacts__container .antenna-tele7-contacts__row .contacts__body .contacts__mail {
+    font-size: 7.3vw;
+    line-height: 100%;
+  }
+}
