@@ -452,7 +452,7 @@
   }
   .accordion .accordion__table-tr > *:nth-child(4),
   .accordion .accordion__click-to-show > *:nth-child(4) {
-    flex: 0 0 22.43vw;
+    flex: 0 0 22.430vw;
   }
 }
 @media (max-width: 767px) {
@@ -617,7 +617,7 @@
   .accordion .accordion__content-loc img {
     width: 1.407vw;
     height: 0.938vw;
-    margin-right: 0.73vw;
+    margin-right: 0.730vw;
   }
 }
 @media (max-width: 767px) {
@@ -634,7 +634,7 @@
 }
 @media (max-width: 1919px) {
   .accordion .accordion__content-email {
-    margin-top: 0.73vw;
+    margin-top: 0.730vw;
     font-size: 1.668vw;
   }
 }

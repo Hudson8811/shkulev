@@ -282,13 +282,13 @@
 }
 @media (max-width: 1919px) {
   .payment-page-pay .payment-page-pay__header .payment-page-pay__icon {
-    width: 16.78vw;
+    width: 16.780vw;
     height: 4.169vw;
   }
 }
 @media (max-width: 768px) {
   .payment-page-pay .payment-page-pay__header .payment-page-pay__icon {
-    width: 52.57vw;
+    width: 52.570vw;
     height: 13.084vw;
     margin-top: 3.738vw;
   }
@@ -528,18 +528,18 @@
   font-weight: 400;
   color: #284CA6;
   position: relative;
-  box-shadow: inset 0px -2px #284CA6;
+  box-shadow: inset 0px -2px #284ca6;
 }
 @media (max-width: 1919px) {
   .payment-page-form-data .form__item-big a {
     font-size: 1.042vw;
-    box-shadow: inset 0px -0.104vw #284CA6;
+    box-shadow: inset 0px -0.104vw #284ca6;
   }
 }
 @media (max-width: 768px) {
   .payment-page-form-data .form__item-big a {
     font-size: 4.673vw;
-    box-shadow: inset 0 -0.467vw #284CA6;
+    box-shadow: inset 0 -0.467vw #284ca6;
   }
 }
 .payment-page-form-data .payment-page-form__btn {

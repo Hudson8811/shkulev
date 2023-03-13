@@ -326,7 +326,7 @@
 }
 @media (max-width: 1919px) {
   .tg_landing .digits .digits__block .digits__items .digits__item .digits__column .digits__count {
-    font-size: 6.67vw;
+    font-size: 6.670vw;
   }
 }
 @media (max-width: 768px) {
@@ -970,7 +970,7 @@
     justify-content: flex-start;
   }
   .tg_landing .basket .basket__items .basket__item:not(:first-child) {
-    margin-top: 13.28vw;
+    margin-top: 13.280vw;
   }
 }
 .tg_landing .basket .basket__items .basket__item .basket__item--icon {
@@ -1214,12 +1214,12 @@
 }
 @media (max-width: 1919px) {
   .tg_landing .form-contacts-page__body {
-    margin-top: 1.563vw !important;
+    margin-top: 1.563vw!important;
   }
 }
 @media (max-width: 768px) {
   .tg_landing .form-contacts-page__body {
-    margin-top: 5.607vw !important;
+    margin-top: 5.607vw!important;
   }
 }
 .tg_landing .order {
@@ -1419,7 +1419,7 @@
 }
 @media (max-width: 1919px) {
   .tg_landing .order__choose-file-slide {
-    height: 4.169vw !important;
+    height: 4.169vw!important;
     margin-top: 0.834vw;
   }
 }

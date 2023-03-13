@@ -343,7 +343,7 @@
   left: 50%;
   width: 120px;
   height: 120px;
-  background: url('../img/news-page/sec3/1.svg') 0 0 / 100% no-repeat;
+  background: url('../img/news-page/sec3/1.svg') 0 0% no-repeat;
   transform: translate(-50%, -50%);
 }
 @media (max-width: 1919px) {

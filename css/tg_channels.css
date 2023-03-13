@@ -34,7 +34,7 @@
 @media (max-width: 768px) {
   .tg_channels .card__body {
     position: relative;
-    width: calc(100% + 1vw);
+    width: calc(101%);
     margin-left: -0.5vw;
     bottom: 0;
     top: auto;
@@ -52,7 +52,7 @@
 }
 @media (max-width: 1919px) {
   .tg_channels .card__body .card__body--title {
-    margin-top: 2.71vw;
+    margin-top: 2.710vw;
   }
 }
 @media (max-width: 768px) {

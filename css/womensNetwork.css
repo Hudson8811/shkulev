@@ -1,0 +1,175 @@
+.womensNetwork {
+  margin-top: 40px;
+  padding-bottom: 80px;
+}
+@media (max-width: 1920px) {
+  .womensNetwork {
+    margin-top: 2.2222222222vw;
+    padding-bottom: 4.1666666667vw;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork {
+    margin-top: 5vw;
+    padding-bottom: 8.3333333333vw;
+  }
+}
+.womensNetwork .projects-mediakits__item {
+  overflow: hidden;
+  transition: all .5s;
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__item .projects-mediakits__item-img {
+    border-radius: 24px 24px 0 0;
+    height: 45.8333333333vw;
+  }
+}
+.womensNetwork .projects-mediakits__item:hover {
+  border-radius: 24px;
+}
+.womensNetwork .projects-mediakits__item:hover .projects-mediakits__item-img img {
+  transition: all .5s;
+  border-radius: 24px;
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__item:hover .projects-mediakits__item-img img {
+    border-radius: 24px 24px 0 0;
+  }
+}
+.womensNetwork .projects-mediakits__item:hover .projects-mediakits__desc {
+  opacity: 1;
+  transition: all .5s;
+}
+.womensNetwork .projects-mediakits__item img {
+  transition: all .5s;
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__item img {
+    border-radius: 24px 24px 0 0;
+  }
+}
+.womensNetwork .projects-mediakits__desc {
+  position: absolute;
+  background: #284CA6;
+  border-radius: 24px;
+  width: 100%;
+  max-width: calc(100% - 50px);
+  margin-left: 25px;
+  margin-right: 25px;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  transition: all .5s;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-flow: row wrap;
+  padding: 32px;
+}
+@media (max-width: 1919px) {
+  .womensNetwork .projects-mediakits__desc {
+    max-width: calc(100% - 2.7777777778vw);
+    margin-left: 1.3888888889vw;
+    margin-right: 1.3888888889vw;
+    padding: 1.7777777778vw;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__desc {
+    position: relative;
+    border-radius: 0 0 24px 24px;
+    opacity: 1;
+    margin-left: 0;
+    margin-right: 0;
+    max-width: 100%;
+    height: 45.8333333333vw;
+    padding: 5vw;
+  }
+}
+.womensNetwork .projects-mediakits__desc--label {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+  width: 142px;
+}
+@media (max-width: 1920px) {
+  .womensNetwork .projects-mediakits__desc--label {
+    bottom: 1.3888888889vw;
+    right: 1.3888888889vw;
+    width: 7.8888888889vw;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__desc--label {
+    display: none;
+  }
+}
+.womensNetwork .projects-mediakits__desc--label img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+.womensNetwork .projects-mediakits__desc--item-title {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 44px;
+  line-height: 48px;
+  color: #FFFFFF;
+}
+@media (max-width: 1920px) {
+  .womensNetwork .projects-mediakits__desc--item-title {
+    font-size: 2.4444444444vw;
+    line-height: 1.1;
+    color: #FFFFFF;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__desc--item-title {
+    font-size: 10vw;
+  }
+}
+.womensNetwork .projects-mediakits__desc--item-title span {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-left: -10px;
+}
+@media (max-width: 1920px) {
+  .womensNetwork .projects-mediakits__desc--item-title span {
+    font-size: 0.8888888889vw;
+    line-height: 1.1;
+    margin-left: -0.55555556vw;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__desc--item-title span {
+    font-size: 3.3333333333vw;
+  }
+}
+.womensNetwork .projects-mediakits__desc--item-text {
+  font-family: 'Mabry Pro';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+}
+@media (max-width: 1920px) {
+  .womensNetwork .projects-mediakits__desc--item-text {
+    font-size: 1.1111111111vw;
+    line-height: 1.1;
+  }
+}
+@media (max-width: 768px) {
+  .womensNetwork .projects-mediakits__desc--item-text {
+    font-size: 4.1666666667vw;
+  }
+}
