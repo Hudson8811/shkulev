@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" schedule-content="IE=edge">
+    <meta name="viewport" schedule-content="width=device-width, initial-scale=1.0">
+    <title>CALENDAR</title>
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/fonts.css">
+
+    <link rel="stylesheet" href="css/calendar.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="page">
+            <div class="schedule">
+                <div class="schedule__sidebar sidebar active"></div>
+                <div class="schedule__body schedule-content" data-js="tabsWrap">
+                    <div class="schedule-content__header schedule-header">
+                        <button class="schedule-header__menu btn-icon">
+                            <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2 18.5C2 17.9477 2.44772 17.5 3 17.5H21C21.5523 17.5 22 17.9477 22 18.5C22 19.0523 21.5523 19.5 21 19.5H3C2.44772 19.5 2 19.0523 2 18.5Z"
+                                    fill="currentColor" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2 12.5C2 11.9477 2.44772 11.5 3 11.5H21C21.5523 11.5 22 11.9477 22 12.5C22 13.0523 21.5523 13.5 21 13.5H3C2.44772 13.5 2 13.0523 2 12.5Z"
+                                    fill="currentColor" />
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M2 6.5C2 5.94772 2.44772 5.5 3 5.5H21C21.5523 5.5 22 5.94772 22 6.5C22 7.05228 21.5523 7.5 21 7.5H3C2.44772 7.5 2 7.05228 2 6.5Z"
+                                    fill="currentColor" />
+                            </svg>
+                        </button>
+                        <div class="schedule-header__controls">
+                            <button class="schedule-header__control btn-icon active" data-js="tabsBtnCalendar">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M16 2.5V6.5M8 2.5V6.5M3 10.5H21M5 4.5H19C20.1046 4.5 21 5.39543 21 6.5V20.5C21 21.6046 20.1046 22.5 19 22.5H5C3.89543 22.5 3 21.6046 3 20.5V6.5C3 5.39543 3.89543 4.5 5 4.5Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                            <button class="schedule-header__control btn-icon" data-js="tabsBtnCards">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M9 3.5H4C3.44772 3.5 3 3.94772 3 4.5V9.5C3 10.0523 3.44772 10.5 4 10.5H9C9.55228 10.5 10 10.0523 10 9.5V4.5C10 3.94772 9.55228 3.5 9 3.5Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M20 3.5H15C14.4477 3.5 14 3.94772 14 4.5V9.5C14 10.0523 14.4477 10.5 15 10.5H20C20.5523 10.5 21 10.0523 21 9.5V4.5C21 3.94772 20.5523 3.5 20 3.5Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M20 14.5H15C14.4477 14.5 14 14.9477 14 15.5V20.5C14 21.0523 14.4477 21.5 15 21.5H20C20.5523 21.5 21 21.0523 21 20.5V15.5C21 14.9477 20.5523 14.5 20 14.5Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M9 14.5H4C3.44772 14.5 3 14.9477 3 15.5V20.5C3 21.0523 3.44772 21.5 4 21.5H9C9.55228 21.5 10 21.0523 10 20.5V15.5C10 14.9477 9.55228 14.5 9 14.5Z"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="schedule-content__body">
+                        <div class="schedule-content__slider" data-js="tabsSlider">
+                            <div class="swiper-wrapper">
+                                <div class="schedule-content__slide calendar swiper-slide">
+                                    <div class="calendar__month month">
+                                        <div class="month__title">Октябрь</div>
+                                        <div class="month__table calendar-table">
+                                            <div class="calendar-table__row calendar-table__row--header">
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">пн</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">вт</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">ср</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">чт</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">пт</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">сб</div>
+                                                </div>
+                                                <div class="calendar-table__cell">
+                                                    <div class="calendar-cell__day">вс</div>
+                                                </div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="schedule-content-body__slide cards swiper-slide">
+                                    карточки
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/swiper-bundle.min.js"></script>
+<script src="js/calendar.js"></script>
+
+</html>

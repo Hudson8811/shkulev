@@ -1,0 +1,126 @@
+.btn-icon {
+  background: transparent;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 4px;
+  color: #1B2C4E;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.btn-icon svg {
+  width: 24px;
+  height: 24px;
+}
+.btn-icon:hover, .btn-icon.active {
+  color: #FF522D;
+}
+
+.schedule {
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+.schedule__sidebar {
+  flex: 0 0 0;
+  background-color: #F2F5F9;
+}
+.schedule__sidebar.active {
+  flex: 0 0 320px;
+}
+.schedule__body {
+  flex: 1 1 auto;
+  max-width: calc(100% - 320px);
+}
+
+.schedule-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11.5px 20px;
+  border-bottom: 1px solid #E4E8ED;
+}
+.schedule-header__controls {
+  display: flex;
+  gap: 4px;
+}
+
+.schedule-content__body {
+  padding: 20px;
+}
+.schedule-content__slider {
+  overflow: hidden;
+}
+.schedule-content__slider .swiper-slide {
+  opacity: 0 !important;
+  transition: opacity 0.3s;
+  z-index: -10;
+}
+.schedule-content__slider .swiper-slide-active {
+  opacity: 1 !important;
+  z-index: 1;
+}
+
+.month__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33em;
+  color: #1B2C4E;
+}
+.month__table {
+  margin-top: 20px;
+}
+
+.calendar-table__row {
+  display: flex;
+  height: 124px;
+}
+.calendar-table__row--header {
+  height: 48px;
+}
+.calendar-table__row--header .calendar-table__cell {
+  display: flex;
+  align-items: center;
+}
+.calendar-table__row--header .calendar-table__cell:first-child {
+  border-radius: 8px 0 0 0;
+}
+.calendar-table__row--header .calendar-table__cell:last-child {
+  border-radius: 0 8px 0 0;
+}
+.calendar-table__cell {
+  flex: 0 0 16.6666666667%;
+  max-width: 16.6666666667%;
+  border: 1px solid #E4E8ED;
+  padding: 12px;
+}
+
+.calendar-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.calendar-cell__day {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.2em;
+  color: #9CA5B5;
+}
+.calendar-cell__events {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  overflow: hidden;
+}
+.calendar-cell__event {
+  padding: 2px 4px;
+  border-radius: 4px;
+  color: rgb(0, 133, 255);
+  background-color: rgba(0, 133, 255, 0.1);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}/*# sourceMappingURL=calendar.css.map */
