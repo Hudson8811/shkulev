@@ -27,6 +27,21 @@ $tt: 0.3s;
     }
 }
 
+.has-scroll {
+    &::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: $c-bg;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $c-text;
+        border-radius: 12px;
+    }
+}
+
 .schedule {
     font-family: 'Montserrat', sans-serif;
     width: 100%;
@@ -35,19 +50,241 @@ $tt: 0.3s;
     display: flex;
 
     &__sidebar {
-        flex: 0 0 0;
+        flex: 0 0 320px;
         background-color: $c-bg;
+        max-width: 0px;
+        transition: max-width $tt linear;
     }
 
     &__sidebar.active {
-        flex: 0 0 320px;
+        max-width: 320px;
+        transition: max-width $tt linear;
     }
 
     &__body {
         flex: 1 1 auto;
+        transition: max-width $tt linear;
+    }
+
+    &__sidebar.active+&__body {
         max-width: calc(100% - 320px);
+        transition: max-width $tt linear;
+    }
+
+    &__sidebar+&__body {
+        max-width: 100%;
+        transition: max-width $tt linear;
     }
 }
+
+.sidebar {
+    overflow: hidden;
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+    }
+
+    &__logo {
+        height: 32px;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+    }
+
+    &__body {
+        max-height: calc(100vh - 64px);
+        padding: 28px 20px 24px;
+    }
+}
+
+.filter {
+    &__count {
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.2em;
+        color: $c-text;
+    }
+
+    &__fields {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-top: 20px;
+    }
+}
+
+.filter-param {
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &__title {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2em;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        color: $c-accent;
+    }
+
+    &__arrow {
+        width: 16px;
+        height: 16px;
+        transform: rotate(180deg);
+        transition: transform $tt linear;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__content {
+        padding-top: 16.5px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    &__clear {
+        background-color: transparent;
+        outline: none;
+        display: none;
+        align-items: center;
+        gap: 4px;
+        width: fit-content;
+        padding: 4px 0;
+        cursor: pointer;
+        transition: color $tt linear;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+        color: $c-text;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    &.checked &__clear {
+        display: flex;
+    }
+
+    &.expanded &__arrow {
+        transform: rotate(0);
+    }
+
+}
+
+.filter-param {
+    &--checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &--checkbox &__title {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2em;
+        text-transform: none;
+    }
+
+    &--checkbox .filter-field {
+        &__view {
+            position: relative;
+            width: 48px;
+            height: 24px;
+            background-color: $c-text;
+            transition: background-color $tt linear;
+        }
+
+        &__view:after {
+            content: "";
+            position: absolute;
+            left: 3px;
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            transform: translateY(-50%);
+            background-color: #fff;
+            border-radius: 100%;
+            transition: left $tt linear;
+        }
+
+        &__input:checked+.filter-field__view {
+            background-color: $c-accent2;
+        }
+
+        &__input:checked+.filter-field__view:after {
+            left: 25px;
+        }
+    }
+}
+
+
+.filter-field {
+    position: relative;
+    cursor: pointer;
+
+    &__input {
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &__view {
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        gap: 4px;
+        padding: 4px 12px;
+        padding-left: 12px;
+        background-color: #fff;
+        border-radius: 18px;
+        transition: background-color $tt linear,
+            color $tt linear;
+        color: $c-accent;
+    }
+
+    &__icon {
+        width: 16px;
+        height: 16px;
+        display: none;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__name {
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 16px;
+    }
+
+    &__input:checked+&__view {
+        background-color: $c-accent2;
+        color: #fff;
+        padding-left: 8px;
+    }
+
+    &__input:checked+&__view>&__icon {
+        display: block;
+    }
+}
+
 
 .schedule-header {
     display: flex;
@@ -63,17 +300,18 @@ $tt: 0.3s;
 }
 
 .schedule-content {
-    &__body {
-        padding: 20px;
-    }
-
     &__slider {
         overflow: hidden;
 
         .swiper-slide {
+            max-height: calc(100vh - 56px);
+            padding: 20px;
+            overflow: auto;
             opacity: 0 !important;
             transition: opacity $tt;
             z-index: -10;
+            box-sizing: border-box;
+
         }
 
         .swiper-slide-active {
@@ -121,8 +359,8 @@ $tt: 0.3s;
 
 
     &__cell {
-        flex: 0 0 calc(100% / 6);
-        max-width: calc(100% / 6);
+        flex: 0 0 calc(100% / 7);
+        max-width: calc(100% / 7);
         border: 1px solid $c-border;
         padding: 12px;
     }
@@ -148,6 +386,7 @@ $tt: 0.3s;
     }
 
     &__event {
+        flex: 0 0 auto;
         padding: 2px 4px;
         border-radius: 4px;
         color: rgba(0, 133, 255, 1);

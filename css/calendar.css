@@ -17,6 +17,17 @@
   color: #FF522D;
 }
 
+.has-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.has-scroll::-webkit-scrollbar-track {
+  background-color: #F2F5F9;
+}
+.has-scroll::-webkit-scrollbar-thumb {
+  background-color: #9CA5B5;
+  border-radius: 12px;
+}
+
 .schedule {
   font-family: "Montserrat", sans-serif;
   width: 100%;
@@ -25,15 +36,200 @@
   display: flex;
 }
 .schedule__sidebar {
-  flex: 0 0 0;
+  flex: 0 0 320px;
   background-color: #F2F5F9;
+  max-width: 0px;
+  transition: max-width 0.3s linear;
 }
 .schedule__sidebar.active {
-  flex: 0 0 320px;
+  max-width: 320px;
+  transition: max-width 0.3s linear;
 }
 .schedule__body {
   flex: 1 1 auto;
+  transition: max-width 0.3s linear;
+}
+.schedule__sidebar.active + .schedule__body {
   max-width: calc(100% - 320px);
+  transition: max-width 0.3s linear;
+}
+.schedule__sidebar + .schedule__body {
+  max-width: 100%;
+  transition: max-width 0.3s linear;
+}
+
+.sidebar {
+  overflow: hidden;
+}
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+}
+.sidebar__logo {
+  height: 32px;
+}
+.sidebar__logo img {
+  width: auto;
+  height: 100%;
+}
+.sidebar__body {
+  max-height: calc(100vh - 64px);
+  padding: 28px 20px 24px;
+}
+
+.filter__count {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2em;
+  color: #9CA5B5;
+}
+.filter__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.filter-param__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+.filter-param__title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #1B2C4E;
+}
+.filter-param__arrow {
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  transition: transform 0.3s linear;
+}
+.filter-param__arrow svg {
+  width: 100%;
+  height: 100%;
+}
+.filter-param__content {
+  padding-top: 16.5px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filter-param__clear {
+  background-color: transparent;
+  outline: none;
+  display: none;
+  align-items: center;
+  gap: 4px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.3s linear;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+  color: #9CA5B5;
+}
+.filter-param__clear svg {
+  width: 16px;
+  height: 16px;
+}
+.filter-param.checked .filter-param__clear {
+  display: flex;
+}
+.filter-param.expanded .filter-param__arrow {
+  transform: rotate(0);
+}
+
+.filter-param--checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.filter-param--checkbox .filter-param__title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2em;
+  text-transform: none;
+}
+.filter-param--checkbox .filter-field__view {
+  position: relative;
+  width: 48px;
+  height: 24px;
+  background-color: #9CA5B5;
+  transition: background-color 0.3s linear;
+}
+.filter-param--checkbox .filter-field__view:after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-radius: 100%;
+  transition: left 0.3s linear;
+}
+.filter-param--checkbox .filter-field__input:checked + .filter-field__view {
+  background-color: #FF522D;
+}
+.filter-param--checkbox .filter-field__input:checked + .filter-field__view:after {
+  left: 25px;
+}
+
+.filter-field {
+  position: relative;
+  cursor: pointer;
+}
+.filter-field__input {
+  position: absolute;
+  left: 0;
+  width: 0;
+  height: 0;
+}
+.filter-field__view {
+  display: flex;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 4px;
+  padding: 4px 12px;
+  padding-left: 12px;
+  background-color: #fff;
+  border-radius: 18px;
+  transition: background-color 0.3s linear, color 0.3s linear;
+  color: #1B2C4E;
+}
+.filter-field__icon {
+  width: 16px;
+  height: 16px;
+  display: none;
+}
+.filter-field__icon svg {
+  width: 100%;
+  height: 100%;
+}
+.filter-field__name {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+.filter-field__input:checked + .filter-field__view {
+  background-color: #FF522D;
+  color: #fff;
+  padding-left: 8px;
+}
+.filter-field__input:checked + .filter-field__view > .filter-field__icon {
+  display: block;
 }
 
 .schedule-header {
@@ -48,16 +244,17 @@
   gap: 4px;
 }
 
-.schedule-content__body {
-  padding: 20px;
-}
 .schedule-content__slider {
   overflow: hidden;
 }
 .schedule-content__slider .swiper-slide {
+  max-height: calc(100vh - 56px);
+  padding: 20px;
+  overflow: auto;
   opacity: 0 !important;
   transition: opacity 0.3s;
   z-index: -10;
+  box-sizing: border-box;
 }
 .schedule-content__slider .swiper-slide-active {
   opacity: 1 !important;
@@ -92,8 +289,8 @@
   border-radius: 0 8px 0 0;
 }
 .calendar-table__cell {
-  flex: 0 0 16.6666666667%;
-  max-width: 16.6666666667%;
+  flex: 0 0 14.2857142857%;
+  max-width: 14.2857142857%;
   border: 1px solid #E4E8ED;
   padding: 12px;
 }
@@ -116,6 +313,7 @@
   overflow: hidden;
 }
 .calendar-cell__event {
+  flex: 0 0 auto;
   padding: 2px 4px;
   border-radius: 4px;
   color: rgb(0, 133, 255);

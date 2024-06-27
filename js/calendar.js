@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     tabsInit()
+    sidebarController()
+    filterSpoilersController()
 })
 
 // Вкладки
@@ -28,6 +30,53 @@ function tabsInit() {
         tabsSliderEx.slideTo(1)
         tabsBtnCalendar.classList.remove('active');
         tabsBtnCards.classList.add('active');
+    })
+
+}
+
+// Боковое меню
+function sidebarController() {
+    const sidebar = document.querySelector('[data-js="sidebar"]')
+    
+    if(!sidebar) return
+
+    const sidebarOpen = document.querySelector('[data-js="sidebarOpen"]')
+    const sidebarClose = sidebar.querySelector('[data-js="sidebarClose"]')
+
+    sidebarOpen.addEventListener('click', () => {
+        sidebar.classList.add('active')
+    })
+
+    sidebarClose.addEventListener('click', () => {
+        sidebar.classList.remove('active')
+    })
+
+}
+
+// Спойлеры а фильтрах
+function filterSpoilersController() {
+    const filterParams = document.querySelectorAll('[data-js="filterParam"]')
+    
+    if(filterParams.length < 1) return
+
+    filterParams.forEach(item => {
+        let itemHeader = item.querySelector('[data-js="filterParamHeader"]')
+
+        if(itemHeader) {
+            itemHeader.addEventListener('click', (e) => {
+                let currentItem = e.currentTarget;
+                let currentWrap = currentItem.closest('[data-js="filterParam"]')
+                let currentContent = currentWrap.querySelector('[data-js="filterParamBody"]')
+                if($(currentWrap).hasClass('expanded')) {
+                    $(currentContent).hide(500)
+                    $(currentWrap).removeClass('expanded')
+                } else {
+                    $(currentContent).show(500)
+                    $(currentWrap).addClass('expanded')
+                }
+            })
+        }
+
     })
 
 }

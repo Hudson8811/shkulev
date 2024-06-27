@@ -19,10 +19,488 @@
     <div class="wrapper">
         <div class="page">
             <div class="schedule">
-                <div class="schedule__sidebar sidebar active"></div>
+                <div class="schedule__sidebar sidebar active" data-js="sidebar">
+                    <div class="sidebar__header">
+                        <div class="sidebar__logo">
+                            <img src="img/calendar/logo.svg" alt="logo">
+                        </div>
+                        <button class="btn-icon sidebar__close" data-js="sidebarClose">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289Z" fill="currentColor"/>
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="currentColor"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="sidebar__body has-scroll">
+
+                        <form action="#" class="filter">
+                            <div class="filter__count" data-js="filterCount">Найдено 0 событий</div>
+                            <div class="filter__fields">
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="year">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Год</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="year2019">
+                                            <input type="checkbox" class="filter-field__input" id="year2019" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2019</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2020">
+                                            <input type="checkbox" class="filter-field__input" id="year2020" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2020</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2021">
+                                            <input type="checkbox" class="filter-field__input" id="year2021" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2021</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2022">
+                                            <input type="checkbox" class="filter-field__input" id="year2022" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2022</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2023">
+                                            <input type="checkbox" class="filter-field__input" id="year2023" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2023</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2024">
+                                            <input type="checkbox" class="filter-field__input" id="year2024" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2024</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="year2025">
+                                            <input type="checkbox" class="filter-field__input" id="year2025" name="year" value="2020">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">2025</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="month">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Месяц</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="january">
+                                            <input type="checkbox" class="filter-field__input" id="january" name="month" value="january">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Январь</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="february">
+                                            <input type="checkbox" class="filter-field__input" id="february" name="month" value="february">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Февраль</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить   
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="brand">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Бренд</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="antennaT7">
+                                            <input type="checkbox" class="filter-field__input" id="antennaT7" name="brand" value="antennaT7">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Антенна-Т7</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="aroundTheWorld">
+                                            <input type="checkbox" class="filter-field__input" id="aroundTheWorld" name="brand" value="aroundTheWorld">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Вокруг света</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="cluster">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Кластер</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="spirit">
+                                            <input type="checkbox" class="filter-field__input" id="spirit" name="cluster" value="spirit">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Spirit</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="curiosity">
+                                            <input type="checkbox" class="filter-field__input" id="curiosity" name="cluster" value="curiosity">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Curiosity</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="corporate">
+                                            <input type="checkbox" class="filter-field__input" id="corporate" name="cluster" value="corporate">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Corporate</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="department">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Департамент</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="general">
+                                            <input type="checkbox" class="filter-field__input" id="general" name="department" value="general">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">General</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="digital">
+                                            <input type="checkbox" class="filter-field__input" id="digital" name="department" value="digital">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Digital</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="print">
+                                            <input type="checkbox" class="filter-field__input" id="print" name="department" value="print">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Print</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="print-digital">
+                                            <input type="checkbox" class="filter-field__input" id="print-digital" name="department" value="print-digital">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Print/Digital</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="direction">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Направление</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="business">
+                                            <input type="checkbox" class="filter-field__input" id="business" name="direction" value="business">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Бизнес-форматы</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="image">
+                                            <input type="checkbox" class="filter-field__input" id="image" name="direction" value="image">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Имиджевая</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="entertaining">
+                                            <input type="checkbox" class="filter-field__input" id="entertaining" name="direction" value="entertaining">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Развлекательная</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="cognitive-educational">
+                                            <input type="checkbox" class="filter-field__input" id="cognitive-educational" name="direction" value="cognitive-educational">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">Познав.-образов-льная</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="filter__item filter-param expanded" data-js="filterParam" data-id="number">
+                                    <div class="filter-param__header"data-js="filterParamHeader">
+                                        <div class="filter-param__title">Численность</div>
+                                        <div class="filter-param__count"></div>
+                                        <div class="filter-param__arrow">
+                                            <img src="img/calendar/chevron.svg" alt="arrow down">
+                                        </div>
+                                    </div>
+                                    <div class="filter-param__content" data-js="filterParamBody">
+                                        <label class="filter-field" for="to50">
+                                            <input type="radio" class="filter-field__input" id="to50" name="number" value="to50">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">до 50</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="to100">
+                                            <input type="radio" class="filter-field__input" id="to100" name="number" value="to100">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">до 100</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="from100to500">
+                                            <input type="radio" class="filter-field__input" id="from100to500" name="number" value="from100to500">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">от 100 до 500</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="from500to1000">
+                                            <input type="radio" class="filter-field__input" id="from500to1000" name="number" value="from500to1000">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">от 500 до 1000</span>
+                                            </div>
+                                        </label>
+                                        <label class="filter-field" for="from1000">
+                                            <input type="radio" class="filter-field__input" id="from1000" name="number" value="from1000">
+                                            <div class="filter-field__view">
+                                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                                    </svg> 
+                                                </span>
+                                                <span class="filter-field__name">свыше 1000</span>
+                                            </div>
+                                        </label>
+                                        <button class="filter-param__clear" data-js="filterFieldClear">
+                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                                <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                            </svg>  
+                                            Очистить                                           
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="filter__item filter-param filter-param--checkbox" data-js="filterParam" data-id="sponsors">
+                                    <div class="filter-param__title">Спонсоры</div>
+                                    <label class="filter-field" for="sponsors">
+                                        <input type="checkbox" class="filter-field__input" id="sponsors" name="sponsors" value="sponsors">
+                                        <div class="filter-field__view"></div>
+                                    </label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
                 <div class="schedule__body schedule-content" data-js="tabsWrap">
                     <div class="schedule-content__header schedule-header">
-                        <button class="schedule-header__menu btn-icon">
+                        <button class="schedule-header__menu btn-icon" data-js="sidebarOpen">
                             <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -72,7 +550,7 @@
                     <div class="schedule-content__body">
                         <div class="schedule-content__slider" data-js="tabsSlider">
                             <div class="swiper-wrapper">
-                                <div class="schedule-content__slide calendar swiper-slide">
+                                <div class="schedule-content__slide calendar swiper-slide has-scroll">
                                     <div class="calendar__month month">
                                         <div class="month__title">Октябрь</div>
                                         <div class="month__table calendar-table">
@@ -103,8 +581,7 @@
                                                 <div class="calendar-table__cell calendar-cell">
                                                     <div class="calendar-cell__day">1</div>
                                                     <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
                                                         <div class="calendar-cell__event">Юбилей</div>
                                                         <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
                                                     </div>
@@ -122,14 +599,289 @@
                                                 </div>
                                                 <div class="calendar-table__cell"></div>
                                                 <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
                                                 <div class="calendar-table__cell"></div>
                                                 <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                            </div>
+                                            <div class="calendar-table__row">
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell"></div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                    </div>
+                                                </div>
+                                                <div class="calendar-table__cell calendar-cell">
+                                                    <div class="calendar-cell__day">1</div>
+                                                    <div class="calendar-cell__events">
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                        <div class="calendar-cell__event">Юбилей</div>
+                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
+                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
+                                                            материков</div>
+                                                    </div>
+                                                </div>
                                                 <div class="calendar-table__cell"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="schedule-content-body__slide cards swiper-slide">
+                                <div class="schedule-content-body__slide cards swiper-slide has-scroll">
                                     карточки
                                 </div>
                             </div>
@@ -140,6 +892,7 @@
         </div>
     </div>
 </body>
+<script src="js/jquery-3.6.0.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
 <script src="js/calendar.js"></script>
 
