@@ -321,4 +321,82 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.swiper-slide.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.year {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.year__title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.33em;
+  color: #1B2C4E;
+}
+
+.cards-table {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.cards-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  padding: 16px;
+  background-color: #F2F5F9;
+  border-radius: 12px;
+}
+.cards-card__header {
+  display: flex;
+  justify-content: space-between;
+}
+.cards-card__date {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: #FF522D;
+}
+.cards-card__logo {
+  height: 20px;
+}
+.cards-card__logo svg {
+  height: 100%;
+  width: auto;
+}
+.cards-card__title {
+  margin-top: auto;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2em;
+  color: #1B2C4E;
+}
+.cards-card__tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+.cards-card__tag {
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  height: 16px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2em;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6e7191;
+  background-color: #E4E8ED;
+  border-radius: 20px;
 }/*# sourceMappingURL=calendar.css.map */
