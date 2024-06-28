@@ -33,8 +33,8 @@
                     </div>
                     <div class="sidebar__body has-scroll">
 
-                        <form action="#" class="filter">
-                            <div class="filter__count" data-js="filterCount">Найдено 0 событий</div>
+                        <form action="#" onsubmit="return submitFilterform(event)" class="filter" data-js="filterForm">
+                            <div class="filter__count" data-js="filterCount">Найдено <span>0 событий</span></div>
                             <div class="filter__fields">
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="year">
                                     <div class="filter-param__header"data-js="filterParamHeader">
@@ -45,8 +45,8 @@
                                         </div>
                                     </div>
                                     <div class="filter-param__content" data-js="filterParamBody">
-                                        <label class="filter-field" for="year2019">
-                                            <input type="checkbox" class="filter-field__input" id="year2019" name="year" value="2020">
+                                        <!--<label class="filter-field" for="year2019">
+                                            <input type="checkbox" class="filter-field__input" id="year2019" name="year" value="2019">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -128,7 +128,7 @@
                                                 </span>
                                                 <span class="filter-field__name">2025</span>
                                             </div>
-                                        </label>
+                                        </label>-->
                                         <button class="filter-param__clear" data-js="filterFieldClear">
                                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
@@ -672,7 +672,7 @@
                                     </div>
                                     <div class="filter-param__content" data-js="filterParamBody">
                                         <label class="filter-field" for="to50">
-                                            <input type="radio" class="filter-field__input" id="to50" name="number" value="to50">
+                                            <input type="checkbox" class="filter-field__input" id="to50" name="number" value="to50">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -684,7 +684,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="to100">
-                                            <input type="radio" class="filter-field__input" id="to100" name="number" value="to100">
+                                            <input type="checkbox" class="filter-field__input" id="to100" name="number" value="to100">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -696,7 +696,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="from100to500">
-                                            <input type="radio" class="filter-field__input" id="from100to500" name="number" value="from100to500">
+                                            <input type="checkbox" class="filter-field__input" id="from100to500" name="number" value="from100to500">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -708,7 +708,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="from500to1000">
-                                            <input type="radio" class="filter-field__input" id="from500to1000" name="number" value="from500to1000">
+                                            <input type="checkbox" class="filter-field__input" id="from500to1000" name="number" value="from500to1000">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -720,7 +720,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="from1000">
-                                            <input type="radio" class="filter-field__input" id="from1000" name="number" value="from1000">
+                                            <input type="checkbox" class="filter-field__input" id="from1000" name="number" value="from1000">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1135,69 +1135,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="schedule-content-body__slide cards swiper-slide has-scroll" data-js="cardsWrap">
-                                    <!--<div class="cards__year year" data-filter-name="year" data-filter-value="2019">
-                                        <div class="year__title">2019</div>
-                                        <div class="cards__month month">
-                                            <div class="month__title">февраль</div>
-                                            <div class="month__table cards-table">
-                                                <div class="cards-table__card cards-card" data-js="eventsItem">
-                                                    <div class="cards-card__header">
-                                                        <div class="cards-card__date">21.02</div>
-                                                        <div class="cards-card__logo">
-                                                            <img src="img/calendar/brands/starHit.svg" alt="brand logo">
-                                                        </div>
-                                                    </div>
-                                                    <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
-                                                    <div class="cards-card__tags">
-                                                        <div class="cards-card__tag">Spirit</div>
-                                                        <div class="cards-card__tag">Print/Digital</div>
-                                                        <div class="cards-card__tag">Имиджевая</div>
-                                                        <div class="cards-card__tag">100—500</div>
-                                                        <div class="cards-card__tag">спонсоры</div>
-                                                    </div>
-                                                </div>
-                                                <div class="cards-table__card cards-card"  data-js="eventsItem">
-                                                    <div class="cards-card__header">
-                                                        <div class="cards-card__date">28.02</div>
-                                                        <div class="cards-card__logo">
-                                                            <img src="img/calendar/brands/starHit.svg" alt="brand logo">
-                                                        </div>
-                                                    </div>
-                                                    <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
-                                                    <div class="cards-card__tags">
-                                                        <div class="cards-card__tag">Spirit</div>
-                                                        <div class="cards-card__tag">Print/Digital</div>
-                                                        <div class="cards-card__tag">Имиджевая</div>
-                                                        <div class="cards-card__tag">100—500</div>
-                                                        <div class="cards-card__tag">спонсоры</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="cards__month month">
-                                            <div class="month__title">Октябрь</div>
-                                            <div class="month__table cards-table">
-                                                <div class="cards-table__card cards-card" data-js="eventsItem">
-                                                    <div class="cards-card__header">
-                                                        <div class="cards-card__date">10.10</div>
-                                                        <div class="cards-card__logo">
-                                                            <img src="img/calendar/brands/starHit.svg" alt="brand logo">
-                                                        </div>
-                                                    </div>
-                                                    <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
-                                                    <div class="cards-card__tags">
-                                                        <div class="cards-card__tag">Spirit</div>
-                                                        <div class="cards-card__tag">Print/Digital</div>
-                                                        <div class="cards-card__tag">Имиджевая</div>
-                                                        <div class="cards-card__tag">100—500</div>
-                                                        <div class="cards-card__tag">спонсоры</div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                </div>
+                                <div class="schedule-content-body__slide cards swiper-slide has-scroll" data-js="cardsWrap"></div>
                             </div>
                         </div>
                     </div>

@@ -84,6 +84,7 @@ function filterSpoilersController() {
 
 }
 
+// фильтрация и отрисовка событий
 function render(dataPath) {
     const eventsData = JSON.parse(calendarData)
 
@@ -94,15 +95,34 @@ function render(dataPath) {
             || parseFloat(a.day) - parseFloat(b.day);
     });
 
-    renderCaledar(eventsData)
-    renderCards(eventsData)
+    // присваиваем id
+    eventsData.forEach((dataItem, i) => {
+        dataItem.id = 'e' + (i + 1)
+    })
+
+    // отриовываем фильтры
+    renderFilter(eventsData)
+
+    // выполняем первую отрисовку через фильтр
     filter(eventsData)
+
+    // запускаем прослушивание фильтра
+    filterListener(eventsData)
+
 } 
 
+// отрисовывает карточки
 function renderCards(eventsData) {
     const cardsWrap = document.querySelector('[data-js="cardsWrap"]');
 
     if(!cardsWrap) return
+
+    console.log(eventsData)
+
+    if(eventsData.length < 1) {
+        cardsWrap.innerHTML = '<div class="empty-filter-message">Ничего не найдено! <br>Попробуйте другие настройки фильтра.<div>'
+        return
+    }
 
     cardsWrap.innerHTML = ''
 
@@ -177,6 +197,7 @@ function renderCards(eventsData) {
     })
 }
 
+// отрисовывает календарь
 function renderCaledar(eventsData) {
     const calendarWrap = document.querySelector('[data-js="calendarWrap"]');
 
@@ -185,8 +206,83 @@ function renderCaledar(eventsData) {
     calendarWrap.innerHTML = ''
 }
 
+function renderFilter(eventsData) {
+    const filterForm = document.querySelector('[data-js="filterForm"]')
+
+    if(!filterForm) return
+    
+    // добавляем только те годы что есть в данных
+    const yearFields = filterForm.querySelector('[data-id="year"] [data-js="filterParamBody"]')
+    const dataYearsList = [...new Set(eventsData.map(item => item.year))]
+    
+    yearFields.innerHTML = ''
+    
+    dataYearsList.forEach(currentYear => {
+        let id = 'year' + currentYear
+        let label = document.createElement('label');
+        label.classList.add('filter-field')
+        label.setAttribute('for', id)
+        
+        label.innerHTML = `
+        <input type="checkbox" class="filter-field__input" id="${id}" name="year" value="${currentYear}">
+        <div class="filter-field__view">
+        <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                                    </svg> 
+                                    </span>
+                                    <span class="filter-field__name">${currentYear}</span>
+                                    </div>
+                                    `
+                                    
+        yearFields.appendChild(label)
+    })
+
+    //на случай если потребуется отображать только активные месяцы
+    //const monthFields = filterForm.querySelector('[data-id="month"] [data-js="filterParamBody"]')
+    //const dataMonthsList = [...new Set(eventsData.map(item => item.month.toLowerCase()))]
+    
+}
+
+//фильтрует и перерисовывает события
+function filterListener(eventsData) {
+    const filterForm = document.querySelector('[data-js="filterForm"]');
+
+    if(!filterForm) return
+
+    const filterInputs = filterForm.querySelectorAll('input')
+
+    filterInputs.forEach(input => {
+        input.addEventListener('change', () => {
+            filter(eventsData)
+        })
+    })
+}
+
 function filter(eventsData) {
     let resultData = eventsData;
+    
+    const filterForm = document.querySelector('[data-js="filterForm"]');
+
+    if(filterForm) {
+        const filterFieldsList = filterForm.querySelectorAll('[data-js="filterParam"]')
+
+        filterFieldsList.forEach(filterField => {
+            let fieldCheckedInputs = [...filterField.querySelectorAll('input')].filter(input => input.checked)
+
+            if(fieldCheckedInputs.length > 0) {
+                fieldCheckedValues = fieldCheckedInputs.map(input => input.value)
+                resultData = resultData.filter(item => {
+                    return fieldCheckedValues.indexOf(item[fieldCheckedInputs[0].getAttribute('name')]) != -1
+                })
+
+            }
+        })
+
+        const resultCountBlock = filterForm.querySelector('[data-js="filterCount"] span');
+        resultCountBlock.innerText = `${resultData.length} ${numWord(resultData.length, ['событие', 'события', 'событий'])}`
+    }
 
     renderCards(resultData);
     renderCaledar(resultData);
@@ -327,7 +423,7 @@ const calendarData = `[
         "id": "",
         "name": "Конференция Территория свободной мысли",
         "year": "2020",
-        "month": "февраль",
+        "month": "Февраль",
         "day": "28",
         "brand": "theGirl",
         "cluster": "Spirit",
@@ -364,6 +460,7 @@ const calendarData = `[
     }
 ]`
 
+// месяцы по номерам
 const paramsVariables = {
     months: {
         "январь": "01",
@@ -379,4 +476,19 @@ const paramsVariables = {
         "ноябрь": "11",
         "декабрь": "12",
     }
+}
+
+//склонение числительных
+function numWord(value, words) {
+    value = Math.abs(value) % 100;
+    var num = value % 10;
+    if (value > 10 && value < 20) return words[2];
+    if (num > 1 && num < 5) return words[1];
+    if (num == 1) return words[0];
+    return words[2];
+}
+
+function submitFilterform(e) {
+    e.preventDefault();
+    return false;
 }
