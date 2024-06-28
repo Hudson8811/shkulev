@@ -1,8 +1,10 @@
+const dataPath = '' // сюда вписываем адрес JSON-файла
+
 document.addEventListener("DOMContentLoaded", () => {
     tabsInit()
     sidebarController()
     filterSpoilersController()
-    renderCards()
+    render(dataPath)
 })
 
 // Вкладки
@@ -82,143 +84,285 @@ function filterSpoilersController() {
 
 }
 
-function renderCards() {
+function render(dataPath) {
+    const eventsData = JSON.parse(calendarData)
+
+    // сортируем данные
+    eventsData.sort(function(a, b) {
+        return parseFloat(a.year) - parseFloat(b.year) 
+            || parseFloat(paramsVariables.months[a.month.toLowerCase()]) - parseFloat(paramsVariables.months[b.month.toLowerCase()])
+            || parseFloat(a.day) - parseFloat(b.day);
+    });
+
+    renderCaledar(eventsData)
+    renderCards(eventsData)
+    filter(eventsData)
+} 
+
+function renderCards(eventsData) {
     const cardsWrap = document.querySelector('[data-js="cardsWrap"]');
 
     if(!cardsWrap) return
 
-    calendarData.forEach(yearItem => {
-        //Год
-        let yearBlock = document.createElement('div')
-        yearBlock.classList.add('cards__year', 'year');
-        yearBlock.innerHTML = `<div class="year__title">${yearItem.year}</div>`
+    cardsWrap.innerHTML = ''
 
-        yearItem.months.forEach(monthItem => {
-            //Месяц
-            let monthBlock = document.createElement('div')
+    // первый год
+    let currentYear = eventsData[0].year;
+    let yearBlock = document.createElement('div')
+    yearBlock.classList.add('cards__year', 'year');
+    yearBlock.setAttribute('data-filter-name', 'year');
+    yearBlock.setAttribute('data-filter-value', currentYear);
+    yearBlock.innerHTML = `<div class="year__title">${currentYear}</div>`
+    
+    //первый месяц
+    let currentMonth = eventsData[0].month;
+    let monthBlock = document.createElement('div')
+    monthBlock.classList.add('cards__month', 'month');
+    monthBlock.innerHTML = `<div class="month__title">${currentMonth}</div>`
+
+    // таблица первого месяца
+    let monthTable = document.createElement('div')
+    monthTable.classList.add('month__table', 'cards-table');
+
+    monthBlock.appendChild(monthTable)
+    yearBlock.appendChild(monthBlock)
+    cardsWrap.appendChild(yearBlock)
+
+    eventsData.forEach(item => {
+
+        if(currentYear !== item.year) {
+            currentYear = item.year
+            yearBlock = document.createElement('div')
+            yearBlock.classList.add('cards__year', 'year');
+            yearBlock.setAttribute('data-filter-name', 'year');
+            yearBlock.setAttribute('data-filter-value', currentYear);
+            yearBlock.innerHTML = `<div class="year__title">${currentYear}</div>`
+            cardsWrap.appendChild(yearBlock)
+        }
+
+        if(currentMonth.toLowerCase() !== item.month.toLowerCase() || currentYear !== item.year) {
+            currentMonth = item.month
+            monthBlock = document.createElement('div')
             monthBlock.classList.add('cards__month', 'month');
-            monthBlock.innerHTML = `<div class="month__title">${monthItem.month}</div>`
-
-            //Таблица месяца
-            let monthTable = document.createElement('div')
+            monthBlock.innerHTML = `<div class="month__title">${currentMonth}</div>`
+            monthTable = document.createElement('div')
             monthTable.classList.add('month__table', 'cards-table');
-
-            //Заполнение таблицы месяца
-            let eventsList = monthItem.events
-
-            eventsList.sort(function(a, b) {
-                return parseFloat(a.day) - parseFloat(b.day);
-            });
-
-            eventsList.forEach(eventItem => {
-                let eventCard = document.createElement('div')
-
-                eventCard.classList.add('cards-table__card', 'cards-card');
-
-                eventCard.innerHTML = `<div class="cards-card__header">
-                                            <div class="cards-card__date">${eventItem.day + "." + paramsVariables.months[monthItem.month.toLowerCase()]}</div>
-                                            <div class="cards-card__logo">
-                                                <img src="img/calendar/brands/starHit.svg" alt="brand logo">
-                                            </div>
-                                        </div>
-                                        <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
-                                        <div class="cards-card__tags">
-                                            <div class="cards-card__tag">Spirit</div>
-                                            <div class="cards-card__tag">Print/Digital</div>
-                                            <div class="cards-card__tag">Имиджевая</div>
-                                            <div class="cards-card__tag">100—500</div>
-                                            <div class="cards-card__tag">спонсоры</div>
-                                        </div>`
-                
-                monthTable.appendChild(eventCard)
-            })
-           
-
-
             monthBlock.appendChild(monthTable)
             yearBlock.appendChild(monthBlock)
-            cardsWrap.appendChild(yearBlock)
-        })
+        }
 
-        console.log(yearBlock)
+        let eventCard = document.createElement('div')
+        eventCard.classList.add('cards-table__card', 'cards-card');
+
+
+        let imgName = item.brand.toLowerCase().replace(/\s/g, "_")
+
+        eventCard.innerHTML = `<div class="cards-card__header">
+                                    <div class="cards-card__date">${item.day + "." + paramsVariables.months[currentMonth.toLowerCase()]}</div>
+                                    <div class="cards-card__logo">
+                                        <img src="img/calendar/brands/${imgName}.svg" alt="${item.brand}">
+                                    </div>
+                                </div>
+                                <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
+                                <div class="cards-card__tags">
+                                    <div class="cards-card__tag">Spirit</div>
+                                    <div class="cards-card__tag">Print/Digital</div>
+                                    <div class="cards-card__tag">Имиджевая</div>
+                                    <div class="cards-card__tag">100—500</div>
+                                    <div class="cards-card__tag">спонсоры</div>
+                                </div>`
+        
+        monthTable.appendChild(eventCard)
+
     })
 }
 
-const calendarData = [
-    {
-        "year": "2019",
-        "months": [
-            {
-                "month": "февраль",
-                "events": [
-                    {
-                        "id": "Конференция Территория свободной мысли",
-                        "name": "Конференция Территория свободной мысли",
-                        "day": "28",
-                        "brand": "Антенна телесемь",
-                        "cluster": "Spirit",
-                        "department": "PRINT/DIGITAL",
-                        "direction": "ИМИДЖЕВАЯ",
-                        "number": 300,
-                        "sponsors": true
-                    },
-                    {
-                        "id": "Конференция Территория свободной мысли",
-                        "name": "Конференция Территория свободной мысли",
-                        "day": "21",
-                        "brand": "Антенна телесемь",
-                        "cluster": "Spirit",
-                        "department": "PRINT/DIGITAL",
-                        "direction": "ИМИДЖЕВАЯ",
-                        "number": 300,
-                        "sponsors": true
-                    }
-                ]
-                
-            },
-            {
-                "month": "Октябрь",
-                "events": [
-                    {
-                        "id": "Marie Claire x Gloria Jeans Wellness Day",
-                        "name": "Marie Claire x Gloria Jeans Wellness Day",
-                        "day": "10",
-                        "brand": "starHit",
-                        "cluster": "Spirit",
-                        "department": "PRINT/DIGITAL",
-                        "direction": "ИМИДЖЕВАЯ",
-                        "number": 300,
-                        "sponsors": true
-                    }
-                ]
-                
-            }  
-        ]
-    },
-    {
-        "year": "2020",
-        "months": [
-            {
-                "month": "Ноябрь",
-                "events": [
-                    {
-                        "id": "Бизнес-завтрак",
-                        "name": "Бизнес-завтрак",
-                        "day": "15",
-                        "brand": "Psychologies",
-                        "cluster": "Spirit",
-                        "department": "PRINT/DIGITAL",
-                        "direction": "ИМИДЖЕВАЯ",
-                        "number": 300,
-                        "sponsors": true
-                    }
-                ]
-                
-            }  
-        ]
-    },
+function renderCaledar(eventsData) {
+    const calendarWrap = document.querySelector('[data-js="calendarWrap"]');
 
-]
+    if(!calendarWrap) return
+
+    calendarWrap.innerHTML = ''
+}
+
+function filter(eventsData) {
+    let resultData = eventsData;
+
+    renderCards(resultData);
+    renderCaledar(resultData);
+}
+
+const calendarData = `[
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "28",
+        "brand": "Антенна телесемь",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Marie Claire x Gloria Jeans Wellness Day",
+        "year": "2019",
+        "month": "Октябрь",
+        "day": "10",
+        "brand": "StarHit",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "<50",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Бизнес-завтрак",
+        "year": "2020",
+        "month": "Ноябрь",
+        "day": "15",
+        "brand": "Psychologies",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "<100",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "21",
+        "brand": "Доктор Питер",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "500-1000",
+        "sponsors": true
+    },
+        {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "28",
+        "brand": "Maxim",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": ">1000",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "10",
+        "brand": "Marie Claire",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Бизнес-завтрак",
+        "year": "2020",
+        "month": "Ноябрь",
+        "day": "15",
+        "brand": "myDecor",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "21",
+        "brand": "Вокруг Света",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "21",
+        "brand": "Parents",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "февраль",
+        "day": "21",
+        "brand": "SMH",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "500-1000",
+        "sponsors": true
+    },
+        {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2020",
+        "month": "февраль",
+        "day": "28",
+        "brand": "theGirl",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": ">1000",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "Октябрь",
+        "day": "10",
+        "brand": "Wday",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    },
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "year": "2019",
+        "month": "Март",
+        "day": "3",
+        "brand": "Woman",
+        "cluster": "spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "100-500",
+        "sponsors": true
+    }
+]`
 
 const paramsVariables = {
     months: {
