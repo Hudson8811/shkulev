@@ -1,4 +1,4 @@
-const dataPath = '' // сюда вписываем адрес JSON-файла
+const dataPath = 'https://raw.githubusercontent.com/Hudson8811/shkulev/main/data/events-data.json' // сюда вписываем адрес JSON-файла
 
 document.addEventListener("DOMContentLoaded", () => {
     tabsInit()
@@ -86,13 +86,34 @@ function filterSpoilersController() {
 
 // фильтрация и отрисовка событий
 function render(dataPath) {
+
+    fetch(dataPath, {
+        method: 'get'
+    }).then(function(response) {
+        const testData = JSON.parse(response)
+
+        console.log(testData)
+
+    }).catch(function(err) {
+        console.log("данные не найдены! Текст ошибки: " + err)
+    });
+
     const eventsData = JSON.parse(calendarData)
 
     // сортируем данные
     eventsData.sort(function(a, b) {
+
+        if(a.day == "") {
+            a.day = 32
+        }
+
+        if(b.day == "") {
+            b.day = 32
+        }
+
         return parseFloat(a.year) - parseFloat(b.year) 
             || parseFloat(paramsVariables.months[a.month.toLowerCase()]) - parseFloat(paramsVariables.months[b.month.toLowerCase()])
-            || parseFloat(a.day) - parseFloat(b.day);
+            || (parseFloat(a.day) - parseFloat(b.day));
     });
 
     // присваиваем id
@@ -107,7 +128,18 @@ function render(dataPath) {
     filter(eventsData)
 
     // запускаем прослушивание фильтра
-    filterListener(eventsData)
+    const filterForm = document.querySelector('[data-js="filterForm"]');
+
+    if(filterForm) {
+        const filterInputs = filterForm.querySelectorAll('input')
+    
+        filterInputs.forEach(input => {
+            input.addEventListener('change', () => {
+                filter(eventsData)
+            })
+        })
+    }
+
 
 } 
 
@@ -158,9 +190,7 @@ function renderCards(eventsData) {
             yearBlock.setAttribute('data-filter-value', currentYear);
             yearBlock.innerHTML = `<div class="year__title">${currentYear}</div>`
             cardsWrap.appendChild(yearBlock)
-        }
 
-        if(currentMonth.toLowerCase() !== item.month.toLowerCase() || currentYear !== item.year) {
             currentMonth = item.month
             monthBlock = document.createElement('div')
             monthBlock.classList.add('cards__month', 'month');
@@ -169,27 +199,36 @@ function renderCards(eventsData) {
             monthTable.classList.add('month__table', 'cards-table');
             monthBlock.appendChild(monthTable)
             yearBlock.appendChild(monthBlock)
+
+        } else if(currentMonth.toLowerCase() !== item.month.toLowerCase()) {
+
+            currentMonth = item.month
+            monthBlock = document.createElement('div')
+            monthBlock.classList.add('cards__month', 'month');
+            monthBlock.innerHTML = `<div class="month__title">${currentMonth}</div>`
+            monthTable = document.createElement('div')
+            monthTable.classList.add('month__table', 'cards-table');
+            monthBlock.appendChild(monthTable)
+            yearBlock.appendChild(monthBlock)
+
         }
 
         let eventCard = document.createElement('div')
         eventCard.classList.add('cards-table__card', 'cards-card');
 
-
-        let imgName = item.brand.toLowerCase().replace(/\s/g, "_")
-
         eventCard.innerHTML = `<div class="cards-card__header">
-                                    <div class="cards-card__date">${item.day + "." + paramsVariables.months[currentMonth.toLowerCase()]}</div>
+                                    <div class="cards-card__date">${parseFloat(item.day) < 32 ? item.day + "." + paramsVariables.months[currentMonth.toLowerCase()]: ""}</div>
                                     <div class="cards-card__logo">
-                                        <img src="img/calendar/brands/${imgName}.svg" alt="${item.brand}">
+                                        <img src="img/calendar/brands/${item.brand.toLowerCase().replace(/\s/g, "_")}.svg" alt="${item.brand}">
                                     </div>
                                 </div>
-                                <div class="cards-card__title">Marie Claire x Gloria Jeans Wellness Day</div>
+                                <div class="cards-card__title">${item.name}</div>
                                 <div class="cards-card__tags">
-                                    <div class="cards-card__tag">Spirit</div>
-                                    <div class="cards-card__tag">Print/Digital</div>
-                                    <div class="cards-card__tag">Имиджевая</div>
-                                    <div class="cards-card__tag">100—500</div>
-                                    <div class="cards-card__tag">спонсоры</div>
+                                    ${item.cluster ? '<div class="cards-card__tag">' + item.cluster + '</div>' : ''}
+                                    ${item.department ? '<div class="cards-card__tag">' + item.department + '</div>' : ''}
+                                    ${item.direction ? '<div class="cards-card__tag">' + item.direction + '</div>' : ''}
+                                    ${item.number ? '<div class="cards-card__tag">' + item.number + '</div>' : ''}
+                                    ${item.sponsors.toLowerCase().trim() == "да" ? '<div class="cards-card__tag">Спонсоры</div>' : ''}
                                 </div>`
         
         monthTable.appendChild(eventCard)
@@ -224,42 +263,23 @@ function renderFilter(eventsData) {
         label.setAttribute('for', id)
         
         label.innerHTML = `
-        <input type="checkbox" class="filter-field__input" id="${id}" name="year" value="${currentYear}">
-        <div class="filter-field__view">
-        <span class="filter-field__icon" data-js="filterFieldDelete">                                        
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
+                            <input type="checkbox" class="filter-field__input" id="${id}" name="year" value="${currentYear}">
+                            <div class="filter-field__view">
+                                <span class="filter-field__icon" data-js="filterFieldDelete">                                        
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.4714 3.52858C12.7318 3.78892 12.7318 4.21103 12.4714 4.47138L4.47145 12.4714C4.2111 12.7317 3.78899 12.7317 3.52864 12.4714C3.26829 12.211 3.26829 11.7889 3.52864 11.5286L11.5286 3.52858C11.789 3.26823 12.2111 3.26823 12.4714 3.52858Z" fill="currentColor"/>
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.52864 3.52858C3.78899 3.26823 4.2111 3.26823 4.47145 3.52858L12.4714 11.5286C12.7318 11.7889 12.7318 12.211 12.4714 12.4714C12.2111 12.7317 11.789 12.7317 11.5286 12.4714L3.52864 4.47138C3.26829 4.21103 3.26829 3.78892 3.52864 3.52858Z" fill="currentColor"/>
                                     </svg> 
-                                    </span>
-                                    <span class="filter-field__name">${currentYear}</span>
-                                    </div>
-                                    `
+                                </span>
+                                <span class="filter-field__name">${currentYear}</span>
+                            </div>
+                        `
                                     
         yearFields.appendChild(label)
-    })
-
-    //на случай если потребуется отображать только активные месяцы
-    //const monthFields = filterForm.querySelector('[data-id="month"] [data-js="filterParamBody"]')
-    //const dataMonthsList = [...new Set(eventsData.map(item => item.month.toLowerCase()))]
-    
+    })    
 }
 
 //фильтрует и перерисовывает события
-function filterListener(eventsData) {
-    const filterForm = document.querySelector('[data-js="filterForm"]');
-
-    if(!filterForm) return
-
-    const filterInputs = filterForm.querySelectorAll('input')
-
-    filterInputs.forEach(input => {
-        input.addEventListener('change', () => {
-            filter(eventsData)
-        })
-    })
-}
-
 function filter(eventsData) {
     let resultData = eventsData;
     
@@ -272,9 +292,9 @@ function filter(eventsData) {
             let fieldCheckedInputs = [...filterField.querySelectorAll('input')].filter(input => input.checked)
 
             if(fieldCheckedInputs.length > 0) {
-                fieldCheckedValues = fieldCheckedInputs.map(input => input.value)
+                fieldCheckedValues = fieldCheckedInputs.map(input => input.value.toLowerCase())
                 resultData = resultData.filter(item => {
-                    return fieldCheckedValues.indexOf(item[fieldCheckedInputs[0].getAttribute('name')]) != -1
+                    return fieldCheckedValues.indexOf(item[fieldCheckedInputs[0].getAttribute('name')].toLowerCase()) != -1
                 })
 
             }
@@ -292,19 +312,21 @@ const calendarData = `[
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "28",
         "brand": "Антенна телесемь",
-        "cluster": "Spirit",
+        "cluster": "spirit",
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Marie Claire x Gloria Jeans Wellness Day",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "Октябрь",
         "day": "10",
@@ -312,12 +334,13 @@ const calendarData = `[
         "cluster": "spirit",
         "department": "print/digital",
         "direction": "имиджевая",
-        "number": "<50",
-        "sponsors": true
+        "number": "до 50",
+        "sponsors": "да"
     },
     {
         "id": "",
         "name": "Бизнес-завтрак",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2020",
         "month": "Ноябрь",
         "day": "15",
@@ -325,12 +348,13 @@ const calendarData = `[
         "cluster": "Spirit",
         "department": "print/digital",
         "direction": "имиджевая",
-        "number": "<100",
-        "sponsors": true
+        "number": "до 100",
+        "sponsors": "да"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "21",
@@ -339,11 +363,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "500-1000",
-        "sponsors": true
+        "sponsors": "да"
     },
         {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "28",
@@ -351,12 +376,27 @@ const calendarData = `[
         "cluster": "Spirit",
         "department": "print/digital",
         "direction": "имиджевая",
-        "number": ">1000",
-        "sponsors": true
+        "number": "свыше 1000",
+        "sponsors": "нет"
+    },
+    {
+        "id": "",
+        "name": "Без даты",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2020",
+        "month": "Ноябрь",
+        "day": "",
+        "brand": "Psychologies",
+        "cluster": "Spirit",
+        "department": "print/digital",
+        "direction": "имиджевая",
+        "number": "до 100",
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "10",
@@ -365,11 +405,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "да"
     },
     {
         "id": "",
         "name": "Бизнес-завтрак",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2020",
         "month": "Ноябрь",
         "day": "15",
@@ -378,11 +419,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "21",
@@ -391,11 +433,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "21",
@@ -404,11 +447,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "февраль",
         "day": "21",
@@ -417,11 +461,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "500-1000",
-        "sponsors": true
+        "sponsors": "да"
     },
         {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2020",
         "month": "Февраль",
         "day": "28",
@@ -429,12 +474,13 @@ const calendarData = `[
         "cluster": "Spirit",
         "department": "print/digital",
         "direction": "имиджевая",
-        "number": ">1000",
-        "sponsors": true
+        "number": "свыше 1000",
+        "sponsors": "да"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "Октябрь",
         "day": "10",
@@ -443,11 +489,12 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "нет"
     },
     {
         "id": "",
         "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2019",
         "month": "Март",
         "day": "3",
@@ -456,7 +503,7 @@ const calendarData = `[
         "department": "print/digital",
         "direction": "имиджевая",
         "number": "100-500",
-        "sponsors": true
+        "sponsors": "да"
     }
 ]`
 
@@ -488,6 +535,7 @@ function numWord(value, words) {
     return words[2];
 }
 
+// запрещет отправку формы
 function submitFilterform(e) {
     e.preventDefault();
     return false;
