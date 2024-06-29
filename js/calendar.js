@@ -90,9 +90,9 @@ function render(dataPath) {
     fetch(dataPath, {
         method: 'get'
     }).then(function(response) {
-        const testData = JSON.parse(response)
+        //const testData = JSON.parse(response)
 
-        console.log(testData)
+        console.log(response.json())
 
     }).catch(function(err) {
         console.log("данные не найдены! Текст ошибки: " + err)
