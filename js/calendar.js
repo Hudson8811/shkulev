@@ -134,7 +134,8 @@ function render(dataPath) {
         }
 
     }).catch(function(err) {
-        console.log("данные не найдены! Текст ошибки: " + err)
+        console.log("данные не найдены!")
+        console.log(err)
     });
 
    /*const eventsData = JSON.parse(calendarData)
