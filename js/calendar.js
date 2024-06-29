@@ -89,16 +89,55 @@ function render(dataPath) {
 
     fetch(dataPath, {
         method: 'get'
-    }).then(function(response) {
-        //const testData = JSON.parse(response)
+    }).then(response => response.json()).then(json => {
 
-        console.log(response.json())
+        const eventsData = json
+
+        // сортируем данные
+        eventsData.sort(function(a, b) {
+
+            if(a.day == "") {
+                a.day = 32
+            }
+
+            if(b.day == "") {
+                b.day = 32
+            }
+
+            return parseFloat(a.year) - parseFloat(b.year) 
+                || parseFloat(paramsVariables.months[a.month.toLowerCase()]) - parseFloat(paramsVariables.months[b.month.toLowerCase()])
+                || (parseFloat(a.day) - parseFloat(b.day));
+        });
+
+        // присваиваем id
+        eventsData.forEach((dataItem, i) => {
+            dataItem.id = 'e' + (i + 1)
+        })
+
+        // отриовываем фильтры
+        renderFilter(eventsData)
+
+        // выполняем первую отрисовку через фильтр
+        filter(eventsData)
+
+        // запускаем прослушивание фильтра
+        const filterForm = document.querySelector('[data-js="filterForm"]');
+
+        if(filterForm) {
+            const filterInputs = filterForm.querySelectorAll('input')
+        
+            filterInputs.forEach(input => {
+                input.addEventListener('change', () => {
+                    filter(eventsData)
+                })
+            })
+        }
 
     }).catch(function(err) {
         console.log("данные не найдены! Текст ошибки: " + err)
     });
 
-    const eventsData = JSON.parse(calendarData)
+   /*const eventsData = JSON.parse(calendarData)
 
     // сортируем данные
     eventsData.sort(function(a, b) {
@@ -138,7 +177,7 @@ function render(dataPath) {
                 filter(eventsData)
             })
         })
-    }
+    }*/
 
 
 } 
