@@ -11,8 +11,9 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/fonts.css">
 
-    <link rel="stylesheet" href="css/calendar.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/hystmodal.min.css">
+    <link rel="stylesheet" href="css/calendar.css">
 </head>
 
 <body>
@@ -37,8 +38,8 @@
                             <div class="filter__count" data-js="filterCount">Найдено <span>0 событий</span></div>
                             <div class="filter__fields">
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="year">
-                                    <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Год</div>
+                                    <div class="filter-param__header" data-js="filterParamHeader">
+                                        <div class="filter-param__title">Год <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -56,7 +57,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="month">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Месяц</div>
+                                        <div class="filter-param__title">Месяц <span  data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -219,7 +220,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="brand">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Бренд</div>
+                                        <div class="filter-param__title">Бренд <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -394,7 +395,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="cluster">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Кластер</div>
+                                        <div class="filter-param__title">Кластер <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -448,7 +449,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="department">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Департамент</div>
+                                        <div class="filter-param__title">Департамент <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -492,7 +493,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="print-digital">
-                                            <input type="checkbox" class="filter-field__input" id="print-digital" name="department" value="print-digital">
+                                            <input type="checkbox" class="filter-field__input" id="print-digital" name="department" value="print/digital">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -514,7 +515,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="direction">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Направление</div>
+                                        <div class="filter-param__title">Направление <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -522,7 +523,7 @@
                                     </div>
                                     <div class="filter-param__content" data-js="filterParamBody">
                                         <label class="filter-field" for="business">
-                                            <input type="checkbox" class="filter-field__input" id="business" name="direction" value="business">
+                                            <input type="checkbox" class="filter-field__input" id="business" name="direction" value="Бизнес-форматы">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -534,7 +535,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="image">
-                                            <input type="checkbox" class="filter-field__input" id="image" name="direction" value="image">
+                                            <input type="checkbox" class="filter-field__input" id="image" name="direction" value="Имиджевая">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -546,7 +547,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="entertaining">
-                                            <input type="checkbox" class="filter-field__input" id="entertaining" name="direction" value="entertaining">
+                                            <input type="checkbox" class="filter-field__input" id="entertaining" name="direction" value="Развлекательная">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -558,7 +559,7 @@
                                             </div>
                                         </label>
                                         <label class="filter-field" for="cognitive-educational">
-                                            <input type="checkbox" class="filter-field__input" id="cognitive-educational" name="direction" value="cognitive-educational">
+                                            <input type="checkbox" class="filter-field__input" id="cognitive-educational" name="direction" value="Познав.-образов-льная">
                                             <div class="filter-field__view">
                                                 <span class="filter-field__icon" data-js="filterFieldDelete">                                        
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -580,7 +581,7 @@
                                 </div>
                                 <div class="filter__item filter-param expanded" data-js="filterParam" data-id="number">
                                     <div class="filter-param__header"data-js="filterParamHeader">
-                                        <div class="filter-param__title">Численность</div>
+                                        <div class="filter-param__title">Численность <span data-js="filterParamCount"></span></div>
                                         <div class="filter-param__count"></div>
                                         <div class="filter-param__arrow">
                                             <img src="img/calendar/chevron.svg" alt="arrow down">
@@ -720,338 +721,8 @@
                     <div class="schedule-content__body">
                         <div class="schedule-content__slider" data-js="tabsSlider">
                             <div class="swiper-wrapper">
-                                <div class="schedule-content__slide calendar swiper-slide has-scroll">
-                                    <div class="calendar__month month">
-                                        <div class="month__title">Октябрь</div>
-                                        <div class="month__table calendar-table">
-                                            <div class="calendar-table__row calendar-table__row--header">
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">пн</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">вт</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">ср</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">чт</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">пт</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">сб</div>
-                                                </div>
-                                                <div class="calendar-table__cell">
-                                                    <div class="calendar-cell__day">вс</div>
-                                                </div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                            <div class="calendar-table__row">
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell"></div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell calendar-cell">
-                                                    <div class="calendar-cell__day">1</div>
-                                                    <div class="calendar-cell__events">
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                        <div class="calendar-cell__event">Юбилей</div>
-                                                        <div class="calendar-cell__event">Beauty-девичник Woman.ru</div>
-                                                        <div class="calendar-cell__event">Фестиваль Вокруг света: вокруг
-                                                            материков</div>
-                                                    </div>
-                                                </div>
-                                                <div class="calendar-table__cell"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="schedule-content-body__slide cards swiper-slide has-scroll" data-js="cardsWrap"></div>
+                                <div class="schedule-content__slide calendar swiper-slide has-scroll" data-js="calendarWrap"></div>
+                                <div class="schedule-content__slide cards swiper-slide has-scroll" data-js="cardsWrap"></div>
                             </div>
                         </div>
                     </div>
@@ -1059,9 +730,25 @@
             </div>
         </div>
     </div>
+
+    <!--Модалка подробностей события-->
+    <div class="hystmodal" id="detailEventModal" aria-hidden="true">
+        <div class="hystmodal__wrap">
+            <div class="hystmodal__window" role="dialog" aria-modal="true">
+                <button data-hystclose class="hystmodal__close">
+                    <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M40.532 11.4679C41.3781 12.3141 41.3781 13.6859 40.532 14.532L14.532 40.532C13.6858 41.3782 12.314 41.3782 11.4679 40.532C10.6217 39.6859 10.6217 38.3141 11.4679 37.4679L37.4679 11.4679C38.314 10.6218 39.6858 10.6218 40.532 11.4679Z" fill="white"/>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M11.4679 11.4679C12.314 10.6218 13.6858 10.6218 14.532 11.4679L40.532 37.4679C41.3781 38.3141 41.3781 39.6859 40.532 40.532C39.6858 41.3782 38.314 41.3782 37.4679 40.532L11.4679 14.532C10.6217 13.6859 10.6217 12.3141 11.4679 11.4679Z" fill="white"/>
+                    </svg>                        
+                </button>
+                <div class="event-modal" data-js="eventModalContent"></div>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/swiper-bundle.min.js"></script>
+<script src="js/hystmodal.min.js"></script>
 <script src="js/calendar.js"></script>
 
 </html>
