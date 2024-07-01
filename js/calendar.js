@@ -1,4 +1,4 @@
-const dataPath = 'https://raw.githubusercontent.com/Hudson8811/shkulev/main/data/events-data.json' // сюда вписываем адрес JSON-файла
+const dataPath = 'https://raw.githubusercontent.com/Hudson8811/shkulev/main/data/events-data.json' // сюда вписываем адрес JSON-файла. Пример файла data/events-data.json
 
 document.addEventListener("DOMContentLoaded", () => {
     tabsInit()
@@ -336,7 +336,7 @@ function renderCards(eventsData) {
 }
 
 // отрисовывает календарь
-function renderCaledar(eventsData) {
+function renderCaledar(eventsData, sortToBottom=true) {
     const calendarWrap = document.querySelector('[data-js="calendarWrap"]');
     const monthTableHeader = `
                                     <div class="calendar-table__row calendar-table__row--header">
@@ -376,7 +376,7 @@ function renderCaledar(eventsData) {
     console.log(eventsData)
 
     // первый год
-    let currentYear = eventsData[eventsData.length - 1].year;
+    let currentYear = eventsData[sortToBottom ? eventsData.length - 1 : 0].year;
     let yearBlock = document.createElement('div')
     yearBlock.classList.add('calendar__year', 'year');
     yearBlock.setAttribute('data-filter-name', 'year');
@@ -384,7 +384,7 @@ function renderCaledar(eventsData) {
     yearBlock.innerHTML = `<div class="year__title">${currentYear}</div>`
     
     //первый месяц
-    let currentMonth = eventsData[eventsData.length - 1].month;
+    let currentMonth = eventsData[sortToBottom ? eventsData.length - 1 : 0].month;
     let monthBlock = document.createElement('div')
     monthBlock.classList.add('calendar__month', 'month');
     monthBlock.innerHTML = `<div class="month__title">${currentMonth}</div>`
@@ -398,7 +398,11 @@ function renderCaledar(eventsData) {
     yearBlock.appendChild(monthBlock)
     calendarWrap.appendChild(yearBlock)
 
-    eventsData.reverse().forEach(item => {
+    if(sortToBottom) {
+        eventsData = eventsData.reverse()
+    }
+
+    eventsData.forEach(item => {
 
         if(currentYear !== item.year) {
             currentYear = item.year
