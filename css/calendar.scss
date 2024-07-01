@@ -5,6 +5,25 @@ $c-bg: #F2F5F9;
 $c-border: #E4E8ED;
 $tt: 0.3s;
 
+$c-at7: #0085FF;
+$c-around-world: #00BA34;
+$c-doctor-piter: #25B1D9;
+$c-marie-claire: #000;
+$c-maxim: #C50015;
+$c-mydecor: #969696;
+$c-parents: #F13F35;
+$c-psychologies: #FF9F2D;
+$c-smh: #284CA6;
+$c-starhit: #E92C2C;
+$c-thegirl: #E08B89;
+$c-wday: #F42F3A;
+$c-woman: #C00783;
+
+
+.hidden {
+    display: none;
+}
+
 .btn-icon {
     background: transparent;
     outline: none;
@@ -71,6 +90,10 @@ $tt: 0.3s;
     &__sidebar.active+&__body {
         max-width: calc(100% - 320px);
         transition: max-width $tt linear;
+
+        @media (max-width: 992px) {
+            max-width: 100%;
+        }
     }
 
     &__sidebar+&__body {
@@ -177,6 +200,11 @@ $tt: 0.3s;
         font-weight: 500;
         line-height: 16px;
         color: $c-text;
+        transition: color $tt linear;
+
+        &:hover {
+            color: #6E7191;
+        }
 
         svg {
             width: 16px;
@@ -240,7 +268,6 @@ $tt: 0.3s;
     }
 }
 
-
 .filter-field {
     position: relative;
     cursor: pointer;
@@ -264,6 +291,10 @@ $tt: 0.3s;
         transition: background-color $tt linear,
             color $tt linear;
         color: $c-accent;
+
+        &:hover {
+            background-color: $c-border;
+        }
     }
 
     &__icon {
@@ -287,13 +318,17 @@ $tt: 0.3s;
         background-color: $c-accent2;
         color: #fff;
         padding-left: 8px;
+        transition: background-color $tt linear;
+
+        &:hover {
+            background-color: #F2502D;
+        }
     }
 
     &__input:checked+&__view>&__icon {
         display: block;
     }
 }
-
 
 .schedule-header {
     display: flex;
@@ -331,7 +366,7 @@ $tt: 0.3s;
     &__slide.swiper-slide {
         display: flex;
         flex-direction: column;
-        gap: 50px;
+        gap: 60px;
     }
 }
 
@@ -397,10 +432,18 @@ $tt: 0.3s;
     gap: 5px;
 
     &__day {
+        width: fit-content;
+        padding: 0 8px;
         font-size: 20px;
         font-weight: 500;
         line-height: 1.2em;
         color: $c-text;
+
+        &--current {
+            background-color: $c-accent2;
+            border-radius: 13px;
+            color: #fff;
+        }
     }
 
     &__events {
@@ -465,20 +508,73 @@ $tt: 0.3s;
 .year {
     display: flex;
     flex-direction: column;
-    gap: 24px;
 
     &__title {
-        font-size: 26px;
-        font-weight: 500;
+        font-size: 24px;
+        font-weight: 700;
         line-height: 1.33em;
         color: $c-accent;
     }
+
+
+    .month {
+        margin-top: 24px;
+    }
+
+    &__title+.month {
+        margin-top: 20px;
+    }
+
 }
 
 .cards-table {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     gap: 20px;
+}
+
+@media (max-width: 1700px) {
+    .sidebar.active+.schedule-content {
+        .cards-table {
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    .cards-table {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+    }
+
+    .sidebar.active+.schedule-content {
+        .cards-table {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 1199px) {
+    .cards-table {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .sidebar.active+.schedule-content {
+        .cards-table {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .cards-table {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sidebar.active+.schedule-content {
+        .cards-table {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
 }
 
 .cards-card {
@@ -530,7 +626,7 @@ $tt: 0.3s;
         display: flex;
         align-items: center;
         padding: 0 8px;
-        height: 16px;
+        min-height: 16px;
         font-size: 12px;
         font-weight: 500;
         line-height: 1.2em;
@@ -619,7 +715,6 @@ $tt: 0.3s;
         font-weight: 400;
         line-height: 1.5em;
         color: $c-accent;
-
     }
 
     &__tags {
@@ -642,5 +737,303 @@ $tt: 0.3s;
         color: #6e7191;
         background-color: $c-border;
         border-radius: 20px;
+    }
+}
+
+.empty-filter-message {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    color: $c-text;
+
+    &__title {
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 1.33em;
+    }
+
+    &__text {
+        gap: 24px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 1.5em;
+
+    }
+}
+
+.brand-filter {
+    border: 1px solid transparent;
+    border-color: transparent;
+    transition: color $tt linear, border-color $tt linear, background-color $tt linear;
+
+    &--at7 {
+        color: $c-at7;
+
+        &:hover {
+            background-color: rgba($c-at7, 0.2);
+            border-color: $c-at7;
+        }
+    }
+
+    &--around-world {
+        color: $c-around-world;
+
+        &:hover {
+            background-color: rgba($c-around-world, 0.2);
+            border-color: $c-around-world;
+        }
+    }
+
+    &--doctor-piter {
+        color: $c-doctor-piter;
+
+        &:hover {
+            background-color: rgba($c-doctor-piter, 0.2);
+            border-color: $c-doctor-piter;
+        }
+    }
+
+    &--marie-claire {
+        color: $c-marie-claire;
+
+        &:hover {
+            color: #fff;
+            background-color: rgba($c-marie-claire, 0.6);
+            border-color: $c-marie-claire;
+        }
+    }
+
+    &--maxim {
+        color: $c-maxim;
+
+        &:hover {
+            color: #fff;
+            background-color: rgba($c-maxim, 0.6);
+            border-color: $c-maxim;
+        }
+    }
+
+    &--mydecor {
+        color: $c-mydecor;
+
+        &:hover {
+            background-color: #C9D1DA;
+            border-color: $c-mydecor;
+        }
+    }
+
+    &--parents {
+        color: $c-parents;
+
+        &:hover {
+            background-color: rgba($c-parents, 0.2);
+            border-color: $c-parents;
+        }
+    }
+
+    &--psychologies {
+        color: $c-psychologies;
+
+        &:hover {
+            background-color: rgba($c-psychologies, 0.2);
+            border-color: $c-psychologies;
+        }
+    }
+
+    &--smh {
+        color: $c-smh;
+
+        &:hover {
+            background-color: rgba($c-smh, 0.2);
+            border-color: $c-smh;
+        }
+    }
+
+    &--starhit {
+        color: $c-starhit;
+
+        &:hover {
+            background-color: rgba($c-starhit, 0.2);
+            border-color: $c-starhit;
+        }
+    }
+
+    &--thegirl {
+        color: $c-thegirl;
+
+        &:hover {
+            background-color: rgba($c-thegirl, 0.2);
+            border-color: $c-thegirl;
+        }
+    }
+
+    &--wday {
+        color: $c-wday;
+
+        &:hover {
+            background-color: rgba($c-wday, 0.2);
+            border-color: $c-wday;
+        }
+    }
+
+    &--woman {
+        color: $c-woman;
+
+        &:hover {
+            background-color: rgba($c-woman, 0.2);
+            border-color: $c-woman;
+        }
+    }
+}
+
+.filter-field__input:checked+.brand-filter,
+.calendar-cell__event {
+    transition: background-color $tt linear,
+        color $tt linear,
+        border-color $tt linear;
+
+    &--at7 {
+        color: $c-at7;
+        background-color: rgba($c-at7, 0.1);
+        border-color: $c-at7;
+
+        &:hover {
+            background-color: rgba($c-at7, 0.2);
+            border-color: $c-at7;
+        }
+    }
+
+    &--around-world {
+        color: $c-around-world;
+        background-color: rgba($c-around-world, 0.1);
+        border-color: $c-around-world;
+
+        &:hover {
+            background-color: rgba($c-around-world, 0.2);
+            border-color: $c-around-world;
+        }
+    }
+
+    &--doctor-piter {
+        color: $c-doctor-piter;
+        background-color: rgba($c-doctor-piter, 0.1);
+        border-color: $c-doctor-piter;
+
+        &:hover {
+            background-color: rgba($c-doctor-piter, 0.2);
+            border-color: $c-doctor-piter;
+        }
+    }
+
+    &--marie-claire {
+        color: #fff;
+        background-color: $c-marie-claire;
+        border-color: $c-marie-claire;
+
+        &:hover {
+            color: #fff;
+            background-color: rgba($c-marie-claire, 0.6);
+            border-color: $c-marie-claire;
+        }
+    }
+
+    &--maxim {
+        color: #fff;
+        background-color: $c-maxim;
+        border-color: $c-maxim;
+
+        &:hover {
+            color: #fff;
+            background-color: rgba($c-maxim, 0.6);
+            border-color: $c-maxim;
+        }
+    }
+
+    &--mydecor {
+        color: $c-mydecor;
+        background-color: #E8E8E8;
+        border-color: $c-mydecor;
+
+        &:hover {
+            background-color: #C9D1DA;
+            border-color: $c-mydecor;
+        }
+    }
+
+    &--parents {
+        color: $c-parents;
+        background-color: rgba($c-parents, 0.1);
+        border-color: $c-parents;
+
+        &:hover {
+            background-color: rgba($c-parents, 0.2);
+            border-color: $c-parents;
+        }
+    }
+
+    &--psychologies {
+        color: $c-psychologies;
+        background-color: rgba($c-psychologies, 0.1);
+        border-color: $c-psychologies;
+
+        &:hover {
+            background-color: rgba($c-psychologies, 0.2);
+            border-color: $c-psychologies;
+        }
+    }
+
+    &--smh {
+        color: $c-smh;
+        background-color: rgba($c-smh, 0.1);
+        border-color: $c-smh;
+
+        &:hover {
+            background-color: rgba($c-smh, 0.2);
+            border-color: $c-smh;
+        }
+    }
+
+    &--starhit {
+        color: $c-starhit;
+        background-color: rgba($c-starhit, 0.1);
+        border-color: $c-starhit;
+
+        &:hover {
+            background-color: rgba($c-starhit, 0.2);
+            border-color: $c-starhit;
+        }
+    }
+
+    &--thegirl {
+        color: $c-thegirl;
+        background-color: rgba($c-thegirl, 0.1);
+        border-color: $c-thegirl;
+
+        &:hover {
+            background-color: rgba($c-thegirl, 0.2);
+            border-color: $c-thegirl;
+        }
+    }
+
+    &--wday {
+        color: $c-wday;
+        background-color: rgba($c-wday, 0.1);
+        border-color: $c-wday;
+
+        &:hover {
+            background-color: rgba($c-wday, 0.2);
+            border-color: $c-wday;
+        }
+    }
+
+    &--woman {
+        color: $c-woman;
+        background-color: rgba($c-woman, 0.1);
+        border-color: $c-woman;
+
+        &:hover {
+            background-color: rgba($c-woman, 0.2);
+            border-color: $c-woman;
+        }
     }
 }

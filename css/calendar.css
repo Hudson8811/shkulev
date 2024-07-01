@@ -1,3 +1,7 @@
+.hidden {
+  display: none;
+}
+
 .btn-icon {
   background: transparent;
   outline: none;
@@ -55,6 +59,11 @@
 .schedule__sidebar.active + .schedule__body {
   max-width: calc(100% - 320px);
   transition: max-width 0.3s linear;
+}
+@media (max-width: 992px) {
+  .schedule__sidebar.active + .schedule__body {
+    max-width: 100%;
+  }
 }
 .schedule__sidebar + .schedule__body {
   max-width: 100%;
@@ -146,6 +155,10 @@
   font-weight: 500;
   line-height: 16px;
   color: #9CA5B5;
+  transition: color 0.3s linear;
+}
+.filter-param__clear:hover {
+  color: #6E7191;
 }
 .filter-param__clear svg {
   width: 16px;
@@ -218,6 +231,9 @@
   transition: background-color 0.3s linear, color 0.3s linear;
   color: #1B2C4E;
 }
+.filter-field__view:hover {
+  background-color: #E4E8ED;
+}
 .filter-field__icon {
   width: 16px;
   height: 16px;
@@ -236,6 +252,10 @@
   background-color: #FF522D;
   color: #fff;
   padding-left: 8px;
+  transition: background-color 0.3s linear;
+}
+.filter-field__input:checked + .filter-field__view:hover {
+  background-color: #F2502D;
 }
 .filter-field__input:checked + .filter-field__view > .filter-field__icon {
   display: block;
@@ -271,7 +291,7 @@
 .schedule-content__slide.swiper-slide {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 60px;
 }
 
 .month__title {
@@ -321,10 +341,18 @@
   gap: 5px;
 }
 .calendar-cell__day {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0 8px;
   font-size: 20px;
   font-weight: 500;
   line-height: 1.2em;
   color: #9CA5B5;
+}
+.calendar-cell__day--current {
+  background-color: #FF522D;
+  border-radius: 13px;
+  color: #fff;
 }
 .calendar-cell__events {
   display: flex;
@@ -380,13 +408,18 @@
 .year {
   display: flex;
   flex-direction: column;
-  gap: 24px;
 }
 .year__title {
-  font-size: 26px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 700;
   line-height: 1.33em;
   color: #1B2C4E;
+}
+.year .month {
+  margin-top: 24px;
+}
+.year__title + .month {
+  margin-top: 20px;
 }
 
 .cards-table {
@@ -395,6 +428,35 @@
   gap: 20px;
 }
 
+@media (max-width: 1700px) {
+  .sidebar.active + .schedule-content .cards-table {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1400px) {
+  .cards-table {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+  .sidebar.active + .schedule-content .cards-table {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1199px) {
+  .cards-table {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .sidebar.active + .schedule-content .cards-table {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 992px) {
+  .cards-table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .sidebar.active + .schedule-content .cards-table {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
 .cards-card {
   display: flex;
   flex-direction: column;
@@ -438,7 +500,7 @@
   display: flex;
   align-items: center;
   padding: 0 8px;
-  height: 16px;
+  min-height: 16px;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.2em;
@@ -539,4 +601,271 @@
   color: #6e7191;
   background-color: #E4E8ED;
   border-radius: 20px;
+}
+
+.empty-filter-message {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #9CA5B5;
+}
+.empty-filter-message__title {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.33em;
+}
+.empty-filter-message__text {
+  gap: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.brand-filter {
+  border: 1px solid transparent;
+  border-color: transparent;
+  transition: color 0.3s linear, border-color 0.3s linear, background-color 0.3s linear;
+}
+.brand-filter--at7 {
+  color: #0085FF;
+}
+.brand-filter--at7:hover {
+  background-color: rgba(0, 133, 255, 0.2);
+  border-color: #0085FF;
+}
+.brand-filter--around-world {
+  color: #00BA34;
+}
+.brand-filter--around-world:hover {
+  background-color: rgba(0, 186, 52, 0.2);
+  border-color: #00BA34;
+}
+.brand-filter--doctor-piter {
+  color: #25B1D9;
+}
+.brand-filter--doctor-piter:hover {
+  background-color: rgba(37, 177, 217, 0.2);
+  border-color: #25B1D9;
+}
+.brand-filter--marie-claire {
+  color: #000;
+}
+.brand-filter--marie-claire:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: #000;
+}
+.brand-filter--maxim {
+  color: #C50015;
+}
+.brand-filter--maxim:hover {
+  color: #fff;
+  background-color: rgba(197, 0, 21, 0.6);
+  border-color: #C50015;
+}
+.brand-filter--mydecor {
+  color: #969696;
+}
+.brand-filter--mydecor:hover {
+  background-color: #C9D1DA;
+  border-color: #969696;
+}
+.brand-filter--parents {
+  color: #F13F35;
+}
+.brand-filter--parents:hover {
+  background-color: rgba(241, 63, 53, 0.2);
+  border-color: #F13F35;
+}
+.brand-filter--psychologies {
+  color: #FF9F2D;
+}
+.brand-filter--psychologies:hover {
+  background-color: rgba(255, 159, 45, 0.2);
+  border-color: #FF9F2D;
+}
+.brand-filter--smh {
+  color: #284CA6;
+}
+.brand-filter--smh:hover {
+  background-color: rgba(40, 76, 166, 0.2);
+  border-color: #284CA6;
+}
+.brand-filter--starhit {
+  color: #E92C2C;
+}
+.brand-filter--starhit:hover {
+  background-color: rgba(233, 44, 44, 0.2);
+  border-color: #E92C2C;
+}
+.brand-filter--thegirl {
+  color: #E08B89;
+}
+.brand-filter--thegirl:hover {
+  background-color: rgba(224, 139, 137, 0.2);
+  border-color: #E08B89;
+}
+.brand-filter--wday {
+  color: #F42F3A;
+}
+.brand-filter--wday:hover {
+  background-color: rgba(244, 47, 58, 0.2);
+  border-color: #F42F3A;
+}
+.brand-filter--woman {
+  color: #C00783;
+}
+.brand-filter--woman:hover {
+  background-color: rgba(192, 7, 131, 0.2);
+  border-color: #C00783;
+}
+
+.filter-field__input:checked + .brand-filter,
+.calendar-cell__event {
+  transition: background-color 0.3s linear, color 0.3s linear, border-color 0.3s linear;
+}
+.filter-field__input:checked + .brand-filter--at7,
+.calendar-cell__event--at7 {
+  color: #0085FF;
+  background-color: rgba(0, 133, 255, 0.1);
+  border-color: #0085FF;
+}
+.filter-field__input:checked + .brand-filter--at7:hover,
+.calendar-cell__event--at7:hover {
+  background-color: rgba(0, 133, 255, 0.2);
+  border-color: #0085FF;
+}
+.filter-field__input:checked + .brand-filter--around-world,
+.calendar-cell__event--around-world {
+  color: #00BA34;
+  background-color: rgba(0, 186, 52, 0.1);
+  border-color: #00BA34;
+}
+.filter-field__input:checked + .brand-filter--around-world:hover,
+.calendar-cell__event--around-world:hover {
+  background-color: rgba(0, 186, 52, 0.2);
+  border-color: #00BA34;
+}
+.filter-field__input:checked + .brand-filter--doctor-piter,
+.calendar-cell__event--doctor-piter {
+  color: #25B1D9;
+  background-color: rgba(37, 177, 217, 0.1);
+  border-color: #25B1D9;
+}
+.filter-field__input:checked + .brand-filter--doctor-piter:hover,
+.calendar-cell__event--doctor-piter:hover {
+  background-color: rgba(37, 177, 217, 0.2);
+  border-color: #25B1D9;
+}
+.filter-field__input:checked + .brand-filter--marie-claire,
+.calendar-cell__event--marie-claire {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+.filter-field__input:checked + .brand-filter--marie-claire:hover,
+.calendar-cell__event--marie-claire:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-color: #000;
+}
+.filter-field__input:checked + .brand-filter--maxim,
+.calendar-cell__event--maxim {
+  color: #fff;
+  background-color: #C50015;
+  border-color: #C50015;
+}
+.filter-field__input:checked + .brand-filter--maxim:hover,
+.calendar-cell__event--maxim:hover {
+  color: #fff;
+  background-color: rgba(197, 0, 21, 0.6);
+  border-color: #C50015;
+}
+.filter-field__input:checked + .brand-filter--mydecor,
+.calendar-cell__event--mydecor {
+  color: #969696;
+  background-color: #E8E8E8;
+  border-color: #969696;
+}
+.filter-field__input:checked + .brand-filter--mydecor:hover,
+.calendar-cell__event--mydecor:hover {
+  background-color: #C9D1DA;
+  border-color: #969696;
+}
+.filter-field__input:checked + .brand-filter--parents,
+.calendar-cell__event--parents {
+  color: #F13F35;
+  background-color: rgba(241, 63, 53, 0.1);
+  border-color: #F13F35;
+}
+.filter-field__input:checked + .brand-filter--parents:hover,
+.calendar-cell__event--parents:hover {
+  background-color: rgba(241, 63, 53, 0.2);
+  border-color: #F13F35;
+}
+.filter-field__input:checked + .brand-filter--psychologies,
+.calendar-cell__event--psychologies {
+  color: #FF9F2D;
+  background-color: rgba(255, 159, 45, 0.1);
+  border-color: #FF9F2D;
+}
+.filter-field__input:checked + .brand-filter--psychologies:hover,
+.calendar-cell__event--psychologies:hover {
+  background-color: rgba(255, 159, 45, 0.2);
+  border-color: #FF9F2D;
+}
+.filter-field__input:checked + .brand-filter--smh,
+.calendar-cell__event--smh {
+  color: #284CA6;
+  background-color: rgba(40, 76, 166, 0.1);
+  border-color: #284CA6;
+}
+.filter-field__input:checked + .brand-filter--smh:hover,
+.calendar-cell__event--smh:hover {
+  background-color: rgba(40, 76, 166, 0.2);
+  border-color: #284CA6;
+}
+.filter-field__input:checked + .brand-filter--starhit,
+.calendar-cell__event--starhit {
+  color: #E92C2C;
+  background-color: rgba(233, 44, 44, 0.1);
+  border-color: #E92C2C;
+}
+.filter-field__input:checked + .brand-filter--starhit:hover,
+.calendar-cell__event--starhit:hover {
+  background-color: rgba(233, 44, 44, 0.2);
+  border-color: #E92C2C;
+}
+.filter-field__input:checked + .brand-filter--thegirl,
+.calendar-cell__event--thegirl {
+  color: #E08B89;
+  background-color: rgba(224, 139, 137, 0.1);
+  border-color: #E08B89;
+}
+.filter-field__input:checked + .brand-filter--thegirl:hover,
+.calendar-cell__event--thegirl:hover {
+  background-color: rgba(224, 139, 137, 0.2);
+  border-color: #E08B89;
+}
+.filter-field__input:checked + .brand-filter--wday,
+.calendar-cell__event--wday {
+  color: #F42F3A;
+  background-color: rgba(244, 47, 58, 0.1);
+  border-color: #F42F3A;
+}
+.filter-field__input:checked + .brand-filter--wday:hover,
+.calendar-cell__event--wday:hover {
+  background-color: rgba(244, 47, 58, 0.2);
+  border-color: #F42F3A;
+}
+.filter-field__input:checked + .brand-filter--woman,
+.calendar-cell__event--woman {
+  color: #C00783;
+  background-color: rgba(192, 7, 131, 0.1);
+  border-color: #C00783;
+}
+.filter-field__input:checked + .brand-filter--woman:hover,
+.calendar-cell__event--woman:hover {
+  background-color: rgba(192, 7, 131, 0.2);
+  border-color: #C00783;
 }/*# sourceMappingURL=calendar.css.map */

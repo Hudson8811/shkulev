@@ -248,7 +248,7 @@ function renderCards(eventsData) {
     if(!cardsWrap) return
 
     if(eventsData.length < 1) {
-        cardsWrap.innerHTML = '<div class="empty-filter-message">Ничего не найдено! <br>Попробуйте другие настройки фильтра.<div>'
+        cardsWrap.innerHTML = notFoundTemplate
         return
     }
 
@@ -367,7 +367,7 @@ function renderCaledar(eventsData) {
     if(!calendarWrap) return
 
     if(eventsData.length < 1) {
-        calendarWrap.innerHTML = '<div class="empty-filter-message">Ничего не найдено! <br>Попробуйте другие настройки фильтра.<div>'
+        calendarWrap.innerHTML = notFoundTemplate
         return
     }
 
@@ -376,7 +376,7 @@ function renderCaledar(eventsData) {
     console.log(eventsData)
 
     // первый год
-    let currentYear = eventsData[0].year;
+    let currentYear = eventsData[eventsData.length - 1].year;
     let yearBlock = document.createElement('div')
     yearBlock.classList.add('calendar__year', 'year');
     yearBlock.setAttribute('data-filter-name', 'year');
@@ -384,7 +384,7 @@ function renderCaledar(eventsData) {
     yearBlock.innerHTML = `<div class="year__title">${currentYear}</div>`
     
     //первый месяц
-    let currentMonth = eventsData[0].month;
+    let currentMonth = eventsData[eventsData.length - 1].month;
     let monthBlock = document.createElement('div')
     monthBlock.classList.add('calendar__month', 'month');
     monthBlock.innerHTML = `<div class="month__title">${currentMonth}</div>`
@@ -398,7 +398,7 @@ function renderCaledar(eventsData) {
     yearBlock.appendChild(monthBlock)
     calendarWrap.appendChild(yearBlock)
 
-    eventsData.forEach(item => {
+    eventsData.reverse().forEach(item => {
 
         if(currentYear !== item.year) {
             currentYear = item.year
@@ -434,7 +434,7 @@ function renderCaledar(eventsData) {
         }
 
         let calendarEvent = document.createElement('a');
-        calendarEvent.classList.add('calendar-cell__event');
+        calendarEvent.classList.add('calendar-cell__event', "calendar-cell__event--" + brandsClasses[item.brand]);
         calendarEvent.setAttribute('data-event-id', item.id);
         calendarEvent.setAttribute('href', 'javascript:void(0)');
         calendarEvent.setAttribute('data-hystmodal', '#detailEventModal');
@@ -462,11 +462,10 @@ function renderCaledar(eventsData) {
                 noDayEventsList.appendChild(calendarEvent)
 
             }
-        }
-
-
-        
+        } 
     })
+
+    //showMore(calendarWrap)
 }
 
 function renderFilter(eventsData) {
@@ -644,8 +643,8 @@ const calendarData = `[
         "id": "",
         "name": "Фестиваль Вокруг света: вокруг материков",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
-        "year": "2023",
-        "month": "октябрь",
+        "year": "2024",
+        "month": "сентябрь",
         "day": "2",
         "brand": "Вокруг света",
         "cluster": "spirit",
@@ -682,7 +681,7 @@ const calendarData = `[
         "number": "до 100",
         "sponsors": "да"
     },
-        {
+    {
         "id": "",
         "name": "Фестиваль Вокруг света: вокруг материков",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
@@ -724,7 +723,21 @@ const calendarData = `[
         "number": "до 100",
         "sponsors": "да"
     },
-        {
+    {
+        "id": "",
+        "name": "Конференция Территория свободной мысли",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "октябрь",
+        "day": "25",
+        "brand": "Marie Claire",
+        "cluster": "Corporate",
+        "department": "print",
+        "direction": "Развлекательная",
+        "number": "до 100",
+        "sponsors": "нет"
+    },
+    {
         "id": "",
         "name": "Фестиваль Вокруг света: вокруг материков",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
@@ -880,6 +893,118 @@ const calendarData = `[
     },
     {
         "id": "",
+        "name": "Мероприятие Maxim",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "25",
+        "brand": "Maxim",
+        "cluster": "Corporate",
+        "department": "print",
+        "direction": "Развлекательная",
+        "number": "до 100",
+        "sponsors": "нет"
+    },
+    {
+        "id": "",
+        "name": "Мероприятие myDecor",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "2",
+        "brand": "myDecor",
+        "cluster": "Corporate",
+        "department": "print",
+        "direction": "Развлекательная",
+        "number": "до 100",
+        "sponsors": "нет"
+    },
+    {
+        "id": "",
+        "name": "Мероприятие Parents",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "2",
+        "brand": "Parents",
+        "cluster": "Corporate",
+        "department": "print",
+        "direction": "Развлекательная",
+        "number": "до 100",
+        "sponsors": "нет"
+    },
+    {
+        "id": "",
+        "name": "Мероприятие Psychologies",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "2",
+        "brand": "Psychologies",
+        "cluster": "Corporate",
+        "department": "general",
+        "direction": "Развлекательная",
+        "number": "100-500",
+        "sponsors": "нет"
+    },
+    {
+        "id": "",
+        "name": "Мероприятие SMH",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "20",
+        "brand": "SMH",
+        "cluster": "Corporate",
+        "department": "general",
+        "direction": "Развлекательная",
+        "number": "500-1000",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Marie Claire x Gloria Jeans Wellness Day",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "20",
+        "brand": "StarHit",
+        "cluster": "Corporate",
+        "department": "general",
+        "direction": "Развлекательная",
+        "number": "100-500",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Marie Claire x Gloria Jeans Wellness Day",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "май",
+        "day": "20",
+        "brand": "StarHit",
+        "cluster": "Corporate",
+        "department": "general",
+        "direction": "Развлекательная",
+        "number": "100-500",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Мероприятие Wday",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2023",
+        "month": "февраль",
+        "day": "20",
+        "brand": "Wday",
+        "cluster": "Corporate",
+        "department": "general",
+        "direction": "Развлекательная",
+        "number": "100-500",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
         "name": "Beauty-девичник Woman.ru",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2023",
@@ -930,15 +1055,15 @@ const calendarData = `[
         "brand": "Woman",
         "cluster": "Corporate",
         "department": "print",
-        "direction": "Развлекательная",
-        "number": "до 100",
+        "direction": "Познав.-образов-льная",
+        "number": "свыше 1000",
         "sponsors": "да"
     },
-        {
+    {
         "id": "",
         "name": "Бизнес завтрак",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
-       "year": "2023",
+        "year": "2023",
         "month": "октябрь",
         "day": "",
         "brand": "Доктор Питер",
@@ -952,7 +1077,7 @@ const calendarData = `[
         "id": "",
         "name": "Юбилей",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
-       "year": "2023",
+        "year": "2023",
         "month": "октябрь",
         "day": "",
         "brand": "Антенна телесемь",
@@ -972,7 +1097,7 @@ const calendarData = `[
         "brand": "Woman",
         "cluster": "Corporate",
         "department": "print",
-        "direction": "Развлекательная",
+        "direction": "Познав.-образов-льная",
         "number": "до 100",
         "sponsors": "да"
     },
@@ -1009,7 +1134,21 @@ const calendarData = `[
         "name": "Доктор Питер",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2024",
-        "month": "июль",
+        "month": "май",
+        "day": "5",
+        "brand": "Доктор Питер",
+        "cluster": "curiosity",
+        "department": "digital",
+        "direction": "имиджевая",
+        "number": "до 50",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Доктор Питер",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2024",
+        "month": "март",
         "day": "5",
         "brand": "Доктор Питер",
         "cluster": "curiosity",
@@ -1023,11 +1162,39 @@ const calendarData = `[
         "name": "Юбилей",
         "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
         "year": "2024",
-        "month": "июль",
+        "month": "апрель",
         "day": "5",
         "brand": "Антенна телесемь",
         "cluster": "curiosity",
-        "department": "digital",
+        "department": "Print/Digital",
+        "direction": "имиджевая",
+        "number": "до 50",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Юбилей",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2024",
+        "month": "февраль",
+        "day": "5",
+        "brand": "Антенна телесемь",
+        "cluster": "curiosity",
+        "department": "Print/Digital",
+        "direction": "имиджевая",
+        "number": "до 50",
+        "sponsors": "да"
+    },
+    {
+        "id": "",
+        "name": "Юбилей",
+        "text": "И вот сегодня Курбан наконец-то опубликовал видео со свадьбы. Бизнесмен и его избранница Валерия расписались в одном из столичных загсов. Невеста была безупречна в белом платье и вышагивала словно королева. <br>Счастливый Омаров в свою очередь гордо держал свидетельство о браке.",
+        "year": "2024",
+        "month": "июнь",
+        "day": "5",
+        "brand": "Антенна телесемь",
+        "cluster": "curiosity",
+        "department": "Print/Digital",
         "direction": "имиджевая",
         "number": "до 50",
         "sponsors": "да"
@@ -1080,6 +1247,31 @@ const monthsDeclination = {
     "декабрь": "декабря",
 }
 
+//классы брендов
+const brandsClasses = {
+    "Антенна телесемь": "at7",
+    "Вокруг света": "around-world",
+    "Доктор Питер": "doctor-piter",
+    "Marie Claire": "marie-claire",
+    "Maxim": "maxim",
+    "myDecor": "mydecor",
+    "Parents": "parents",
+    "Psychologies": "psychologies",
+    "SMH": "smh",
+    "StarHit": "starhit",
+    "theGirl": "thegirl",
+    "Wday": "wday",
+    "Woman": "woman"
+}
+
+// Разметка пустого результата фильтрации
+const notFoundTemplate = `
+                            <div class="empty-filter-message">
+                                <div class="empty-filter-message__title">Мероприятия не найдены!</div>
+                                <div class="empty-filter-message__text">Попробуйте изменить настройки фильтра.</div>
+                            <div>
+                        `
+
 //склонение числительных
 function numWord(value, words) {
     value = Math.abs(value) % 100;
@@ -1099,6 +1291,15 @@ function submitFilterform(e) {
 //формирует шаблон месяца
 function getMonthTemplate(year, month, header) {
     let template = ''
+    let isCurrentMonth = false;
+    let date = new Date()
+    let currentYear = date.getFullYear();
+    let currentMonth = date.getMonth() + 1;
+    let currentDate = date.getDate();
+
+    if(year == currentYear && parseInt(month) == currentMonth) {
+        isCurrentMonth = true;
+    }
 
     //первый день месяца
     let monthFirstDay = new Date(year + "-" + month + "-01").getDay();
@@ -1125,9 +1326,15 @@ function getMonthTemplate(year, month, header) {
                                 `
             }  else {
                 let currentDay = ((i - 1) * 7 - beginningSpaces) + j
+                let isCurrentDate = false
+
+                if(isCurrentMonth && currentDay == currentDate) {
+                    isCurrentDate = true
+                }
+
                 currentCells += `
                                     <div class="calendar-table__cell calendar-cell">
-                                        <div class="calendar-cell__day">${currentDay}</div>
+                                        <div class="calendar-cell__day ${isCurrentDate ? 'calendar-cell__day--current' : ''}">${currentDay}</div>
                                         <div class="calendar-cell__events has-scroll" data-date="${year + "-" + month + "-" + currentDay}"></div>
                                     </div>
                                 `
@@ -1143,3 +1350,40 @@ function getMonthTemplate(year, month, header) {
 
     return header + template
 }
+
+function showMore(currentViewBlock) {
+
+    let hiddenMonths = currentViewBlock.querySelectorAll(".month.hidden");
+    let hiddenYears = currentViewBlock.querySelectorAll(".year.hidden");
+    let showMoreBtn = currentViewBlock.querySelector('[data-js="showMoreBtn"]');
+
+    console.log(hiddenMonths)
+
+    console.log(hiddenYears)
+
+    if(hiddenMonths.length < 4) {
+        //showMoreBtn.classList.add('hidden')
+    }
+
+    for(let i = hiddenMonths.length; i < hiddenMonths.length - 3; i--) {
+        hiddenMonths[i - 1].classList.remove("hidden")
+    }
+
+    hiddenYears.forEach(year => {
+        if(year.querySelectorAll('.month').length !== year.querySelectorAll('.month.hidden').length) {
+            year.classList.remove("hidden")
+        }
+    })
+}
+
+/*function calendarCellsScroll() {
+
+    const block = document.getElementById('block');
+    const hasVerScroll= block.scrollHeight > block.clientHeight;
+    const hasHorScroll= block.scrollWidth > block.clientWidth;
+
+    var total = scroll.scrollTop + scroll.clientHeight;
+
+    if(total == content.clientHeight)
+        alert('Reached bottom!');
+}*/
