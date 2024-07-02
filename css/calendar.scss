@@ -761,6 +761,22 @@ $c-woman: #C00783;
     }
 }
 
+.show-more {
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #fff;
+    background-color: $c-accent;
+    transition: background-color 0.3s linear;
+
+    &:hover {
+        background-color: $c-accent2;
+    }
+}
+
 .brand-filter {
     border: 1px solid transparent;
     border-color: transparent;

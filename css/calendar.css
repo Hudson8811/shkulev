@@ -621,6 +621,22 @@
   line-height: 1.5em;
 }
 
+.show-more {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #1B2C4E;
+  transition: background-color 0.3s linear;
+}
+.show-more:hover {
+  background-color: #FF522D;
+}
+
 .brand-filter {
   border: 1px solid transparent;
   border-color: transparent;
