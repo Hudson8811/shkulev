@@ -75,6 +75,14 @@ $c-woman: #C00783;
         background-color: $c-bg;
         max-width: 0px;
         transition: max-width $tt linear;
+
+        @media (max-width: 980px) {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
     }
 
     &__sidebar.active {
@@ -91,9 +99,17 @@ $c-woman: #C00783;
         max-width: calc(100% - 320px);
         transition: max-width $tt linear;
 
-        @media (max-width: 992px) {
+        @media (max-width: 980px) {
             max-width: 100%;
         }
+    }
+
+    &__sidebar+&__body .schedule-header__logo {
+        opacity: 1;
+    }
+
+    &__sidebar.active+&__body .schedule-header__logo {
+        opacity: 0;
     }
 
     &__sidebar+&__body {
@@ -123,6 +139,7 @@ $c-woman: #C00783;
 
     &__body {
         max-height: calc(100vh - 64px);
+        min-height: calc(100vh - 64px);
         padding: 28px 20px 24px;
     }
 }
@@ -340,6 +357,23 @@ $c-woman: #C00783;
     &__controls {
         display: flex;
         gap: 4px;
+    }
+
+    &__logo {
+        height: 32px;
+        margin-left: 24px;
+        margin-right: auto;
+        opacity: 0;
+        transition: opacity $tt linear;
+
+        img {
+            width: auto;
+            height: 100%;
+        }
+
+        @media (max-width: 980px) {
+            opacity: 1;
+        }
     }
 }
 
@@ -565,7 +599,7 @@ $c-woman: #C00783;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 980px) {
     .cards-table {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -762,18 +796,23 @@ $c-woman: #C00783;
 }
 
 .show-more {
-    width: fit-content;
+    width: 100%;
+    min-height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 15px;
+    padding: 8px 24px;
     cursor: pointer;
-    color: #fff;
-    background-color: $c-accent;
+    color: $c-accent;
+    border-radius: 24px;
+    background-color: #E4E8ED;
     transition: background-color 0.3s linear;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.33em;
 
     &:hover {
-        background-color: $c-accent2;
+        background-color: #D3D7DB;
     }
 }
 
