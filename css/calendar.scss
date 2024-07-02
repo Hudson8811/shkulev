@@ -51,6 +51,10 @@ $c-woman: #C00783;
 
     &::-webkit-scrollbar {
         width: 8px;
+
+        @media (max-width: 980px) {
+            width: 0;
+        }
     }
 
     &::-webkit-scrollbar-track {
@@ -389,6 +393,10 @@ $c-woman: #C00783;
             z-index: -10;
             box-sizing: border-box;
 
+            @media (max-width: 980px) {
+                padding: 24px 12px;
+            }
+
         }
 
         .swiper-slide-active {
@@ -401,7 +409,12 @@ $c-woman: #C00783;
         display: flex;
         flex-direction: column;
         gap: 60px;
+
+        @media (max-width: 980px) {
+            gap: 48px;
+        }
     }
+
 }
 
 .month {
@@ -415,6 +428,10 @@ $c-woman: #C00783;
 
     &__table {
         margin-top: 20px;
+
+        @media (max-width: 980px) {
+            margin-top: 12px;
+        }
     }
 }
 
@@ -422,6 +439,10 @@ $c-woman: #C00783;
     &__row {
         display: flex;
         height: 124px;
+
+        @media (max-width: 980px) {
+            height: 82px;
+        }
     }
 
     &__row &__cell {
@@ -433,6 +454,9 @@ $c-woman: #C00783;
     &__row--header {
         height: 48px;
 
+        @media (max-width: 980px) {
+            height: 24px;
+        }
     }
 
     &__row--header &__cell {
@@ -457,6 +481,10 @@ $c-woman: #C00783;
         padding: 12px;
         border-top-width: 0;
         border-right-width: 0;
+
+        @media (max-width: 980px) {
+            padding: 5.88px;
+        }
     }
 }
 
@@ -465,18 +493,49 @@ $c-woman: #C00783;
     flex-direction: column;
     gap: 5px;
 
+    @media (max-width: 980px) {
+        gap: 0;
+    }
+
+    &--scrollable {
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 36px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 100%);
+
+            @media (max-width: 980px) {
+                height: 15px;
+            }
+        }
+    }
+
     &__day {
         width: fit-content;
-        padding: 0 8px;
+        padding: 0;
         font-size: 20px;
         font-weight: 500;
         line-height: 1.2em;
         color: $c-text;
 
+        @media (max-width: 980px) {
+            font-size: 9.81px;
+        }
+
         &--current {
             background-color: $c-accent2;
             border-radius: 13px;
             color: #fff;
+            padding: 0 8px;
+
+            @media (max-width: 980px) {
+                padding: 0 2px;
+            }
         }
     }
 
@@ -487,6 +546,11 @@ $c-woman: #C00783;
         overflow-x: hidden;
         overflow-y: auto;
         scrollbar-width: none;
+        margin-top: auto;
+
+        @media (max-width: 980px) {
+            gap: 2.94px;
+        }
 
         &::-webkit-scrollbar {
             width: 0;
@@ -507,6 +571,11 @@ $c-woman: #C00783;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+
+        @media (max-width: 980px) {
+            font-size: 5.88px;
+            padding: 1px 2px;
+        }
     }
 
     &--empty {
@@ -553,10 +622,18 @@ $c-woman: #C00783;
 
     .month {
         margin-top: 24px;
+
+        @media (max-width: 980px) {
+            margin-top: 36px;
+        }
     }
 
     &__title+.month {
         margin-top: 20px;
+
+        @media (max-width: 980px) {
+            margin-top: 24px;
+        }
     }
 
 }
@@ -602,6 +679,7 @@ $c-woman: #C00783;
 @media (max-width: 980px) {
     .cards-table {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
     }
 
     .sidebar.active+.schedule-content {
@@ -619,6 +697,11 @@ $c-woman: #C00783;
     background-color: $c-bg;
     border-radius: 12px;
 
+    @media (max-width: 980px) {
+        padding: 8px;
+        min-height: 282px;
+    }
+
     &__header {
         display: flex;
         justify-content: space-between;
@@ -629,6 +712,10 @@ $c-woman: #C00783;
         font-weight: 700;
         line-height: 1.2em;
         color: $c-accent2;
+
+        @media (max-width: 980px) {
+            font-size: 12px;
+        }
     }
 
     &__logo {
@@ -680,6 +767,11 @@ $c-woman: #C00783;
     background-color: transparent;
     width: 788px;
     max-width: 100%;
+
+    @media (max-width: 980px) {
+        width: 100%;
+        margin: 0;
+    }
 }
 
 .hystmodal__shadow--show {
@@ -698,6 +790,24 @@ $c-woman: #C00783;
     &:focus {
         outline: none;
     }
+
+    @media (max-width: 980px) {
+        left: auto;
+        bottom: auto;
+        right: 16px;
+        top: 20px;
+        width: 24px;
+        height: 24px;
+
+        svg {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        svg path {
+            fill: $c-accent;
+        }
+    }
 }
 
 
@@ -710,6 +820,12 @@ $c-woman: #C00783;
     padding: 40px;
     border-radius: 30px;
     min-height: 457px;
+
+    @media (max-width: 980px) {
+        min-height: 100vh;
+        border-radius: 0;
+        padding: 72px 16px 16px;
+    }
 
     &__header {
         display: flex;
@@ -739,6 +855,10 @@ $c-woman: #C00783;
         font-weight: 700;
         line-height: 1.2em;
         color: $c-accent;
+
+        @media (max-width: 980px) {
+            margin-top: 0;
+        }
     }
 
     &__text {
@@ -771,6 +891,10 @@ $c-woman: #C00783;
         color: #6e7191;
         background-color: $c-border;
         border-radius: 20px;
+
+        @media (max-width: 980px) {
+            padding-top: 2px;
+        }
     }
 }
 
