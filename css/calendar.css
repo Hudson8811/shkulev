@@ -515,6 +515,12 @@
   width: -moz-fit-content;
   width: fit-content;
 }
+@media (max-width: 980px) {
+  .noday-events .calendar-cell__event {
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+}
 
 .year {
   display: flex;
